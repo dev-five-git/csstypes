@@ -23,6 +23,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+      - run: bun i
       - run: bun test
       - run: bun lint
       - run: bun run build
