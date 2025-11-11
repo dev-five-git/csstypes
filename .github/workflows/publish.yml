@@ -49,6 +49,8 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
+    needs:
+      - changepacks
     if: contains(needs.changepacks.outputs.changepacks, 'package.json')
     steps:
       - name: Checkout
