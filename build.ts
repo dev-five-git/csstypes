@@ -132,6 +132,10 @@ output += `export type SimplePseudos = ${Object.keys(selectors)
   .join(' | ')}\n`
 output += `export type Pseudos = AdvancedPseudos | SimplePseudos\n`
 
+output += `export interface StandardProperties extends StandardLonghandProperties,StandardShorthandProperties{}
+export interface VendorProperties extends VendorLonghandProperties,VendorShorthandProperties{}
+export interface Properties extends StandardProperties,VendorProperties{}\n`
+
 output += `export namespace Property {\n`
 for (const [property, value] of standardLonghandProperties) {
   output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)};\n`

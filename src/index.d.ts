@@ -717,6 +717,13 @@ export type SimplePseudos =
   | '::target-text'
   | '::view-transition'
 export type Pseudos = AdvancedPseudos | SimplePseudos
+export interface StandardProperties
+  extends StandardLonghandProperties,
+    StandardShorthandProperties {}
+export interface VendorProperties
+  extends VendorLonghandProperties,
+    VendorShorthandProperties {}
+export interface Properties extends StandardProperties, VendorProperties {}
 export namespace Property {
   export type AccentColor = 'auto' | TColor
   export type AlignContent =
