@@ -5,17 +5,21 @@ import { toPascalCase } from "./to-pascalcase";
 /**
  * convert type
  */
-export function convertType(key: string, type: string): string {
+export function convertType(
+	type: string,
+	syntaxs: Record<string, { syntax: string; primitive?: boolean }>,
+): string {
 	const ast = definitionSyntax.parse(type);
-    console.log("ast", JSON.stringify(ast, null, 2));
-	const result = convertNode(key, ast, undefined);
-	return typeof result === "string" ? result : "";
+	return convertNode(ast, syntaxs) || "(string & {})";
 }
 
-function convertNode(key: string, node: DSNode, parent: DSNode | undefined): string {
+function convertNode(
+	node: DSNode,
+	syntaxs: Record<string, { syntax: string; primitive?: boolean }>,
+): string {
 	switch (node.type) {
 		case "Keyword":
-			return node.name;
+			return `"${node.name}"`;
 		case "String":
 			return `"${node.value}"`;
 		case "Type": {
@@ -25,131 +29,29 @@ function convertNode(key: string, node: DSNode, parent: DSNode | undefined): str
 				return toPascalCase(propName);
 			}
 			if (typeName.endsWith("()")) return "";
-			return `T${toPascalCase(typeName)}`;
+			if (syntaxs[typeName]) {
+				if (syntaxs[typeName].primitive) return syntaxs[typeName].syntax;
+				return `T${toPascalCase(typeName)}`;
+			}
+			if (typeName.endsWith("-ident")) return "(string & {})";
+			return "";
 		}
 		case "Multiplier": {
-            if(node.max === 0 && node.min === 0) {
-                return `\`\${${convertNode(key, node.term, node)}} \` | (string & {})`;
-            }
-            
-			if (node.max === 0) {
-				const k = convertNode(key, node.term, node);
-				return wrapLoop(node.term.type === "Keyword" || node.term.type === "Property" ? `"${k}"` : k, key);
-			} else {
-				if (
-					node.min === 0 &&
-					parent?.type === "Group" &&
-					parent.terms.length > 1
-				) {
-					if (parent.terms.indexOf(node) === 0)
-						return `\`\${${convertNode(key, node.term, node)}} \` | ""`;
-					else {
-                        if(node.term.type === "Keyword" || (node.term.type === "Group" && node.term.terms.length > 1 && !node.term.terms.some((term) => term.type === "Group" || term.type === "Multiplier"))) {
-                            return `\` ${convertNode(key, node.term, node)}\` | ""`;
-                        }
-                        return `\` \${${convertNode(key, node.term, node)}}\` | ""`;
-                    }
-				}
-				const contents = [];
-				for (let i = 0; i < node.min; i++) {
-					const k = convertNode(key, node.term, node);
-					contents.push(`\${${k}}`);
-				}
-				for (let i = node.min; i < node.max; i++) {
-					const k = convertNode(key, node.term, node);
-					contents.push(`\${\` \${${k}}\` | ""}`);
-				}
-				return contents.join("");
-			}
+			return convertNode(node.term, syntaxs);
 		}
 		case "Group": {
-			// check multiplier
-			if (
-				node.terms.some((term) => (term.type === "Multiplier" && term.max !== 0) || term.type === "Comma")
-			) {
-				if (node.terms.length === 1) {
-					return `\`${convertNode(key, node.terms[0]!, node)}\``;
-				}
-				const contents = node.terms.filter((term) => term.type !== "Comma")
-					.map((term, idx, array) => {
-                        if(term.type === "Multiplier" && term.min > 0 && term.max > 0 || term.type==="Keyword" || term.type==="Token") {
-                            const spaceAround = term.type === "Token" && idx < array.length - 1 && array[idx + 1]?.type !== "Multiplier"
-                            if(spaceAround) {
-                                return ` ${convertNode(key, term, node)} `
-                            }
-                            const hasPostfix = term.type === "Token" && idx < array.length - 1 && array[idx + 1]?.type === "Multiplier" && array[idx + 1]?.min > 0
-                            if(hasPostfix) {
-                                return `${convertNode(key, term, node)} `
-                            }
-                            return convertNode(key, term, node)
-                        }
-
-                        return `\${${convertNode(key, term, node)}}`
-                    })
-					.filter(Boolean);
-				if (node.disallowEmpty) {
-					const noEmptyContents = node.terms
-						.map((term) => convertNode(key, unwrapMultiplier(term), node))
-						.filter(Boolean);
-					return `${noEmptyContents.join(" | ")} | \`${noEmptyContents.map((content) => `\${${content}}`).join(" ")}\``;
-				} else {
-					return `\`${contents.join("")}\``;
-				}
-			}
-
-			const normalContents = node.terms
-				.map((term) => {
-                    if(term.type === "Keyword" || term.type === "Token") {
-                        return `"${convertNode(key, term, node)}"`
-                    }
-                    return convertNode(key, term, node);
-                })
-				.filter(Boolean);
-			switch (node.combinator) {
-				case "|":
-					return normalContents.join(" | ");
-				case "||":
-					return (
-						normalContents.join(" | ") +
-						" | " +
-						`\`${node.terms
-							.map((node) => {
-								if (node.type === "Keyword")
-									return convertNode(key, node, node);
-								return `\${${convertNode(key, node, node)}}`;
-							})
-
-							.join(" ")}\``
-					);
-				default:
-                    if (node.terms.length > 1) {
-                        const wrap = !!parent || node.terms.some((term) => term.type === "Multiplier" && term.min > 0);
-                        if (wrap) {
-                            return `\`${node.terms.map((node) => {
-                                if(node.type === "Keyword" || node.type === "Token") {
-                                    return convertNode(key, node, node)
-                                }
-                                return `\${${convertNode(key, node, node)}}`;
-                            }).join(" ")}\``;
-                        }
-                        return node.terms.map((node) => {
-                            if(node.type === "Keyword" || node.type === "Token") {
-                                return convertNode(key, node, node)
-                            }
-                            return `\${${convertNode(key, node, node)}}`;
-                        }).join(" ")
-                    }
-					return normalContents.join("");
-			}
+			return removeDuplicates(
+				node.terms.map((term) => convertNode(term, syntaxs)).filter(Boolean),
+			).join(" | ");
 		}
 		case "Function":
 			return "";
 		case "Comma":
-			return " ";
+			return "";
 		case "Property":
 			return toPascalCase(node.name);
 		case "Token":
-			return node.value;
+			return "";
 		case "AtKeyword":
 			return `@${node.name}`;
 		default:
@@ -157,9 +59,7 @@ function convertNode(key: string, node: DSNode, parent: DSNode | undefined): str
 	}
 }
 
-function wrapLoop(first: string, rest: string): string {
-	return `\`\${${first}}\${\` \${${rest}}\` | ""}\``;
-}
-function unwrapMultiplier(node: DSNode) {
-	return node.type === "Multiplier" ? node.term : node;
+// remove duplicates from array
+function removeDuplicates<T>(array: T[]): T[] {
+	return array.filter((value, index, self) => self.indexOf(value) === index);
 }
