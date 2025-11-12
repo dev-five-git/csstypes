@@ -724,14 +724,23 @@ export interface VendorProperties
   extends VendorLonghandProperties,
     VendorShorthandProperties {}
 export interface Properties extends StandardProperties, VendorProperties {}
+export type Globals =
+  | '-moz-initial'
+  | 'inherit'
+  | 'initial'
+  | 'revert'
+  | 'revert-layer'
+  | 'unset'
 export namespace Property {
-  export type AccentColor = 'auto' | TColor
+  export type AccentColor = 'auto' | TColor | Globals | (string & {})
   export type AlignContent =
     | 'normal'
     | TBaselinePosition
     | TContentDistribution
     | TOverflowPosition
     | TContentPosition
+    | Globals
+    | (string & {})
   export type AlignItems =
     | 'normal'
     | 'stretch'
@@ -739,6 +748,8 @@ export namespace Property {
     | TOverflowPosition
     | TSelfPosition
     | 'anchor-center'
+    | Globals
+    | (string & {})
   export type AlignSelf =
     | 'auto'
     | 'normal'
@@ -747,6 +758,8 @@ export namespace Property {
     | TOverflowPosition
     | TSelfPosition
     | 'anchor-center'
+    | Globals
+    | (string & {})
   export type AlignmentBaseline =
     | 'baseline'
     | 'alphabetic'
@@ -756,26 +769,67 @@ export namespace Property {
     | 'mathematical'
     | 'text-before-edge'
     | 'text-after-edge'
-  export type All = 'initial' | 'inherit' | 'unset' | 'revert' | 'revert-layer'
-  export type AnimationComposition = TSingleAnimationComposition
-  export type AnimationDelay = string & {}
-  export type AnimationDirection = TSingleAnimationDirection
-  export type AnimationDuration = 'auto'
-  export type AnimationFillMode = TSingleAnimationFillMode
-  export type AnimationIterationCount = TSingleAnimationIterationCount
-  export type AnimationName = 'none' | TKeyframesName
-  export type AnimationPlayState = TSingleAnimationPlayState
-  export type AnimationTimingFunction = TEasingFunction
-  export type Appearance = 'none' | 'auto' | TCompatAuto | TCompatSpecial
-  export type AspectRatio = 'auto' | TRatio
-  export type BackdropFilter = 'none' | TFilterValueList
-  export type BackfaceVisibility = 'visible' | 'hidden'
-  export type BackgroundAttachment = TAttachment
-  export type BackgroundBlendMode = TBlendMode
-  export type BackgroundClip = TBgClip
-  export type BackgroundColor = TColor
-  export type BackgroundImage = TBgImage
-  export type BackgroundOrigin = TVisualBox
+    | Globals
+    | (string & {})
+  export type All =
+    | 'initial'
+    | 'inherit'
+    | 'unset'
+    | 'revert'
+    | 'revert-layer'
+    | Globals
+    | (string & {})
+  export type AnimationComposition =
+    | TSingleAnimationComposition
+    | Globals
+    | (string & {})
+  export type AnimationDelay = (string & {}) | Globals | (string & {})
+  export type AnimationDirection =
+    | TSingleAnimationDirection
+    | Globals
+    | (string & {})
+  export type AnimationDuration = 'auto' | Globals | (string & {})
+  export type AnimationFillMode =
+    | TSingleAnimationFillMode
+    | Globals
+    | (string & {})
+  export type AnimationIterationCount =
+    | TSingleAnimationIterationCount
+    | Globals
+    | (string & {})
+  export type AnimationName = 'none' | TKeyframesName | Globals | (string & {})
+  export type AnimationPlayState =
+    | TSingleAnimationPlayState
+    | Globals
+    | (string & {})
+  export type AnimationTimingFunction =
+    | TEasingFunction
+    | Globals
+    | (string & {})
+  export type Appearance =
+    | 'none'
+    | 'auto'
+    | TCompatAuto
+    | TCompatSpecial
+    | Globals
+    | (string & {})
+  export type AspectRatio = 'auto' | TRatio | Globals | (string & {})
+  export type BackdropFilter =
+    | 'none'
+    | TFilterValueList
+    | Globals
+    | (string & {})
+  export type BackfaceVisibility =
+    | 'visible'
+    | 'hidden'
+    | Globals
+    | (string & {})
+  export type BackgroundAttachment = TAttachment | Globals | (string & {})
+  export type BackgroundBlendMode = TBlendMode | Globals | (string & {})
+  export type BackgroundClip = TBgClip | Globals | (string & {})
+  export type BackgroundColor = TColor | Globals | (string & {})
+  export type BackgroundImage = TBgImage | Globals | (string & {})
+  export type BackgroundOrigin = TVisualBox | Globals | (string & {})
   export type BackgroundPositionX =
     | 'center'
     | 'left'
@@ -783,6 +837,8 @@ export namespace Property {
     | 'x-start'
     | 'x-end'
     | TLengthPercentage
+    | Globals
+    | (string & {})
   export type BackgroundPositionY =
     | 'center'
     | 'top'
@@ -790,59 +846,93 @@ export namespace Property {
     | 'y-start'
     | 'y-end'
     | TLengthPercentage
-  export type BackgroundRepeat = TRepeatStyle
-  export type BackgroundSize = TBgSize
-  export type BaselineShift = TLengthPercentage | 'sub' | 'super' | 'baseline'
-  export type BlockSize = Width
-  export type BorderBlockColor = BorderTopColor
-  export type BorderBlockEndColor = BorderTopColor
-  export type BorderBlockEndStyle = BorderTopStyle
-  export type BorderBlockEndWidth = BorderTopWidth
-  export type BorderBlockStartColor = BorderTopColor
-  export type BorderBlockStartStyle = BorderTopStyle
-  export type BorderBlockStartWidth = BorderTopWidth
-  export type BorderBlockStyle = BorderTopStyle
-  export type BorderBlockWidth = BorderTopWidth
-  export type BorderBottomColor = BorderTopColor
-  export type BorderBottomLeftRadius = TLengthPercentage
-  export type BorderBottomRightRadius = TLengthPercentage
-  export type BorderBottomStyle = TLineStyle
-  export type BorderBottomWidth = TLineWidth
-  export type BorderCollapse = 'separate' | 'collapse'
-  export type BorderEndEndRadius = BorderTopLeftRadius
-  export type BorderEndStartRadius = BorderTopLeftRadius
-  export type BorderImageOutset = number
-  export type BorderImageRepeat = 'stretch' | 'repeat' | 'round' | 'space'
-  export type BorderImageSlice = number | 'fill'
-  export type BorderImageSource = 'none' | TImage
-  export type BorderImageWidth = TLengthPercentage | number | 'auto'
-  export type BorderInlineColor = BorderTopColor
-  export type BorderInlineEndColor = BorderTopColor
-  export type BorderInlineEndStyle = BorderTopStyle
-  export type BorderInlineEndWidth = BorderTopWidth
-  export type BorderInlineStartColor = BorderTopColor
-  export type BorderInlineStartStyle = BorderTopStyle
-  export type BorderInlineStartWidth = BorderTopWidth
-  export type BorderInlineStyle = BorderTopStyle
-  export type BorderInlineWidth = BorderTopWidth
-  export type BorderLeftColor = TColor
-  export type BorderLeftStyle = TLineStyle
-  export type BorderLeftWidth = TLineWidth
-  export type BorderRightColor = TColor
-  export type BorderRightStyle = TLineStyle
-  export type BorderRightWidth = TLineWidth
-  export type BorderSpacing = string & {}
-  export type BorderStartEndRadius = BorderTopLeftRadius
-  export type BorderStartStartRadius = BorderTopLeftRadius
-  export type BorderTopColor = TColor
-  export type BorderTopLeftRadius = TLengthPercentage
-  export type BorderTopRightRadius = TLengthPercentage
-  export type BorderTopStyle = TLineStyle
-  export type BorderTopWidth = TLineWidth
-  export type Bottom = 'auto' | TLengthPercentage
-  export type BoxDecorationBreak = 'slice' | 'clone'
-  export type BoxShadow = 'none' | TShadow
-  export type BoxSizing = 'content-box' | 'border-box'
+    | Globals
+    | (string & {})
+  export type BackgroundRepeat = TRepeatStyle | Globals | (string & {})
+  export type BackgroundSize = TBgSize | Globals | (string & {})
+  export type BaselineShift =
+    | TLengthPercentage
+    | 'sub'
+    | 'super'
+    | 'baseline'
+    | Globals
+    | (string & {})
+  export type BlockSize = Width | Globals | (string & {})
+  export type BorderBlockColor = BorderTopColor | Globals | (string & {})
+  export type BorderBlockEndColor = BorderTopColor | Globals | (string & {})
+  export type BorderBlockEndStyle = BorderTopStyle | Globals | (string & {})
+  export type BorderBlockEndWidth = BorderTopWidth | Globals | (string & {})
+  export type BorderBlockStartColor = BorderTopColor | Globals | (string & {})
+  export type BorderBlockStartStyle = BorderTopStyle | Globals | (string & {})
+  export type BorderBlockStartWidth = BorderTopWidth | Globals | (string & {})
+  export type BorderBlockStyle = BorderTopStyle | Globals | (string & {})
+  export type BorderBlockWidth = BorderTopWidth | Globals | (string & {})
+  export type BorderBottomColor = BorderTopColor | Globals | (string & {})
+  export type BorderBottomLeftRadius =
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type BorderBottomRightRadius =
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type BorderBottomStyle = TLineStyle | Globals | (string & {})
+  export type BorderBottomWidth = TLineWidth | Globals | (string & {})
+  export type BorderCollapse = 'separate' | 'collapse' | Globals | (string & {})
+  export type BorderEndEndRadius = BorderTopLeftRadius | Globals | (string & {})
+  export type BorderEndStartRadius =
+    | BorderTopLeftRadius
+    | Globals
+    | (string & {})
+  export type BorderImageOutset = number | Globals | (string & {})
+  export type BorderImageRepeat =
+    | 'stretch'
+    | 'repeat'
+    | 'round'
+    | 'space'
+    | Globals
+    | (string & {})
+  export type BorderImageSlice = number | 'fill' | Globals | (string & {})
+  export type BorderImageSource = 'none' | TImage | Globals | (string & {})
+  export type BorderImageWidth =
+    | TLengthPercentage
+    | number
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type BorderInlineColor = BorderTopColor | Globals | (string & {})
+  export type BorderInlineEndColor = BorderTopColor | Globals | (string & {})
+  export type BorderInlineEndStyle = BorderTopStyle | Globals | (string & {})
+  export type BorderInlineEndWidth = BorderTopWidth | Globals | (string & {})
+  export type BorderInlineStartColor = BorderTopColor | Globals | (string & {})
+  export type BorderInlineStartStyle = BorderTopStyle | Globals | (string & {})
+  export type BorderInlineStartWidth = BorderTopWidth | Globals | (string & {})
+  export type BorderInlineStyle = BorderTopStyle | Globals | (string & {})
+  export type BorderInlineWidth = BorderTopWidth | Globals | (string & {})
+  export type BorderLeftColor = TColor | Globals | (string & {})
+  export type BorderLeftStyle = TLineStyle | Globals | (string & {})
+  export type BorderLeftWidth = TLineWidth | Globals | (string & {})
+  export type BorderRightColor = TColor | Globals | (string & {})
+  export type BorderRightStyle = TLineStyle | Globals | (string & {})
+  export type BorderRightWidth = TLineWidth | Globals | (string & {})
+  export type BorderSpacing = (string & {}) | Globals | (string & {})
+  export type BorderStartEndRadius =
+    | BorderTopLeftRadius
+    | Globals
+    | (string & {})
+  export type BorderStartStartRadius =
+    | BorderTopLeftRadius
+    | Globals
+    | (string & {})
+  export type BorderTopColor = TColor | Globals | (string & {})
+  export type BorderTopLeftRadius = TLengthPercentage | Globals | (string & {})
+  export type BorderTopRightRadius = TLengthPercentage | Globals | (string & {})
+  export type BorderTopStyle = TLineStyle | Globals | (string & {})
+  export type BorderTopWidth = TLineWidth | Globals | (string & {})
+  export type Bottom = 'auto' | TLengthPercentage | Globals | (string & {})
+  export type BoxDecorationBreak = 'slice' | 'clone' | Globals | (string & {})
+  export type BoxShadow = 'none' | TShadow | Globals | (string & {})
+  export type BoxSizing = 'content-box' | 'border-box' | Globals | (string & {})
   export type BreakAfter =
     | 'auto'
     | 'avoid'
@@ -858,6 +948,8 @@ export namespace Property {
     | 'column'
     | 'avoid-region'
     | 'region'
+    | Globals
+    | (string & {})
   export type BreakBefore =
     | 'auto'
     | 'avoid'
@@ -873,15 +965,25 @@ export namespace Property {
     | 'column'
     | 'avoid-region'
     | 'region'
+    | Globals
+    | (string & {})
   export type BreakInside =
     | 'auto'
     | 'avoid'
     | 'avoid-page'
     | 'avoid-column'
     | 'avoid-region'
-  export type CaptionSide = 'top' | 'bottom'
-  export type CaretColor = 'auto' | TColor
-  export type CaretShape = 'auto' | 'bar' | 'block' | 'underscore'
+    | Globals
+    | (string & {})
+  export type CaptionSide = 'top' | 'bottom' | Globals | (string & {})
+  export type CaretColor = 'auto' | TColor | Globals | (string & {})
+  export type CaretShape =
+    | 'auto'
+    | 'bar'
+    | 'block'
+    | 'underscore'
+    | Globals
+    | (string & {})
   export type Clear =
     | 'none'
     | 'left'
@@ -889,19 +991,39 @@ export namespace Property {
     | 'both'
     | 'inline-start'
     | 'inline-end'
-  export type ClipPath = TClipSource | TBasicShape | TGeometryBox | 'none'
-  export type ClipRule = 'nonzero' | 'evenodd'
-  export type Color = TColor
-  export type ColorInterpolationFilters = 'auto' | 'sRGB' | 'linearRGB'
-  export type ColorScheme = 'normal' | 'light' | 'dark' | (string & {}) | 'only'
-  export type ColumnCount = number | 'auto'
-  export type ColumnFill = 'auto' | 'balance'
-  export type ColumnGap = 'normal' | TLengthPercentage
-  export type ColumnRuleColor = TColor
-  export type ColumnRuleStyle = BorderStyle
-  export type ColumnRuleWidth = BorderWidth
-  export type ColumnSpan = 'none' | 'all'
-  export type ColumnWidth = 'auto'
+    | Globals
+    | (string & {})
+  export type ClipPath =
+    | TClipSource
+    | TBasicShape
+    | TGeometryBox
+    | 'none'
+    | Globals
+    | (string & {})
+  export type ClipRule = 'nonzero' | 'evenodd' | Globals | (string & {})
+  export type Color = TColor | Globals | (string & {})
+  export type ColorInterpolationFilters =
+    | 'auto'
+    | 'sRGB'
+    | 'linearRGB'
+    | Globals
+    | (string & {})
+  export type ColorScheme =
+    | 'normal'
+    | 'light'
+    | 'dark'
+    | (string & {})
+    | 'only'
+    | Globals
+    | (string & {})
+  export type ColumnCount = number | 'auto' | Globals | (string & {})
+  export type ColumnFill = 'auto' | 'balance' | Globals | (string & {})
+  export type ColumnGap = 'normal' | TLengthPercentage | Globals | (string & {})
+  export type ColumnRuleColor = TColor | Globals | (string & {})
+  export type ColumnRuleStyle = BorderStyle | Globals | (string & {})
+  export type ColumnRuleWidth = BorderWidth | Globals | (string & {})
+  export type ColumnSpan = 'none' | 'all' | Globals | (string & {})
+  export type ColumnWidth = 'auto' | Globals | (string & {})
   export type Contain =
     | 'none'
     | 'strict'
@@ -911,12 +1033,28 @@ export namespace Property {
     | 'layout'
     | 'style'
     | 'paint'
-  export type ContainIntrinsicBlockSize = 'auto' | 'none'
-  export type ContainIntrinsicHeight = 'auto' | 'none'
-  export type ContainIntrinsicInlineSize = 'auto' | 'none'
-  export type ContainIntrinsicWidth = 'auto' | 'none'
-  export type ContainerName = 'none' | (string & {})
-  export type ContainerType = 'normal' | 'size' | 'inline-size' | 'scroll-state'
+    | Globals
+    | (string & {})
+  export type ContainIntrinsicBlockSize =
+    | 'auto'
+    | 'none'
+    | Globals
+    | (string & {})
+  export type ContainIntrinsicHeight = 'auto' | 'none' | Globals | (string & {})
+  export type ContainIntrinsicInlineSize =
+    | 'auto'
+    | 'none'
+    | Globals
+    | (string & {})
+  export type ContainIntrinsicWidth = 'auto' | 'none' | Globals | (string & {})
+  export type ContainerName = 'none' | (string & {}) | Globals | (string & {})
+  export type ContainerType =
+    | 'normal'
+    | 'size'
+    | 'inline-size'
+    | 'scroll-state'
+    | Globals
+    | (string & {})
   export type Content =
     | 'normal'
     | 'none'
@@ -924,20 +1062,39 @@ export namespace Property {
     | TContentList
     | (string & {})
     | TCounter
-  export type ContentVisibility = 'visible' | 'auto' | 'hidden'
-  export type CounterIncrement = TCounterName | number | 'none'
+    | Globals
+    | (string & {})
+  export type ContentVisibility =
+    | 'visible'
+    | 'auto'
+    | 'hidden'
+    | Globals
+    | (string & {})
+  export type CounterIncrement =
+    | TCounterName
+    | number
+    | 'none'
+    | Globals
+    | (string & {})
   export type CounterReset =
     | TCounterName
     | number
     | TReversedCounterName
     | number
     | 'none'
-  export type CounterSet = TCounterName | number | 'none'
-  export type Cursor = TCursorPredefined
-  export type Cx = number
-  export type Cy = number
-  export type D = 'none' | (string & {})
-  export type Direction = 'ltr' | 'rtl'
+    | Globals
+    | (string & {})
+  export type CounterSet =
+    | TCounterName
+    | number
+    | 'none'
+    | Globals
+    | (string & {})
+  export type Cursor = TCursorPredefined | Globals | (string & {})
+  export type Cx = number | Globals | (string & {})
+  export type Cy = number | Globals | (string & {})
+  export type D = 'none' | (string & {}) | Globals | (string & {})
+  export type Direction = 'ltr' | 'rtl' | Globals | (string & {})
   export type Display =
     | TDisplayOutside
     | TDisplayInside
@@ -945,6 +1102,8 @@ export namespace Property {
     | TDisplayInternal
     | TDisplayBox
     | TDisplayLegacy
+    | Globals
+    | (string & {})
   export type DominantBaseline =
     | 'auto'
     | 'text-bottom'
@@ -955,34 +1114,70 @@ export namespace Property {
     | 'mathematical'
     | 'hanging'
     | 'text-top'
-  export type EmptyCells = 'show' | 'hide'
-  export type Fill = TPaint
-  export type FillOpacity = Opacity
-  export type FillRule = 'nonzero' | 'evenodd'
-  export type Filter = 'none' | TFilterValueList
-  export type FlexBasis = 'content' | Width
+    | Globals
+    | (string & {})
+  export type EmptyCells = 'show' | 'hide' | Globals | (string & {})
+  export type Fill = TPaint | Globals | (string & {})
+  export type FillOpacity = Opacity | Globals | (string & {})
+  export type FillRule = 'nonzero' | 'evenodd' | Globals | (string & {})
+  export type Filter = 'none' | TFilterValueList | Globals | (string & {})
+  export type FlexBasis = 'content' | Width | Globals | (string & {})
   export type FlexDirection =
     | 'row'
     | 'row-reverse'
     | 'column'
     | 'column-reverse'
-  export type FlexGrow = number
-  export type FlexShrink = number
-  export type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse'
-  export type Float = 'left' | 'right' | 'none' | 'inline-start' | 'inline-end'
-  export type FloodColor = TColor
-  export type FloodOpacity = Opacity
-  export type FontFamily = TFamilyName | TGenericFamily
-  export type FontFeatureSettings = 'normal' | TFeatureTagValue
-  export type FontKerning = 'auto' | 'normal' | 'none'
-  export type FontLanguageOverride = 'normal' | (string & {})
-  export type FontOpticalSizing = 'auto' | 'none'
-  export type FontPalette = 'normal' | 'light' | 'dark' | TPaletteIdentifier
+    | Globals
+    | (string & {})
+  export type FlexGrow = number | Globals | (string & {})
+  export type FlexShrink = number | Globals | (string & {})
+  export type FlexWrap =
+    | 'nowrap'
+    | 'wrap'
+    | 'wrap-reverse'
+    | Globals
+    | (string & {})
+  export type Float =
+    | 'left'
+    | 'right'
+    | 'none'
+    | 'inline-start'
+    | 'inline-end'
+    | Globals
+    | (string & {})
+  export type FloodColor = TColor | Globals | (string & {})
+  export type FloodOpacity = Opacity | Globals | (string & {})
+  export type FontFamily =
+    | TFamilyName
+    | TGenericFamily
+    | Globals
+    | (string & {})
+  export type FontFeatureSettings =
+    | 'normal'
+    | TFeatureTagValue
+    | Globals
+    | (string & {})
+  export type FontKerning = 'auto' | 'normal' | 'none' | Globals | (string & {})
+  export type FontLanguageOverride =
+    | 'normal'
+    | (string & {})
+    | Globals
+    | (string & {})
+  export type FontOpticalSizing = 'auto' | 'none' | Globals | (string & {})
+  export type FontPalette =
+    | 'normal'
+    | 'light'
+    | 'dark'
+    | TPaletteIdentifier
+    | Globals
+    | (string & {})
   export type FontSize =
     | TAbsoluteSize
     | TRelativeSize
     | TLengthPercentage
     | 'math'
+    | Globals
+    | (string & {})
   export type FontSizeAdjust =
     | 'none'
     | 'ex-height'
@@ -992,16 +1187,25 @@ export namespace Property {
     | 'ic-height'
     | 'from-font'
     | number
-  export type FontStyle = 'normal' | 'italic' | 'oblique'
+    | Globals
+    | (string & {})
+  export type FontStyle =
+    | 'normal'
+    | 'italic'
+    | 'oblique'
+    | Globals
+    | (string & {})
   export type FontSynthesis =
     | 'none'
     | 'weight'
     | 'style'
     | 'small-caps'
     | 'position'
-  export type FontSynthesisSmallCaps = 'auto' | 'none'
-  export type FontSynthesisStyle = 'auto' | 'none'
-  export type FontSynthesisWeight = 'auto' | 'none'
+    | Globals
+    | (string & {})
+  export type FontSynthesisSmallCaps = 'auto' | 'none' | Globals | (string & {})
+  export type FontSynthesisStyle = 'auto' | 'none' | Globals | (string & {})
+  export type FontSynthesisWeight = 'auto' | 'none' | Globals | (string & {})
   export type FontVariant =
     | 'normal'
     | 'none'
@@ -1025,10 +1229,14 @@ export namespace Property {
     | TEastAsianVariantValues
     | TEastAsianWidthValues
     | 'ruby'
+    | Globals
+    | (string & {})
   export type FontVariantAlternates =
     | 'normal'
     | TFeatureValueName
     | 'historical-forms'
+    | Globals
+    | (string & {})
   export type FontVariantCaps =
     | 'normal'
     | 'small-caps'
@@ -1037,12 +1245,22 @@ export namespace Property {
     | 'all-petite-caps'
     | 'unicase'
     | 'titling-caps'
+    | Globals
+    | (string & {})
   export type FontVariantEastAsian =
     | 'normal'
     | TEastAsianVariantValues
     | TEastAsianWidthValues
     | 'ruby'
-  export type FontVariantEmoji = 'normal' | 'text' | 'emoji' | 'unicode'
+    | Globals
+    | (string & {})
+  export type FontVariantEmoji =
+    | 'normal'
+    | 'text'
+    | 'emoji'
+    | 'unicode'
+    | Globals
+    | (string & {})
   export type FontVariantLigatures =
     | 'normal'
     | 'none'
@@ -1050,6 +1268,8 @@ export namespace Property {
     | TDiscretionaryLigValues
     | THistoricalLigValues
     | TContextualAltValues
+    | Globals
+    | (string & {})
   export type FontVariantNumeric =
     | 'normal'
     | TNumericFigureValues
@@ -1057,54 +1277,103 @@ export namespace Property {
     | TNumericFractionValues
     | 'ordinal'
     | 'slashed-zero'
-  export type FontVariantPosition = 'normal' | 'sub' | 'super'
-  export type FontVariationSettings = 'normal' | (string & {}) | number
-  export type FontWeight = TFontWeightAbsolute | 'bolder' | 'lighter'
-  export type ForcedColorAdjust = 'auto' | 'none' | 'preserve-parent-color'
-  export type GridAutoColumns = TTrackSize
-  export type GridAutoFlow = 'row' | 'column' | 'dense'
-  export type GridAutoRows = TTrackSize
-  export type GridColumnEnd = TGridLine
-  export type GridColumnStart = TGridLine
-  export type GridRowEnd = TGridLine
-  export type GridRowStart = TGridLine
-  export type GridTemplateAreas = 'none' | (string & {})
+    | Globals
+    | (string & {})
+  export type FontVariantPosition =
+    | 'normal'
+    | 'sub'
+    | 'super'
+    | Globals
+    | (string & {})
+  export type FontVariationSettings =
+    | 'normal'
+    | (string & {})
+    | number
+    | Globals
+    | (string & {})
+  export type FontWeight =
+    | TFontWeightAbsolute
+    | 'bolder'
+    | 'lighter'
+    | Globals
+    | (string & {})
+  export type ForcedColorAdjust =
+    | 'auto'
+    | 'none'
+    | 'preserve-parent-color'
+    | Globals
+    | (string & {})
+  export type GridAutoColumns = TTrackSize | Globals | (string & {})
+  export type GridAutoFlow =
+    | 'row'
+    | 'column'
+    | 'dense'
+    | Globals
+    | (string & {})
+  export type GridAutoRows = TTrackSize | Globals | (string & {})
+  export type GridColumnEnd = TGridLine | Globals | (string & {})
+  export type GridColumnStart = TGridLine | Globals | (string & {})
+  export type GridRowEnd = TGridLine | Globals | (string & {})
+  export type GridRowStart = TGridLine | Globals | (string & {})
+  export type GridTemplateAreas =
+    | 'none'
+    | (string & {})
+    | Globals
+    | (string & {})
   export type GridTemplateColumns =
     | 'none'
     | TTrackList
     | TAutoTrackList
     | 'subgrid'
     | TLineNameList
+    | Globals
+    | (string & {})
   export type GridTemplateRows =
     | 'none'
     | TTrackList
     | TAutoTrackList
     | 'subgrid'
     | TLineNameList
+    | Globals
+    | (string & {})
   export type HangingPunctuation =
     | 'none'
     | 'first'
     | 'force-end'
     | 'allow-end'
     | 'last'
+    | Globals
+    | (string & {})
   export type Height =
     | 'auto'
     | TLengthPercentage
     | 'min-content'
     | 'max-content'
     | 'fit-content'
-  export type HyphenateCharacter = 'auto' | (string & {})
-  export type HyphenateLimitChars = 'auto' | number
-  export type Hyphens = 'none' | 'manual' | 'auto'
-  export type ImageOrientation = 'from-image' | 'flip'
-  export type ImageRendering = 'auto' | 'crisp-edges' | 'pixelated' | 'smooth'
-  export type InitialLetter = 'normal' | number
-  export type InlineSize = Width
-  export type InsetBlockEnd = Top
-  export type InsetBlockStart = Top
-  export type InsetInlineEnd = Top
-  export type InsetInlineStart = Top
-  export type Isolation = 'auto' | 'isolate'
+    | Globals
+    | (string & {})
+  export type HyphenateCharacter =
+    | 'auto'
+    | (string & {})
+    | Globals
+    | (string & {})
+  export type HyphenateLimitChars = 'auto' | number | Globals | (string & {})
+  export type Hyphens = 'none' | 'manual' | 'auto' | Globals | (string & {})
+  export type ImageOrientation = 'from-image' | 'flip' | Globals | (string & {})
+  export type ImageRendering =
+    | 'auto'
+    | 'crisp-edges'
+    | 'pixelated'
+    | 'smooth'
+    | Globals
+    | (string & {})
+  export type InitialLetter = 'normal' | number | Globals | (string & {})
+  export type InlineSize = Width | Globals | (string & {})
+  export type InsetBlockEnd = Top | Globals | (string & {})
+  export type InsetBlockStart = Top | Globals | (string & {})
+  export type InsetInlineEnd = Top | Globals | (string & {})
+  export type InsetInlineStart = Top | Globals | (string & {})
+  export type Isolation = 'auto' | 'isolate' | Globals | (string & {})
   export type JustifyContent =
     | 'normal'
     | TContentDistribution
@@ -1112,6 +1381,8 @@ export namespace Property {
     | TContentPosition
     | 'left'
     | 'right'
+    | Globals
+    | (string & {})
   export type JustifyItems =
     | 'normal'
     | 'stretch'
@@ -1126,6 +1397,8 @@ export namespace Property {
     | 'right'
     | 'center'
     | 'anchor-center'
+    | Globals
+    | (string & {})
   export type JustifySelf =
     | 'auto'
     | 'normal'
@@ -1136,110 +1409,236 @@ export namespace Property {
     | 'left'
     | 'right'
     | 'anchor-center'
-  export type Left = 'auto' | TLengthPercentage
-  export type LetterSpacing = 'normal'
-  export type LightingColor = TColor
-  export type LineBreak = 'auto' | 'loose' | 'normal' | 'strict' | 'anywhere'
-  export type LineClamp = 'none' | number
-  export type LineHeight = 'normal' | number
-  export type ListStyleImage = TImage | 'none'
-  export type ListStylePosition = 'inside' | 'outside'
-  export type ListStyleType = TCounterStyle | (string & {}) | 'none'
-  export type MarginBlockEnd = MarginTop
-  export type MarginBlockStart = MarginTop
-  export type MarginBottom = TLengthPercentage | 'auto'
-  export type MarginInlineEnd = MarginTop
-  export type MarginInlineStart = MarginTop
-  export type MarginLeft = TLengthPercentage | 'auto'
-  export type MarginRight = TLengthPercentage | 'auto'
-  export type MarginTop = TLengthPercentage | 'auto'
-  export type Marker = 'none'
-  export type MarkerEnd = 'none'
-  export type MarkerMid = 'none'
-  export type MarkerStart = 'none'
-  export type MaskBorderMode = 'luminance' | 'alpha'
-  export type MaskBorderOutset = number
-  export type MaskBorderRepeat = 'stretch' | 'repeat' | 'round' | 'space'
-  export type MaskBorderSlice = TNumberPercentage | 'fill'
-  export type MaskBorderSource = 'none' | TImage
-  export type MaskBorderWidth = TLengthPercentage | number | 'auto'
-  export type MaskClip = TCoordBox | 'no-clip'
-  export type MaskComposite = TCompositingOperator
-  export type MaskImage = TMaskReference
-  export type MaskMode = TMaskingMode
-  export type MaskOrigin = TCoordBox
-  export type MaskPosition = TPosition
-  export type MaskRepeat = TRepeatStyle
-  export type MaskSize = TBgSize
-  export type MaskType = 'luminance' | 'alpha'
-  export type MathDepth = 'auto-add' | number
-  export type MathStyle = 'normal' | 'compact'
-  export type MaxBlockSize = MaxWidth
+    | Globals
+    | (string & {})
+  export type Left = 'auto' | TLengthPercentage | Globals | (string & {})
+  export type LetterSpacing = 'normal' | Globals | (string & {})
+  export type LightingColor = TColor | Globals | (string & {})
+  export type LineBreak =
+    | 'auto'
+    | 'loose'
+    | 'normal'
+    | 'strict'
+    | 'anywhere'
+    | Globals
+    | (string & {})
+  export type LineClamp = 'none' | number | Globals | (string & {})
+  export type LineHeight = 'normal' | number | Globals | (string & {})
+  export type ListStyleImage = TImage | 'none' | Globals | (string & {})
+  export type ListStylePosition = 'inside' | 'outside' | Globals | (string & {})
+  export type ListStyleType =
+    | TCounterStyle
+    | (string & {})
+    | 'none'
+    | Globals
+    | (string & {})
+  export type MarginBlockEnd = MarginTop | Globals | (string & {})
+  export type MarginBlockStart = MarginTop | Globals | (string & {})
+  export type MarginBottom =
+    | TLengthPercentage
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type MarginInlineEnd = MarginTop | Globals | (string & {})
+  export type MarginInlineStart = MarginTop | Globals | (string & {})
+  export type MarginLeft = TLengthPercentage | 'auto' | Globals | (string & {})
+  export type MarginRight = TLengthPercentage | 'auto' | Globals | (string & {})
+  export type MarginTop = TLengthPercentage | 'auto' | Globals | (string & {})
+  export type Marker = 'none' | Globals | (string & {})
+  export type MarkerEnd = 'none' | Globals | (string & {})
+  export type MarkerMid = 'none' | Globals | (string & {})
+  export type MarkerStart = 'none' | Globals | (string & {})
+  export type MaskBorderMode = 'luminance' | 'alpha' | Globals | (string & {})
+  export type MaskBorderOutset = number | Globals | (string & {})
+  export type MaskBorderRepeat =
+    | 'stretch'
+    | 'repeat'
+    | 'round'
+    | 'space'
+    | Globals
+    | (string & {})
+  export type MaskBorderSlice =
+    | TNumberPercentage
+    | 'fill'
+    | Globals
+    | (string & {})
+  export type MaskBorderSource = 'none' | TImage | Globals | (string & {})
+  export type MaskBorderWidth =
+    | TLengthPercentage
+    | number
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type MaskClip = TCoordBox | 'no-clip' | Globals | (string & {})
+  export type MaskComposite = TCompositingOperator | Globals | (string & {})
+  export type MaskImage = TMaskReference | Globals | (string & {})
+  export type MaskMode = TMaskingMode | Globals | (string & {})
+  export type MaskOrigin = TCoordBox | Globals | (string & {})
+  export type MaskPosition = TPosition | Globals | (string & {})
+  export type MaskRepeat = TRepeatStyle | Globals | (string & {})
+  export type MaskSize = TBgSize | Globals | (string & {})
+  export type MaskType = 'luminance' | 'alpha' | Globals | (string & {})
+  export type MathDepth = 'auto-add' | number | Globals | (string & {})
+  export type MathStyle = 'normal' | 'compact' | Globals | (string & {})
+  export type MaxBlockSize = MaxWidth | Globals | (string & {})
   export type MaxHeight =
     | 'none'
     | TLengthPercentage
     | 'min-content'
     | 'max-content'
     | 'fit-content'
-  export type MaxInlineSize = MaxWidth
+    | Globals
+    | (string & {})
+  export type MaxInlineSize = MaxWidth | Globals | (string & {})
   export type MaxWidth =
     | 'none'
     | TLengthPercentage
     | 'min-content'
     | 'max-content'
     | 'fit-content'
-  export type MinBlockSize = MinWidth
+    | Globals
+    | (string & {})
+  export type MinBlockSize = MinWidth | Globals | (string & {})
   export type MinHeight =
     | 'auto'
     | TLengthPercentage
     | 'min-content'
     | 'max-content'
     | 'fit-content'
-  export type MinInlineSize = MinWidth
+    | Globals
+    | (string & {})
+  export type MinInlineSize = MinWidth | Globals | (string & {})
   export type MinWidth =
     | 'auto'
     | TLengthPercentage
     | 'min-content'
     | 'max-content'
     | 'fit-content'
-  export type MixBlendMode = TBlendMode | 'plus-darker' | 'plus-lighter'
-  export type ObjectFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
-  export type ObjectPosition = TPosition
-  export type OffsetAnchor = 'auto' | TPosition
-  export type OffsetDistance = TLengthPercentage
-  export type OffsetPath = 'none' | TOffsetPath | TCoordBox
-  export type OffsetPosition = 'normal' | 'auto' | TPosition
-  export type OffsetRotate = 'auto' | 'reverse'
-  export type Opacity = TOpacityValue
-  export type Order = number
-  export type Orphans = number
-  export type OutlineColor = 'auto' | TColor
-  export type OutlineOffset = string & {}
-  export type OutlineStyle = 'auto' | TOutlineLineStyle
-  export type OutlineWidth = TLineWidth
-  export type OverflowAnchor = 'auto' | 'none'
-  export type OverflowBlock = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto'
-  export type OverflowClipMargin = TVisualBox
-  export type OverflowInline = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto'
-  export type OverflowWrap = 'normal' | 'break-word' | 'anywhere'
-  export type OverflowX = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto'
-  export type OverflowY = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto'
-  export type OverscrollBehaviorBlock = 'contain' | 'none' | 'auto'
-  export type OverscrollBehaviorInline = 'contain' | 'none' | 'auto'
-  export type OverscrollBehaviorX = 'contain' | 'none' | 'auto'
-  export type OverscrollBehaviorY = 'contain' | 'none' | 'auto'
-  export type PaddingBlockEnd = PaddingTop
-  export type PaddingBlockStart = PaddingTop
-  export type PaddingBottom = TLengthPercentage
-  export type PaddingInlineEnd = PaddingTop
-  export type PaddingInlineStart = PaddingTop
-  export type PaddingLeft = TLengthPercentage
-  export type PaddingRight = TLengthPercentage
-  export type PaddingTop = TLengthPercentage
-  export type Page = 'auto' | (string & {})
-  export type PaintOrder = 'normal' | 'fill' | 'stroke' | 'markers'
-  export type Perspective = 'none'
-  export type PerspectiveOrigin = TPosition
+    | Globals
+    | (string & {})
+  export type MixBlendMode =
+    | TBlendMode
+    | 'plus-darker'
+    | 'plus-lighter'
+    | Globals
+    | (string & {})
+  export type ObjectFit =
+    | 'fill'
+    | 'contain'
+    | 'cover'
+    | 'none'
+    | 'scale-down'
+    | Globals
+    | (string & {})
+  export type ObjectPosition = TPosition | Globals | (string & {})
+  export type OffsetAnchor = 'auto' | TPosition | Globals | (string & {})
+  export type OffsetDistance = TLengthPercentage | Globals | (string & {})
+  export type OffsetPath =
+    | 'none'
+    | TOffsetPath
+    | TCoordBox
+    | Globals
+    | (string & {})
+  export type OffsetPosition =
+    | 'normal'
+    | 'auto'
+    | TPosition
+    | Globals
+    | (string & {})
+  export type OffsetRotate = 'auto' | 'reverse' | Globals | (string & {})
+  export type Opacity = TOpacityValue | Globals | (string & {})
+  export type Order = number | Globals | (string & {})
+  export type Orphans = number | Globals | (string & {})
+  export type OutlineColor = 'auto' | TColor | Globals | (string & {})
+  export type OutlineOffset = (string & {}) | Globals | (string & {})
+  export type OutlineStyle =
+    | 'auto'
+    | TOutlineLineStyle
+    | Globals
+    | (string & {})
+  export type OutlineWidth = TLineWidth | Globals | (string & {})
+  export type OverflowAnchor = 'auto' | 'none' | Globals | (string & {})
+  export type OverflowBlock =
+    | 'visible'
+    | 'hidden'
+    | 'clip'
+    | 'scroll'
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type OverflowClipMargin = TVisualBox | Globals | (string & {})
+  export type OverflowInline =
+    | 'visible'
+    | 'hidden'
+    | 'clip'
+    | 'scroll'
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type OverflowWrap =
+    | 'normal'
+    | 'break-word'
+    | 'anywhere'
+    | Globals
+    | (string & {})
+  export type OverflowX =
+    | 'visible'
+    | 'hidden'
+    | 'clip'
+    | 'scroll'
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type OverflowY =
+    | 'visible'
+    | 'hidden'
+    | 'clip'
+    | 'scroll'
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type OverscrollBehaviorBlock =
+    | 'contain'
+    | 'none'
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type OverscrollBehaviorInline =
+    | 'contain'
+    | 'none'
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type OverscrollBehaviorX =
+    | 'contain'
+    | 'none'
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type OverscrollBehaviorY =
+    | 'contain'
+    | 'none'
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type PaddingBlockEnd = PaddingTop | Globals | (string & {})
+  export type PaddingBlockStart = PaddingTop | Globals | (string & {})
+  export type PaddingBottom = TLengthPercentage | Globals | (string & {})
+  export type PaddingInlineEnd = PaddingTop | Globals | (string & {})
+  export type PaddingInlineStart = PaddingTop | Globals | (string & {})
+  export type PaddingLeft = TLengthPercentage | Globals | (string & {})
+  export type PaddingRight = TLengthPercentage | Globals | (string & {})
+  export type PaddingTop = TLengthPercentage | Globals | (string & {})
+  export type Page = 'auto' | (string & {}) | Globals | (string & {})
+  export type PaintOrder =
+    | 'normal'
+    | 'fill'
+    | 'stroke'
+    | 'markers'
+    | Globals
+    | (string & {})
+  export type Perspective = 'none' | Globals | (string & {})
+  export type PerspectiveOrigin = TPosition | Globals | (string & {})
   export type PointerEvents =
     | 'auto'
     | 'none'
@@ -1252,10 +1651,19 @@ export namespace Property {
     | 'stroke'
     | 'all'
     | 'inherit'
-  export type Position = 'static' | 'relative' | 'absolute' | 'sticky' | 'fixed'
-  export type PrintColorAdjust = 'economy' | 'exact'
-  export type Quotes = 'none' | 'auto' | (string & {})
-  export type R = number
+    | Globals
+    | (string & {})
+  export type Position =
+    | 'static'
+    | 'relative'
+    | 'absolute'
+    | 'sticky'
+    | 'fixed'
+    | Globals
+    | (string & {})
+  export type PrintColorAdjust = 'economy' | 'exact' | Globals | (string & {})
+  export type Quotes = 'none' | 'auto' | (string & {}) | Globals | (string & {})
+  export type R = number | Globals | (string & {})
   export type Resize =
     | 'none'
     | 'both'
@@ -1263,34 +1671,93 @@ export namespace Property {
     | 'vertical'
     | 'block'
     | 'inline'
-  export type Right = 'auto' | TLengthPercentage
-  export type Rotate = 'none' | 'x' | 'y' | 'z' | number
-  export type RowGap = 'normal' | TLengthPercentage
-  export type RubyAlign = 'start' | 'center' | 'space-between' | 'space-around'
-  export type RubyOverhang = 'auto' | 'none'
-  export type RubyPosition = 'alternate' | 'over' | 'under' | 'inter-character'
-  export type Rx = number
-  export type Ry = number
-  export type Scale = 'none' | number
-  export type ScrollBehavior = 'auto' | 'smooth'
-  export type ScrollMarginBlockEnd = string & {}
-  export type ScrollMarginBlockStart = string & {}
-  export type ScrollMarginBottom = string & {}
-  export type ScrollMarginInlineEnd = string & {}
-  export type ScrollMarginInlineStart = string & {}
-  export type ScrollMarginLeft = string & {}
-  export type ScrollMarginRight = string & {}
-  export type ScrollMarginTop = string & {}
-  export type ScrollPaddingBlockEnd = 'auto' | TLengthPercentage
-  export type ScrollPaddingBlockStart = 'auto' | TLengthPercentage
-  export type ScrollPaddingBottom = 'auto' | TLengthPercentage
-  export type ScrollPaddingInlineEnd = 'auto' | TLengthPercentage
-  export type ScrollPaddingInlineStart = 'auto' | TLengthPercentage
-  export type ScrollPaddingLeft = 'auto' | TLengthPercentage
-  export type ScrollPaddingRight = 'auto' | TLengthPercentage
-  export type ScrollPaddingTop = 'auto' | TLengthPercentage
-  export type ScrollSnapAlign = 'none' | 'start' | 'end' | 'center'
-  export type ScrollSnapStop = 'normal' | 'always'
+    | Globals
+    | (string & {})
+  export type Right = 'auto' | TLengthPercentage | Globals | (string & {})
+  export type Rotate =
+    | 'none'
+    | 'x'
+    | 'y'
+    | 'z'
+    | number
+    | Globals
+    | (string & {})
+  export type RowGap = 'normal' | TLengthPercentage | Globals | (string & {})
+  export type RubyAlign =
+    | 'start'
+    | 'center'
+    | 'space-between'
+    | 'space-around'
+    | Globals
+    | (string & {})
+  export type RubyOverhang = 'auto' | 'none' | Globals | (string & {})
+  export type RubyPosition =
+    | 'alternate'
+    | 'over'
+    | 'under'
+    | 'inter-character'
+    | Globals
+    | (string & {})
+  export type Rx = number | Globals | (string & {})
+  export type Ry = number | Globals | (string & {})
+  export type Scale = 'none' | number | Globals | (string & {})
+  export type ScrollBehavior = 'auto' | 'smooth' | Globals | (string & {})
+  export type ScrollMarginBlockEnd = (string & {}) | Globals | (string & {})
+  export type ScrollMarginBlockStart = (string & {}) | Globals | (string & {})
+  export type ScrollMarginBottom = (string & {}) | Globals | (string & {})
+  export type ScrollMarginInlineEnd = (string & {}) | Globals | (string & {})
+  export type ScrollMarginInlineStart = (string & {}) | Globals | (string & {})
+  export type ScrollMarginLeft = (string & {}) | Globals | (string & {})
+  export type ScrollMarginRight = (string & {}) | Globals | (string & {})
+  export type ScrollMarginTop = (string & {}) | Globals | (string & {})
+  export type ScrollPaddingBlockEnd =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ScrollPaddingBlockStart =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ScrollPaddingBottom =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ScrollPaddingInlineEnd =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ScrollPaddingInlineStart =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ScrollPaddingLeft =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ScrollPaddingRight =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ScrollPaddingTop =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ScrollSnapAlign =
+    | 'none'
+    | 'start'
+    | 'end'
+    | 'center'
+    | Globals
+    | (string & {})
+  export type ScrollSnapStop = 'normal' | 'always' | Globals | (string & {})
   export type ScrollSnapType =
     | 'none'
     | 'x'
@@ -1300,34 +1767,65 @@ export namespace Property {
     | 'both'
     | 'mandatory'
     | 'proximity'
-  export type ScrollbarColor = 'auto' | TColor
-  export type ScrollbarGutter = 'auto' | 'stable' | 'both-edges'
-  export type ScrollbarWidth = 'auto' | 'thin' | 'none'
-  export type ShapeImageThreshold = TOpacityValue
-  export type ShapeMargin = TLengthPercentage
-  export type ShapeOutside = 'none' | TShapeBox | TBasicShape | TImage
+    | Globals
+    | (string & {})
+  export type ScrollbarColor = 'auto' | TColor | Globals | (string & {})
+  export type ScrollbarGutter =
+    | 'auto'
+    | 'stable'
+    | 'both-edges'
+    | Globals
+    | (string & {})
+  export type ScrollbarWidth =
+    | 'auto'
+    | 'thin'
+    | 'none'
+    | Globals
+    | (string & {})
+  export type ShapeImageThreshold = TOpacityValue | Globals | (string & {})
+  export type ShapeMargin = TLengthPercentage | Globals | (string & {})
+  export type ShapeOutside =
+    | 'none'
+    | TShapeBox
+    | TBasicShape
+    | TImage
+    | Globals
+    | (string & {})
   export type ShapeRendering =
     | 'auto'
     | 'optimizeSpeed'
     | 'crispEdges'
     | 'geometricPrecision'
-  export type StopColor = Color
-  export type StopOpacity = Opacity
-  export type Stroke = TPaint
-  export type StrokeDasharray = 'none' | TDasharray
-  export type StrokeDashoffset = TLengthPercentage | number
-  export type StrokeLinecap = 'butt' | 'round' | 'square'
+    | Globals
+    | (string & {})
+  export type StopColor = Color | Globals | (string & {})
+  export type StopOpacity = Opacity | Globals | (string & {})
+  export type Stroke = TPaint | Globals | (string & {})
+  export type StrokeDasharray = 'none' | TDasharray | Globals | (string & {})
+  export type StrokeDashoffset =
+    | TLengthPercentage
+    | number
+    | Globals
+    | (string & {})
+  export type StrokeLinecap =
+    | 'butt'
+    | 'round'
+    | 'square'
+    | Globals
+    | (string & {})
   export type StrokeLinejoin =
     | 'miter'
     | 'miter-clip'
     | 'round'
     | 'bevel'
     | 'arcs'
-  export type StrokeMiterlimit = number
-  export type StrokeOpacity = Opacity
-  export type StrokeWidth = TLengthPercentage | number
-  export type TabSize = number
-  export type TableLayout = 'auto' | 'fixed'
+    | Globals
+    | (string & {})
+  export type StrokeMiterlimit = number | Globals | (string & {})
+  export type StrokeOpacity = Opacity | Globals | (string & {})
+  export type StrokeWidth = TLengthPercentage | number | Globals | (string & {})
+  export type TabSize = number | Globals | (string & {})
+  export type TableLayout = 'auto' | 'fixed' | Globals | (string & {})
   export type TextAlign =
     | 'start'
     | 'end'
@@ -1336,6 +1834,8 @@ export namespace Property {
     | 'center'
     | 'justify'
     | 'match-parent'
+    | Globals
+    | (string & {})
   export type TextAlignLast =
     | 'auto'
     | 'start'
@@ -1344,13 +1844,32 @@ export namespace Property {
     | 'right'
     | 'center'
     | 'justify'
-  export type TextAnchor = 'start' | 'middle' | 'end'
-  export type TextAutospace = 'normal' | 'auto'
-  export type TextBox = 'normal' | TextBoxTrim | TextBoxEdge
-  export type TextBoxEdge = 'auto' | TTextEdge
-  export type TextBoxTrim = 'none' | 'trim-start' | 'trim-end' | 'trim-both'
-  export type TextCombineUpright = 'none' | 'all' | 'digits' | number
-  export type TextDecorationColor = TColor
+    | Globals
+    | (string & {})
+  export type TextAnchor = 'start' | 'middle' | 'end' | Globals | (string & {})
+  export type TextAutospace = 'normal' | 'auto' | Globals | (string & {})
+  export type TextBox =
+    | 'normal'
+    | TextBoxTrim
+    | TextBoxEdge
+    | Globals
+    | (string & {})
+  export type TextBoxEdge = 'auto' | TTextEdge | Globals | (string & {})
+  export type TextBoxTrim =
+    | 'none'
+    | 'trim-start'
+    | 'trim-end'
+    | 'trim-both'
+    | Globals
+    | (string & {})
+  export type TextCombineUpright =
+    | 'none'
+    | 'all'
+    | 'digits'
+    | number
+    | Globals
+    | (string & {})
+  export type TextDecorationColor = TColor | Globals | (string & {})
   export type TextDecorationLine =
     | 'none'
     | 'underline'
@@ -1359,21 +1878,37 @@ export namespace Property {
     | 'blink'
     | 'spelling-error'
     | 'grammar-error'
-  export type TextDecorationSkipInk = 'auto' | 'all' | 'none'
+    | Globals
+    | (string & {})
+  export type TextDecorationSkipInk =
+    | 'auto'
+    | 'all'
+    | 'none'
+    | Globals
+    | (string & {})
   export type TextDecorationStyle =
     | 'solid'
     | 'double'
     | 'dotted'
     | 'dashed'
     | 'wavy'
-  export type TextDecorationThickness = 'auto' | 'from-font' | number
-  export type TextEmphasisColor = TColor
+    | Globals
+    | (string & {})
+  export type TextDecorationThickness =
+    | 'auto'
+    | 'from-font'
+    | number
+    | Globals
+    | (string & {})
+  export type TextEmphasisColor = TColor | Globals | (string & {})
   export type TextEmphasisPosition =
     | 'auto'
     | 'over'
     | 'under'
     | 'right'
     | 'left'
+    | Globals
+    | (string & {})
   export type TextEmphasisStyle =
     | 'none'
     | 'filled'
@@ -1384,16 +1919,41 @@ export namespace Property {
     | 'triangle'
     | 'sesame'
     | (string & {})
-  export type TextIndent = TLengthPercentage | 'hanging' | 'each-line'
-  export type TextJustify = 'auto' | 'inter-character' | 'inter-word' | 'none'
-  export type TextOrientation = 'mixed' | 'upright' | 'sideways'
-  export type TextOverflow = 'clip' | 'ellipsis' | (string & {})
+    | Globals
+    | (string & {})
+  export type TextIndent =
+    | TLengthPercentage
+    | 'hanging'
+    | 'each-line'
+    | Globals
+    | (string & {})
+  export type TextJustify =
+    | 'auto'
+    | 'inter-character'
+    | 'inter-word'
+    | 'none'
+    | Globals
+    | (string & {})
+  export type TextOrientation =
+    | 'mixed'
+    | 'upright'
+    | 'sideways'
+    | Globals
+    | (string & {})
+  export type TextOverflow =
+    | 'clip'
+    | 'ellipsis'
+    | (string & {})
+    | Globals
+    | (string & {})
   export type TextRendering =
     | 'auto'
     | 'optimizeSpeed'
     | 'optimizeLegibility'
     | 'geometricPrecision'
-  export type TextShadow = 'none' | TShadowT
+    | Globals
+    | (string & {})
+  export type TextShadow = 'none' | TShadowT | Globals | (string & {})
   export type TextTransform =
     | 'none'
     | 'capitalize'
@@ -1402,16 +1962,26 @@ export namespace Property {
     | 'full-width'
     | 'full-size-kana'
     | 'math-auto'
-  export type TextUnderlineOffset = 'auto' | number
+    | Globals
+    | (string & {})
+  export type TextUnderlineOffset = 'auto' | number | Globals | (string & {})
   export type TextUnderlinePosition =
     | 'auto'
     | 'from-font'
     | 'under'
     | 'left'
     | 'right'
-  export type TextWrapMode = 'wrap' | 'nowrap'
-  export type TextWrapStyle = 'auto' | 'balance' | 'stable' | 'pretty'
-  export type Top = 'auto' | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type TextWrapMode = 'wrap' | 'nowrap' | Globals | (string & {})
+  export type TextWrapStyle =
+    | 'auto'
+    | 'balance'
+    | 'stable'
+    | 'pretty'
+    | Globals
+    | (string & {})
+  export type Top = 'auto' | TLengthPercentage | Globals | (string & {})
   export type TouchAction =
     | 'auto'
     | 'none'
@@ -1423,13 +1993,17 @@ export namespace Property {
     | 'pan-down'
     | 'pinch-zoom'
     | 'manipulation'
-  export type Transform = 'none' | TTransformList
+    | Globals
+    | (string & {})
+  export type Transform = 'none' | TTransformList | Globals | (string & {})
   export type TransformBox =
     | 'content-box'
     | 'border-box'
     | 'fill-box'
     | 'stroke-box'
     | 'view-box'
+    | Globals
+    | (string & {})
   export type TransformOrigin =
     | TLengthPercentage
     | 'left'
@@ -1445,13 +2019,25 @@ export namespace Property {
     | 'top'
     | 'center'
     | 'bottom'
-  export type TransformStyle = 'flat' | 'preserve-3d'
-  export type TransitionBehavior = TTransitionBehaviorValue
-  export type TransitionDelay = string & {}
-  export type TransitionDuration = string & {}
-  export type TransitionProperty = 'none' | TSingleTransitionProperty
-  export type TransitionTimingFunction = TEasingFunction
-  export type Translate = 'none' | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type TransformStyle = 'flat' | 'preserve-3d' | Globals | (string & {})
+  export type TransitionBehavior =
+    | TTransitionBehaviorValue
+    | Globals
+    | (string & {})
+  export type TransitionDelay = (string & {}) | Globals | (string & {})
+  export type TransitionDuration = (string & {}) | Globals | (string & {})
+  export type TransitionProperty =
+    | 'none'
+    | TSingleTransitionProperty
+    | Globals
+    | (string & {})
+  export type TransitionTimingFunction =
+    | TEasingFunction
+    | Globals
+    | (string & {})
+  export type Translate = 'none' | TLengthPercentage | Globals | (string & {})
   export type UnicodeBidi =
     | 'normal'
     | 'embed'
@@ -1459,13 +2045,23 @@ export namespace Property {
     | 'bidi-override'
     | 'isolate-override'
     | 'plaintext'
-  export type UserSelect = 'auto' | 'text' | 'none' | 'all'
+    | Globals
+    | (string & {})
+  export type UserSelect =
+    | 'auto'
+    | 'text'
+    | 'none'
+    | 'all'
+    | Globals
+    | (string & {})
   export type VectorEffect =
     | 'none'
     | 'non-scaling-stroke'
     | 'non-scaling-size'
     | 'non-rotation'
     | 'fixed-position'
+    | Globals
+    | (string & {})
   export type VerticalAlign =
     | 'baseline'
     | 'sub'
@@ -1476,9 +2072,25 @@ export namespace Property {
     | 'top'
     | 'bottom'
     | number
-  export type ViewTransitionClass = 'none' | (string & {})
-  export type ViewTransitionName = 'none' | (string & {}) | 'match-element'
-  export type Visibility = 'visible' | 'hidden' | 'collapse'
+    | Globals
+    | (string & {})
+  export type ViewTransitionClass =
+    | 'none'
+    | (string & {})
+    | Globals
+    | (string & {})
+  export type ViewTransitionName =
+    | 'none'
+    | (string & {})
+    | 'match-element'
+    | Globals
+    | (string & {})
+  export type Visibility =
+    | 'visible'
+    | 'hidden'
+    | 'collapse'
+    | Globals
+    | (string & {})
   export type WhiteSpace =
     | 'normal'
     | 'pre'
@@ -1486,47 +2098,81 @@ export namespace Property {
     | 'pre-line'
     | WhiteSpaceCollapse
     | TextWrapMode
+    | Globals
+    | (string & {})
   export type WhiteSpaceCollapse =
     | 'collapse'
     | 'preserve'
     | 'preserve-breaks'
     | 'preserve-spaces'
     | 'break-spaces'
-  export type Widows = number
+    | Globals
+    | (string & {})
+  export type Widows = number | Globals | (string & {})
   export type Width =
     | 'auto'
     | TLengthPercentage
     | 'min-content'
     | 'max-content'
     | 'fit-content'
-  export type WillChange = 'auto' | TAnimateableFeature
+    | Globals
+    | (string & {})
+  export type WillChange =
+    | 'auto'
+    | TAnimateableFeature
+    | Globals
+    | (string & {})
   export type WordBreak =
     | 'normal'
     | 'break-all'
     | 'keep-all'
     | 'break-word'
     | 'auto-phrase'
-  export type WordSpacing = 'normal'
-  export type WordWrap = 'normal' | 'break-word'
+    | Globals
+    | (string & {})
+  export type WordSpacing = 'normal' | Globals | (string & {})
+  export type WordWrap = 'normal' | 'break-word' | Globals | (string & {})
   export type WritingMode =
     | 'horizontal-tb'
     | 'vertical-rl'
     | 'vertical-lr'
     | 'sideways-rl'
     | 'sideways-lr'
-  export type X = number
-  export type Y = number
-  export type ZIndex = 'auto' | number
-  export type Zoom = 'normal' | 'reset' | number
-  export type Animation = TSingleAnimation
-  export type Background = TBgLayer | TFinalBgLayer
-  export type BackgroundPosition = TBgPosition
-  export type Border = TLineWidth | TLineStyle | TColor
-  export type BorderBlock = BorderBlockStart
-  export type BorderBlockEnd = BorderTopWidth | BorderTopStyle | TColor
-  export type BorderBlockStart = BorderTopWidth | BorderTopStyle | TColor
-  export type BorderBottom = TLineWidth | TLineStyle | TColor
-  export type BorderColor = TColor
+    | Globals
+    | (string & {})
+  export type X = number | Globals | (string & {})
+  export type Y = number | Globals | (string & {})
+  export type ZIndex = 'auto' | number | Globals | (string & {})
+  export type Zoom = 'normal' | 'reset' | number | Globals | (string & {})
+  export type Animation = TSingleAnimation | Globals | (string & {})
+  export type Background = TBgLayer | TFinalBgLayer | Globals | (string & {})
+  export type BackgroundPosition = TBgPosition | Globals | (string & {})
+  export type Border =
+    | TLineWidth
+    | TLineStyle
+    | TColor
+    | Globals
+    | (string & {})
+  export type BorderBlock = BorderBlockStart | Globals | (string & {})
+  export type BorderBlockEnd =
+    | BorderTopWidth
+    | BorderTopStyle
+    | TColor
+    | Globals
+    | (string & {})
+  export type BorderBlockStart =
+    | BorderTopWidth
+    | BorderTopStyle
+    | TColor
+    | Globals
+    | (string & {})
+  export type BorderBottom =
+    | TLineWidth
+    | TLineStyle
+    | TColor
+    | Globals
+    | (string & {})
+  export type BorderColor = TColor | Globals | (string & {})
   export type BorderImage =
     | BorderImageSource
     | BorderImageSlice
@@ -1534,22 +2180,64 @@ export namespace Property {
     | BorderImageWidth
     | BorderImageOutset
     | BorderImageRepeat
-  export type BorderInline = BorderBlockStart
-  export type BorderInlineEnd = BorderTopWidth | BorderTopStyle | TColor
-  export type BorderInlineStart = BorderTopWidth | BorderTopStyle | TColor
-  export type BorderLeft = TLineWidth | TLineStyle | TColor
-  export type BorderRadius = TLengthPercentage
-  export type BorderRight = TLineWidth | TLineStyle | TColor
-  export type BorderStyle = TLineStyle
-  export type BorderTop = TLineWidth | TLineStyle | TColor
-  export type BorderWidth = TLineWidth
-  export type Caret = CaretColor | CaretShape
-  export type ColumnRule = ColumnRuleWidth | ColumnRuleStyle | ColumnRuleColor
-  export type Columns = ColumnWidth | ColumnCount
-  export type ContainIntrinsicSize = 'auto' | 'none'
-  export type Container = ContainerName | ContainerType
-  export type Flex = 'none' | FlexGrow | FlexShrink | FlexBasis
-  export type FlexFlow = FlexDirection | FlexWrap
+    | Globals
+    | (string & {})
+  export type BorderInline = BorderBlockStart | Globals | (string & {})
+  export type BorderInlineEnd =
+    | BorderTopWidth
+    | BorderTopStyle
+    | TColor
+    | Globals
+    | (string & {})
+  export type BorderInlineStart =
+    | BorderTopWidth
+    | BorderTopStyle
+    | TColor
+    | Globals
+    | (string & {})
+  export type BorderLeft =
+    | TLineWidth
+    | TLineStyle
+    | TColor
+    | Globals
+    | (string & {})
+  export type BorderRadius = TLengthPercentage | Globals | (string & {})
+  export type BorderRight =
+    | TLineWidth
+    | TLineStyle
+    | TColor
+    | Globals
+    | (string & {})
+  export type BorderStyle = TLineStyle | Globals | (string & {})
+  export type BorderTop =
+    | TLineWidth
+    | TLineStyle
+    | TColor
+    | Globals
+    | (string & {})
+  export type BorderWidth = TLineWidth | Globals | (string & {})
+  export type Caret = CaretColor | CaretShape | Globals | (string & {})
+  export type ColumnRule =
+    | ColumnRuleWidth
+    | ColumnRuleStyle
+    | ColumnRuleColor
+    | Globals
+    | (string & {})
+  export type Columns = ColumnWidth | ColumnCount | Globals | (string & {})
+  export type ContainIntrinsicSize = 'auto' | 'none' | Globals | (string & {})
+  export type Container =
+    | ContainerName
+    | ContainerType
+    | Globals
+    | (string & {})
+  export type Flex =
+    | 'none'
+    | FlexGrow
+    | FlexShrink
+    | FlexBasis
+    | Globals
+    | (string & {})
+  export type FlexFlow = FlexDirection | FlexWrap | Globals | (string & {})
   export type Font =
     | FontStyle
     | TFontVariantCss2
@@ -1559,7 +2247,9 @@ export namespace Property {
     | LineHeight
     | FontFamily
     | TSystemFamilyName
-  export type Gap = RowGap | ColumnGap
+    | Globals
+    | (string & {})
+  export type Gap = RowGap | ColumnGap | Globals | (string & {})
   export type Grid =
     | GridTemplate
     | GridTemplateRows
@@ -1570,9 +2260,11 @@ export namespace Property {
     | 'dense'
     | GridAutoRows
     | GridTemplateColumns
-  export type GridArea = TGridLine
-  export type GridColumn = TGridLine
-  export type GridRow = TGridLine
+    | Globals
+    | (string & {})
+  export type GridArea = TGridLine | Globals | (string & {})
+  export type GridColumn = TGridLine | Globals | (string & {})
+  export type GridRow = TGridLine | Globals | (string & {})
   export type GridTemplate =
     | 'none'
     | GridTemplateRows
@@ -1581,14 +2273,21 @@ export namespace Property {
     | (string & {})
     | TTrackSize
     | TExplicitTrackList
-  export type Inset = Top
-  export type InsetBlock = Top
-  export type InsetInline = Top
-  export type ListStyle = ListStyleType | ListStylePosition | ListStyleImage
-  export type Margin = MarginTop
-  export type MarginBlock = MarginTop
-  export type MarginInline = MarginTop
-  export type Mask = TMaskLayer
+    | Globals
+    | (string & {})
+  export type Inset = Top | Globals | (string & {})
+  export type InsetBlock = Top | Globals | (string & {})
+  export type InsetInline = Top | Globals | (string & {})
+  export type ListStyle =
+    | ListStyleType
+    | ListStylePosition
+    | ListStyleImage
+    | Globals
+    | (string & {})
+  export type Margin = MarginTop | Globals | (string & {})
+  export type MarginBlock = MarginTop | Globals | (string & {})
+  export type MarginInline = MarginTop | Globals | (string & {})
+  export type Mask = TMaskLayer | Globals | (string & {})
   export type MaskBorder =
     | MaskBorderSource
     | MaskBorderSlice
@@ -1596,84 +2295,174 @@ export namespace Property {
     | MaskBorderOutset
     | MaskBorderRepeat
     | MaskBorderMode
+    | Globals
+    | (string & {})
   export type Offset =
     | OffsetPosition
     | OffsetPath
     | OffsetDistance
     | OffsetRotate
     | OffsetAnchor
-  export type Outline = OutlineWidth | OutlineStyle | OutlineColor
-  export type Overflow = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto'
-  export type OverscrollBehavior = 'contain' | 'none' | 'auto'
-  export type Padding = PaddingTop
-  export type PaddingBlock = PaddingTop
-  export type PaddingInline = PaddingTop
-  export type PlaceContent = AlignContent | JustifyContent
-  export type PlaceItems = AlignItems | JustifyItems
-  export type PlaceSelf = AlignSelf | JustifySelf
-  export type ScrollMargin = string & {}
-  export type ScrollMarginBlock = string & {}
-  export type ScrollMarginInline = string & {}
-  export type ScrollPadding = 'auto' | TLengthPercentage
-  export type ScrollPaddingBlock = 'auto' | TLengthPercentage
-  export type ScrollPaddingInline = 'auto' | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type Outline =
+    | OutlineWidth
+    | OutlineStyle
+    | OutlineColor
+    | Globals
+    | (string & {})
+  export type Overflow =
+    | 'visible'
+    | 'hidden'
+    | 'clip'
+    | 'scroll'
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type OverscrollBehavior =
+    | 'contain'
+    | 'none'
+    | 'auto'
+    | Globals
+    | (string & {})
+  export type Padding = PaddingTop | Globals | (string & {})
+  export type PaddingBlock = PaddingTop | Globals | (string & {})
+  export type PaddingInline = PaddingTop | Globals | (string & {})
+  export type PlaceContent =
+    | AlignContent
+    | JustifyContent
+    | Globals
+    | (string & {})
+  export type PlaceItems = AlignItems | JustifyItems | Globals | (string & {})
+  export type PlaceSelf = AlignSelf | JustifySelf | Globals | (string & {})
+  export type ScrollMargin = (string & {}) | Globals | (string & {})
+  export type ScrollMarginBlock = (string & {}) | Globals | (string & {})
+  export type ScrollMarginInline = (string & {}) | Globals | (string & {})
+  export type ScrollPadding =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ScrollPaddingBlock =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ScrollPaddingInline =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
   export type TextDecoration =
     | TextDecorationLine
     | TextDecorationStyle
     | TextDecorationColor
     | TextDecorationThickness
-  export type TextEmphasis = TextEmphasisStyle | TextEmphasisColor
-  export type TextWrap = TextWrapMode | TextWrapStyle
-  export type Transition = TSingleTransition
-  export type MsAccelerator = 'false' | 'true'
-  export type MsBlockProgression = 'tb' | 'rl' | 'bt' | 'lr'
-  export type MsContentZoomChaining = 'none' | 'chained'
-  export type MsContentZoomLimitMax = number
-  export type MsContentZoomLimitMin = number
-  export type MsContentZoomSnapPoints = number
-  export type MsContentZoomSnapType = 'none' | 'proximity' | 'mandatory'
-  export type MsContentZooming = 'none' | 'zoom'
-  export type MsFilter = string & {}
-  export type MsFlowFrom = 'none' | (string & {})
-  export type MsFlowInto = 'none' | (string & {})
-  export type MsGridColumns = 'none' | TTrackList | TAutoTrackList
-  export type MsGridRows = 'none' | TTrackList | TAutoTrackList
-  export type MsHighContrastAdjust = 'auto' | 'none'
-  export type MsHyphenateLimitChars = 'auto' | number
-  export type MsHyphenateLimitLines = 'no-limit' | number
-  export type MsHyphenateLimitZone = number
-  export type MsImeAlign = 'auto' | 'after'
+    | Globals
+    | (string & {})
+  export type TextEmphasis =
+    | TextEmphasisStyle
+    | TextEmphasisColor
+    | Globals
+    | (string & {})
+  export type TextWrap = TextWrapMode | TextWrapStyle | Globals | (string & {})
+  export type Transition = TSingleTransition | Globals | (string & {})
+  export type MsAccelerator = 'false' | 'true' | Globals | (string & {})
+  export type MsBlockProgression =
+    | 'tb'
+    | 'rl'
+    | 'bt'
+    | 'lr'
+    | Globals
+    | (string & {})
+  export type MsContentZoomChaining =
+    | 'none'
+    | 'chained'
+    | Globals
+    | (string & {})
+  export type MsContentZoomLimitMax = number | Globals | (string & {})
+  export type MsContentZoomLimitMin = number | Globals | (string & {})
+  export type MsContentZoomSnapPoints = number | Globals | (string & {})
+  export type MsContentZoomSnapType =
+    | 'none'
+    | 'proximity'
+    | 'mandatory'
+    | Globals
+    | (string & {})
+  export type MsContentZooming = 'none' | 'zoom' | Globals | (string & {})
+  export type MsFilter = (string & {}) | Globals | (string & {})
+  export type MsFlowFrom = 'none' | (string & {}) | Globals | (string & {})
+  export type MsFlowInto = 'none' | (string & {}) | Globals | (string & {})
+  export type MsGridColumns =
+    | 'none'
+    | TTrackList
+    | TAutoTrackList
+    | Globals
+    | (string & {})
+  export type MsGridRows =
+    | 'none'
+    | TTrackList
+    | TAutoTrackList
+    | Globals
+    | (string & {})
+  export type MsHighContrastAdjust = 'auto' | 'none' | Globals | (string & {})
+  export type MsHyphenateLimitChars = 'auto' | number | Globals | (string & {})
+  export type MsHyphenateLimitLines =
+    | 'no-limit'
+    | number
+    | Globals
+    | (string & {})
+  export type MsHyphenateLimitZone = number | Globals | (string & {})
+  export type MsImeAlign = 'auto' | 'after' | Globals | (string & {})
   export type MsOverflowStyle =
     | 'auto'
     | 'none'
     | 'scrollbar'
     | '-ms-autohiding-scrollbar'
-  export type MsScrollChaining = 'chained' | 'none'
-  export type MsScrollLimitXMax = 'auto'
-  export type MsScrollLimitXMin = string & {}
-  export type MsScrollLimitYMax = 'auto'
-  export type MsScrollLimitYMin = string & {}
-  export type MsScrollRails = 'none' | 'railed'
-  export type MsScrollSnapPointsX = TLengthPercentage
-  export type MsScrollSnapPointsY = TLengthPercentage
-  export type MsScrollSnapType = 'none' | 'proximity' | 'mandatory'
-  export type MsScrollTranslation = 'none' | 'vertical-to-horizontal'
-  export type MsScrollbar3dlightColor = TColor
-  export type MsScrollbarArrowColor = TColor
-  export type MsScrollbarBaseColor = TColor
-  export type MsScrollbarDarkshadowColor = TColor
-  export type MsScrollbarFaceColor = TColor
-  export type MsScrollbarHighlightColor = TColor
-  export type MsScrollbarShadowColor = TColor
-  export type MsScrollbarTrackColor = TColor
+    | Globals
+    | (string & {})
+  export type MsScrollChaining = 'chained' | 'none' | Globals | (string & {})
+  export type MsScrollLimitXMax = 'auto' | Globals | (string & {})
+  export type MsScrollLimitXMin = (string & {}) | Globals | (string & {})
+  export type MsScrollLimitYMax = 'auto' | Globals | (string & {})
+  export type MsScrollLimitYMin = (string & {}) | Globals | (string & {})
+  export type MsScrollRails = 'none' | 'railed' | Globals | (string & {})
+  export type MsScrollSnapPointsX = TLengthPercentage | Globals | (string & {})
+  export type MsScrollSnapPointsY = TLengthPercentage | Globals | (string & {})
+  export type MsScrollSnapType =
+    | 'none'
+    | 'proximity'
+    | 'mandatory'
+    | Globals
+    | (string & {})
+  export type MsScrollTranslation =
+    | 'none'
+    | 'vertical-to-horizontal'
+    | Globals
+    | (string & {})
+  export type MsScrollbar3dlightColor = TColor | Globals | (string & {})
+  export type MsScrollbarArrowColor = TColor | Globals | (string & {})
+  export type MsScrollbarBaseColor = TColor | Globals | (string & {})
+  export type MsScrollbarDarkshadowColor = TColor | Globals | (string & {})
+  export type MsScrollbarFaceColor = TColor | Globals | (string & {})
+  export type MsScrollbarHighlightColor = TColor | Globals | (string & {})
+  export type MsScrollbarShadowColor = TColor | Globals | (string & {})
+  export type MsScrollbarTrackColor = TColor | Globals | (string & {})
   export type MsTextAutospace =
     | 'none'
     | 'ideograph-alpha'
     | 'ideograph-numeric'
     | 'ideograph-parenthesis'
     | 'ideograph-space'
-  export type MsTouchSelect = 'grippers' | 'none'
-  export type MsUserSelect = 'none' | 'element' | 'text'
+    | Globals
+    | (string & {})
+  export type MsTouchSelect = 'grippers' | 'none' | Globals | (string & {})
+  export type MsUserSelect =
+    | 'none'
+    | 'element'
+    | 'text'
+    | Globals
+    | (string & {})
   export type MsWrapFlow =
     | 'auto'
     | 'both'
@@ -1681,8 +2470,10 @@ export namespace Property {
     | 'end'
     | 'maximum'
     | 'clear'
-  export type MsWrapMargin = string & {}
-  export type MsWrapThrough = 'wrap' | 'none'
+    | Globals
+    | (string & {})
+  export type MsWrapMargin = (string & {}) | Globals | (string & {})
+  export type MsWrapThrough = 'wrap' | 'none' | Globals | (string & {})
   export type MozAppearance =
     | 'none'
     | 'button'
@@ -1794,30 +2585,55 @@ export namespace Property {
     | '-moz-window-frame-right'
     | '-moz-window-titlebar'
     | '-moz-window-titlebar-maximized'
-  export type MozBinding = 'none'
-  export type MozBorderBottomColors = TColor | 'none'
-  export type MozBorderLeftColors = TColor | 'none'
-  export type MozBorderRightColors = TColor | 'none'
-  export type MozBorderTopColors = TColor | 'none'
+    | Globals
+    | (string & {})
+  export type MozBinding = 'none' | Globals | (string & {})
+  export type MozBorderBottomColors = TColor | 'none' | Globals | (string & {})
+  export type MozBorderLeftColors = TColor | 'none' | Globals | (string & {})
+  export type MozBorderRightColors = TColor | 'none' | Globals | (string & {})
+  export type MozBorderTopColors = TColor | 'none' | Globals | (string & {})
   export type MozContextProperties =
     | 'none'
     | 'fill'
     | 'fill-opacity'
     | 'stroke'
     | 'stroke-opacity'
+    | Globals
+    | (string & {})
   export type MozFloatEdge =
     | 'border-box'
     | 'content-box'
     | 'margin-box'
     | 'padding-box'
-  export type MozForceBrokenImageIcon = '0' | '1'
-  export type MozOrient = 'inline' | 'block' | 'horizontal' | 'vertical'
-  export type MozOutlineRadiusBottomleft = TOutlineRadius
-  export type MozOutlineRadiusBottomright = TOutlineRadius
-  export type MozOutlineRadiusTopleft = TOutlineRadius
-  export type MozOutlineRadiusTopright = TOutlineRadius
-  export type MozStackSizing = 'ignore' | 'stretch-to-fit'
-  export type MozTextBlink = 'none' | 'blink'
+    | Globals
+    | (string & {})
+  export type MozForceBrokenImageIcon = '0' | '1' | Globals | (string & {})
+  export type MozOrient =
+    | 'inline'
+    | 'block'
+    | 'horizontal'
+    | 'vertical'
+    | Globals
+    | (string & {})
+  export type MozOutlineRadiusBottomleft =
+    | TOutlineRadius
+    | Globals
+    | (string & {})
+  export type MozOutlineRadiusBottomright =
+    | TOutlineRadius
+    | Globals
+    | (string & {})
+  export type MozOutlineRadiusTopleft = TOutlineRadius | Globals | (string & {})
+  export type MozOutlineRadiusTopright =
+    | TOutlineRadius
+    | Globals
+    | (string & {})
+  export type MozStackSizing =
+    | 'ignore'
+    | 'stretch-to-fit'
+    | Globals
+    | (string & {})
+  export type MozTextBlink = 'none' | 'blink' | Globals | (string & {})
   export type MozUserFocus =
     | 'ignore'
     | 'normal'
@@ -1827,15 +2643,30 @@ export namespace Property {
     | 'select-same'
     | 'select-all'
     | 'none'
-  export type MozUserInput = 'auto' | 'none' | 'enabled' | 'disabled'
-  export type MozUserModify = 'read-only' | 'read-write' | 'write-only'
-  export type MozWindowDragging = 'drag' | 'no-drag'
+    | Globals
+    | (string & {})
+  export type MozUserInput =
+    | 'auto'
+    | 'none'
+    | 'enabled'
+    | 'disabled'
+    | Globals
+    | (string & {})
+  export type MozUserModify =
+    | 'read-only'
+    | 'read-write'
+    | 'write-only'
+    | Globals
+    | (string & {})
+  export type MozWindowDragging = 'drag' | 'no-drag' | Globals | (string & {})
   export type MozWindowShadow =
     | 'default'
     | 'menu'
     | 'tooltip'
     | 'sheet'
     | 'none'
+    | Globals
+    | (string & {})
   export type WebkitAppearance =
     | 'none'
     | 'button'
@@ -1886,12 +2717,21 @@ export namespace Property {
     | 'textarea'
     | 'textfield'
     | '-apple-pay-button'
-  export type WebkitBorderBeforeColor = TColor
-  export type WebkitBorderBeforeStyle = BorderStyle
-  export type WebkitBorderBeforeWidth = BorderWidth
-  export type WebkitBoxReflect = 'above' | 'below' | 'right' | 'left' | TImage
-  export type WebkitLineClamp = 'none' | number
-  export type WebkitMaskAttachment = TAttachment
+    | Globals
+    | (string & {})
+  export type WebkitBorderBeforeColor = TColor | Globals | (string & {})
+  export type WebkitBorderBeforeStyle = BorderStyle | Globals | (string & {})
+  export type WebkitBorderBeforeWidth = BorderWidth | Globals | (string & {})
+  export type WebkitBoxReflect =
+    | 'above'
+    | 'below'
+    | 'right'
+    | 'left'
+    | TImage
+    | Globals
+    | (string & {})
+  export type WebkitLineClamp = 'none' | number | Globals | (string & {})
+  export type WebkitMaskAttachment = TAttachment | Globals | (string & {})
   export type WebkitMaskClip =
     | TCoordBox
     | 'no-clip'
@@ -1899,48 +2739,105 @@ export namespace Property {
     | 'padding'
     | 'content'
     | 'text'
-  export type WebkitMaskComposite = TCompositeStyle
-  export type WebkitMaskImage = TMaskReference
-  export type WebkitMaskOrigin = TCoordBox | 'border' | 'padding' | 'content'
-  export type WebkitMaskPosition = TPosition
+    | Globals
+    | (string & {})
+  export type WebkitMaskComposite = TCompositeStyle | Globals | (string & {})
+  export type WebkitMaskImage = TMaskReference | Globals | (string & {})
+  export type WebkitMaskOrigin =
+    | TCoordBox
+    | 'border'
+    | 'padding'
+    | 'content'
+    | Globals
+    | (string & {})
+  export type WebkitMaskPosition = TPosition | Globals | (string & {})
   export type WebkitMaskPositionX =
     | TLengthPercentage
     | 'left'
     | 'center'
     | 'right'
+    | Globals
+    | (string & {})
   export type WebkitMaskPositionY =
     | TLengthPercentage
     | 'top'
     | 'center'
     | 'bottom'
-  export type WebkitMaskRepeat = TRepeatStyle
-  export type WebkitMaskRepeatX = 'repeat' | 'no-repeat' | 'space' | 'round'
-  export type WebkitMaskRepeatY = 'repeat' | 'no-repeat' | 'space' | 'round'
-  export type WebkitMaskSize = TBgSize
-  export type WebkitOverflowScrolling = 'auto' | 'touch'
-  export type WebkitTapHighlightColor = TColor
-  export type WebkitTextFillColor = TColor
-  export type WebkitTextStrokeColor = TColor
-  export type WebkitTextStrokeWidth = string & {}
-  export type WebkitTouchCallout = 'default' | 'none'
+    | Globals
+    | (string & {})
+  export type WebkitMaskRepeat = TRepeatStyle | Globals | (string & {})
+  export type WebkitMaskRepeatX =
+    | 'repeat'
+    | 'no-repeat'
+    | 'space'
+    | 'round'
+    | Globals
+    | (string & {})
+  export type WebkitMaskRepeatY =
+    | 'repeat'
+    | 'no-repeat'
+    | 'space'
+    | 'round'
+    | Globals
+    | (string & {})
+  export type WebkitMaskSize = TBgSize | Globals | (string & {})
+  export type WebkitOverflowScrolling =
+    | 'auto'
+    | 'touch'
+    | Globals
+    | (string & {})
+  export type WebkitTapHighlightColor = TColor | Globals | (string & {})
+  export type WebkitTextFillColor = TColor | Globals | (string & {})
+  export type WebkitTextStrokeColor = TColor | Globals | (string & {})
+  export type WebkitTextStrokeWidth = (string & {}) | Globals | (string & {})
+  export type WebkitTouchCallout = 'default' | 'none' | Globals | (string & {})
   export type WebkitUserModify =
     | 'read-only'
     | 'read-write'
     | 'read-write-plaintext-only'
-  export type WebkitUserSelect = 'auto' | 'text' | 'none' | 'all'
-  export type MsContentZoomLimit = MsContentZoomLimitMin | MsContentZoomLimitMax
+    | Globals
+    | (string & {})
+  export type WebkitUserSelect =
+    | 'auto'
+    | 'text'
+    | 'none'
+    | 'all'
+    | Globals
+    | (string & {})
+  export type MsContentZoomLimit =
+    | MsContentZoomLimitMin
+    | MsContentZoomLimitMax
+    | Globals
+    | (string & {})
   export type MsContentZoomSnap =
     | MsContentZoomSnapType
     | MsContentZoomSnapPoints
+    | Globals
+    | (string & {})
   export type MsScrollLimit =
     | MsScrollLimitXMin
     | MsScrollLimitYMin
     | MsScrollLimitXMax
     | MsScrollLimitYMax
-  export type MsScrollSnapX = MsScrollSnapType | MsScrollSnapPointsX
-  export type MsScrollSnapY = MsScrollSnapType | MsScrollSnapPointsY
-  export type MozOutlineRadius = TOutlineRadius
-  export type WebkitBorderBefore = BorderWidth | BorderStyle | TColor
+    | Globals
+    | (string & {})
+  export type MsScrollSnapX =
+    | MsScrollSnapType
+    | MsScrollSnapPointsX
+    | Globals
+    | (string & {})
+  export type MsScrollSnapY =
+    | MsScrollSnapType
+    | MsScrollSnapPointsY
+    | Globals
+    | (string & {})
+  export type MozOutlineRadius = TOutlineRadius | Globals | (string & {})
+  export type WebkitBorderBefore =
+    | BorderWidth
+    | BorderStyle
+    | TColor
+    | Globals
+    | (string & {})
   export type WebkitMask =
     | TMaskReference
     | TPosition
@@ -1955,7 +2852,9 @@ export namespace Property {
     | 'border'
     | 'padding'
     | 'content'
-  export type WebkitTextStroke = TColor
+    | Globals
+    | (string & {})
+  export type WebkitTextStroke = TColor | Globals | (string & {})
 }
 export type TAbsoluteSize =
   | 'xx-small'

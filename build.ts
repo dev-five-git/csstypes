@@ -134,21 +134,22 @@ output += `export type Pseudos = AdvancedPseudos | SimplePseudos\n`
 
 output += `export interface StandardProperties extends StandardLonghandProperties,StandardShorthandProperties{}
 export interface VendorProperties extends VendorLonghandProperties,VendorShorthandProperties{}
-export interface Properties extends StandardProperties,VendorProperties{}\n`
+export interface Properties extends StandardProperties,VendorProperties{}
+export type Globals = "-moz-initial" | "inherit" | "initial" | "revert" | "revert-layer" | "unset"\n`
 
 output += `export namespace Property {\n`
 for (const [property, value] of standardLonghandProperties) {
-  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)};\n`
+  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | Globals | (string & {})\n`
 }
 for (const [property, value] of standardShorthandProperties) {
-  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)};\n`
+  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | Globals | (string & {})\n`
 }
 
 for (const [property, value] of vendorLonghandProperties) {
-  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)};\n`
+  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | Globals | (string & {})\n`
 }
 for (const [property, value] of vendorShorthandProperties) {
-  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)};\n`
+  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | Globals | (string & {})\n`
 }
 
 output += `}\n`
