@@ -957,17 +957,47 @@ export namespace Property {
     | 'baseline'
     | Globals
     | (string & {})
-  export type BlockSize = Width | Globals | (string & {})
-  export type BorderBlockColor = BorderTopColor | Globals | (string & {})
-  export type BorderBlockEndColor = BorderTopColor | Globals | (string & {})
-  export type BorderBlockEndStyle = BorderTopStyle | Globals | (string & {})
-  export type BorderBlockEndWidth = BorderTopWidth | Globals | (string & {})
-  export type BorderBlockStartColor = BorderTopColor | Globals | (string & {})
-  export type BorderBlockStartStyle = BorderTopStyle | Globals | (string & {})
-  export type BorderBlockStartWidth = BorderTopWidth | Globals | (string & {})
-  export type BorderBlockStyle = BorderTopStyle | Globals | (string & {})
-  export type BorderBlockWidth = BorderTopWidth | Globals | (string & {})
-  export type BorderBottomColor = BorderTopColor | Globals | (string & {})
+  export type BlockSize = Property.Width | Globals | (string & {})
+  export type BorderBlockColor =
+    | Property.BorderTopColor
+    | Globals
+    | (string & {})
+  export type BorderBlockEndColor =
+    | Property.BorderTopColor
+    | Globals
+    | (string & {})
+  export type BorderBlockEndStyle =
+    | Property.BorderTopStyle
+    | Globals
+    | (string & {})
+  export type BorderBlockEndWidth =
+    | Property.BorderTopWidth
+    | Globals
+    | (string & {})
+  export type BorderBlockStartColor =
+    | Property.BorderTopColor
+    | Globals
+    | (string & {})
+  export type BorderBlockStartStyle =
+    | Property.BorderTopStyle
+    | Globals
+    | (string & {})
+  export type BorderBlockStartWidth =
+    | Property.BorderTopWidth
+    | Globals
+    | (string & {})
+  export type BorderBlockStyle =
+    | Property.BorderTopStyle
+    | Globals
+    | (string & {})
+  export type BorderBlockWidth =
+    | Property.BorderTopWidth
+    | Globals
+    | (string & {})
+  export type BorderBottomColor =
+    | Property.BorderTopColor
+    | Globals
+    | (string & {})
   export type BorderBottomLeftRadius =
     | TLengthPercentage
     | Globals
@@ -979,9 +1009,12 @@ export namespace Property {
   export type BorderBottomStyle = TLineStyle | Globals | (string & {})
   export type BorderBottomWidth = TLineWidth | Globals | (string & {})
   export type BorderCollapse = 'separate' | 'collapse' | Globals | (string & {})
-  export type BorderEndEndRadius = BorderTopLeftRadius | Globals | (string & {})
+  export type BorderEndEndRadius =
+    | Property.BorderTopLeftRadius
+    | Globals
+    | (string & {})
   export type BorderEndStartRadius =
-    | BorderTopLeftRadius
+    | Property.BorderTopLeftRadius
     | Globals
     | (string & {})
   export type BorderImageOutset = number | Globals | (string & {})
@@ -1000,15 +1033,42 @@ export namespace Property {
     | 'auto'
     | Globals
     | (string & {})
-  export type BorderInlineColor = BorderTopColor | Globals | (string & {})
-  export type BorderInlineEndColor = BorderTopColor | Globals | (string & {})
-  export type BorderInlineEndStyle = BorderTopStyle | Globals | (string & {})
-  export type BorderInlineEndWidth = BorderTopWidth | Globals | (string & {})
-  export type BorderInlineStartColor = BorderTopColor | Globals | (string & {})
-  export type BorderInlineStartStyle = BorderTopStyle | Globals | (string & {})
-  export type BorderInlineStartWidth = BorderTopWidth | Globals | (string & {})
-  export type BorderInlineStyle = BorderTopStyle | Globals | (string & {})
-  export type BorderInlineWidth = BorderTopWidth | Globals | (string & {})
+  export type BorderInlineColor =
+    | Property.BorderTopColor
+    | Globals
+    | (string & {})
+  export type BorderInlineEndColor =
+    | Property.BorderTopColor
+    | Globals
+    | (string & {})
+  export type BorderInlineEndStyle =
+    | Property.BorderTopStyle
+    | Globals
+    | (string & {})
+  export type BorderInlineEndWidth =
+    | Property.BorderTopWidth
+    | Globals
+    | (string & {})
+  export type BorderInlineStartColor =
+    | Property.BorderTopColor
+    | Globals
+    | (string & {})
+  export type BorderInlineStartStyle =
+    | Property.BorderTopStyle
+    | Globals
+    | (string & {})
+  export type BorderInlineStartWidth =
+    | Property.BorderTopWidth
+    | Globals
+    | (string & {})
+  export type BorderInlineStyle =
+    | Property.BorderTopStyle
+    | Globals
+    | (string & {})
+  export type BorderInlineWidth =
+    | Property.BorderTopWidth
+    | Globals
+    | (string & {})
   export type BorderLeftColor = TColor | Globals | (string & {})
   export type BorderLeftStyle = TLineStyle | Globals | (string & {})
   export type BorderLeftWidth = TLineWidth | Globals | (string & {})
@@ -1017,11 +1077,11 @@ export namespace Property {
   export type BorderRightWidth = TLineWidth | Globals | (string & {})
   export type BorderSpacing = (string & {}) | Globals | (string & {})
   export type BorderStartEndRadius =
-    | BorderTopLeftRadius
+    | Property.BorderTopLeftRadius
     | Globals
     | (string & {})
   export type BorderStartStartRadius =
-    | BorderTopLeftRadius
+    | Property.BorderTopLeftRadius
     | Globals
     | (string & {})
   export type BorderTopColor = TColor | Globals | (string & {})
@@ -1154,8 +1214,8 @@ export namespace Property {
   export type ColumnFill = 'auto' | 'balance' | Globals | (string & {})
   export type ColumnGap = 'normal' | TLengthPercentage | Globals | (string & {})
   export type ColumnRuleColor = TColor | Globals | (string & {})
-  export type ColumnRuleStyle = BorderStyle | Globals | (string & {})
-  export type ColumnRuleWidth = BorderWidth | Globals | (string & {})
+  export type ColumnRuleStyle = Property.BorderStyle | Globals | (string & {})
+  export type ColumnRuleWidth = Property.BorderWidth | Globals | (string & {})
   export type ColumnSpan = 'none' | 'all' | Globals | (string & {})
   export type ColumnWidth = 'auto' | Globals | (string & {})
   export type Contain =
@@ -1253,10 +1313,10 @@ export namespace Property {
   export type EmptyCells = 'show' | 'hide' | Globals | (string & {})
   export type FieldSizing = 'content' | 'fixed' | Globals | (string & {})
   export type Fill = TPaint | Globals | (string & {})
-  export type FillOpacity = Opacity | Globals | (string & {})
+  export type FillOpacity = Property.Opacity | Globals | (string & {})
   export type FillRule = 'nonzero' | 'evenodd' | Globals | (string & {})
   export type Filter = 'none' | TFilterValueList | Globals | (string & {})
-  export type FlexBasis = 'content' | Width | Globals | (string & {})
+  export type FlexBasis = 'content' | Property.Width | Globals | (string & {})
   export type FlexDirection =
     | 'row'
     | 'row-reverse'
@@ -1281,7 +1341,7 @@ export namespace Property {
     | Globals
     | (string & {})
   export type FloodColor = TColor | Globals | (string & {})
-  export type FloodOpacity = Opacity | Globals | (string & {})
+  export type FloodOpacity = Property.Opacity | Globals | (string & {})
   export type FontFamily =
     | TFamilyName
     | TGenericFamily
@@ -1543,11 +1603,11 @@ export namespace Property {
     | 'ideographic'
     | Globals
     | (string & {})
-  export type InlineSize = Width | Globals | (string & {})
-  export type InsetBlockEnd = Top | Globals | (string & {})
-  export type InsetBlockStart = Top | Globals | (string & {})
-  export type InsetInlineEnd = Top | Globals | (string & {})
-  export type InsetInlineStart = Top | Globals | (string & {})
+  export type InlineSize = Property.Width | Globals | (string & {})
+  export type InsetBlockEnd = Property.Top | Globals | (string & {})
+  export type InsetBlockStart = Property.Top | Globals | (string & {})
+  export type InsetInlineEnd = Property.Top | Globals | (string & {})
+  export type InsetInlineStart = Property.Top | Globals | (string & {})
   export type InterpolateSize =
     | 'numeric-only'
     | 'allow-keywords'
@@ -1622,15 +1682,15 @@ export namespace Property {
     | 'none'
     | Globals
     | (string & {})
-  export type MarginBlockEnd = MarginTop | Globals | (string & {})
-  export type MarginBlockStart = MarginTop | Globals | (string & {})
+  export type MarginBlockEnd = Property.MarginTop | Globals | (string & {})
+  export type MarginBlockStart = Property.MarginTop | Globals | (string & {})
   export type MarginBottom =
     | TLengthPercentage
     | 'auto'
     | Globals
     | (string & {})
-  export type MarginInlineEnd = MarginTop | Globals | (string & {})
-  export type MarginInlineStart = MarginTop | Globals | (string & {})
+  export type MarginInlineEnd = Property.MarginTop | Globals | (string & {})
+  export type MarginInlineStart = Property.MarginTop | Globals | (string & {})
   export type MarginLeft = TLengthPercentage | 'auto' | Globals | (string & {})
   export type MarginRight = TLengthPercentage | 'auto' | Globals | (string & {})
   export type MarginTop = TLengthPercentage | 'auto' | Globals | (string & {})
@@ -1679,7 +1739,7 @@ export namespace Property {
   export type MathDepth = 'auto-add' | number | Globals | (string & {})
   export type MathShift = 'normal' | 'compact' | Globals | (string & {})
   export type MathStyle = 'normal' | 'compact' | Globals | (string & {})
-  export type MaxBlockSize = MaxWidth | Globals | (string & {})
+  export type MaxBlockSize = Property.MaxWidth | Globals | (string & {})
   export type MaxHeight =
     | 'none'
     | TLengthPercentage
@@ -1688,7 +1748,7 @@ export namespace Property {
     | 'fit-content'
     | Globals
     | (string & {})
-  export type MaxInlineSize = MaxWidth | Globals | (string & {})
+  export type MaxInlineSize = Property.MaxWidth | Globals | (string & {})
   export type MaxLines = 'none' | number | Globals | (string & {})
   export type MaxWidth =
     | 'none'
@@ -1698,7 +1758,7 @@ export namespace Property {
     | 'fit-content'
     | Globals
     | (string & {})
-  export type MinBlockSize = MinWidth | Globals | (string & {})
+  export type MinBlockSize = Property.MinWidth | Globals | (string & {})
   export type MinHeight =
     | 'auto'
     | TLengthPercentage
@@ -1707,7 +1767,7 @@ export namespace Property {
     | 'fit-content'
     | Globals
     | (string & {})
-  export type MinInlineSize = MinWidth | Globals | (string & {})
+  export type MinInlineSize = Property.MinWidth | Globals | (string & {})
   export type MinWidth =
     | 'auto'
     | TLengthPercentage
@@ -1828,11 +1888,11 @@ export namespace Property {
     | 'auto'
     | Globals
     | (string & {})
-  export type PaddingBlockEnd = PaddingTop | Globals | (string & {})
-  export type PaddingBlockStart = PaddingTop | Globals | (string & {})
+  export type PaddingBlockEnd = Property.PaddingTop | Globals | (string & {})
+  export type PaddingBlockStart = Property.PaddingTop | Globals | (string & {})
   export type PaddingBottom = TLengthPercentage | Globals | (string & {})
-  export type PaddingInlineEnd = PaddingTop | Globals | (string & {})
-  export type PaddingInlineStart = PaddingTop | Globals | (string & {})
+  export type PaddingInlineEnd = Property.PaddingTop | Globals | (string & {})
+  export type PaddingInlineStart = Property.PaddingTop | Globals | (string & {})
   export type PaddingLeft = TLengthPercentage | Globals | (string & {})
   export type PaddingRight = TLengthPercentage | Globals | (string & {})
   export type PaddingTop = TLengthPercentage | Globals | (string & {})
@@ -1895,7 +1955,7 @@ export namespace Property {
     | 'none'
     | (string & {})
     | TTryTactic
-    | PositionArea
+    | Property.PositionArea
     | Globals
     | (string & {})
   export type PositionTryOrder = 'normal' | TTrySize | Globals | (string & {})
@@ -2098,8 +2158,8 @@ export namespace Property {
     | 'no-punctuation'
     | Globals
     | (string & {})
-  export type StopColor = Color | Globals | (string & {})
-  export type StopOpacity = Opacity | Globals | (string & {})
+  export type StopColor = Property.Color | Globals | (string & {})
+  export type StopOpacity = Property.Opacity | Globals | (string & {})
   export type Stroke = TPaint | Globals | (string & {})
   export type StrokeColor = TColor | Globals | (string & {})
   export type StrokeDasharray = 'none' | TDasharray | Globals | (string & {})
@@ -2123,7 +2183,7 @@ export namespace Property {
     | Globals
     | (string & {})
   export type StrokeMiterlimit = number | Globals | (string & {})
-  export type StrokeOpacity = Opacity | Globals | (string & {})
+  export type StrokeOpacity = Property.Opacity | Globals | (string & {})
   export type StrokeWidth = TLengthPercentage | number | Globals | (string & {})
   export type TabSize = number | Globals | (string & {})
   export type TableLayout = 'auto' | 'fixed' | Globals | (string & {})
@@ -2151,8 +2211,8 @@ export namespace Property {
   export type TextAutospace = 'normal' | 'auto' | Globals | (string & {})
   export type TextBox =
     | 'normal'
-    | TextBoxTrim
-    | TextBoxEdge
+    | Property.TextBoxTrim
+    | Property.TextBoxEdge
     | Globals
     | (string & {})
   export type TextBoxEdge = 'auto' | TTextEdge | Globals | (string & {})
@@ -2438,8 +2498,8 @@ export namespace Property {
     | 'pre'
     | 'pre-wrap'
     | 'pre-line'
-    | WhiteSpaceCollapse
-    | TextWrapMode
+    | Property.WhiteSpaceCollapse
+    | Property.TextWrapMode
     | Globals
     | (string & {})
   export type WhiteSpaceCollapse =
@@ -2488,8 +2548,8 @@ export namespace Property {
   export type Zoom = 'normal' | 'reset' | number | Globals | (string & {})
   export type Animation = TSingleAnimation | Globals | (string & {})
   export type AnimationRange =
-    | AnimationRangeStart
-    | AnimationRangeEnd
+    | Property.AnimationRangeStart
+    | Property.AnimationRangeEnd
     | Globals
     | (string & {})
   export type Background = TBgLayer | TFinalBgLayer | Globals | (string & {})
@@ -2500,16 +2560,16 @@ export namespace Property {
     | TColor
     | Globals
     | (string & {})
-  export type BorderBlock = BorderBlockStart | Globals | (string & {})
+  export type BorderBlock = Property.BorderBlockStart | Globals | (string & {})
   export type BorderBlockEnd =
-    | BorderTopWidth
-    | BorderTopStyle
+    | Property.BorderTopWidth
+    | Property.BorderTopStyle
     | TColor
     | Globals
     | (string & {})
   export type BorderBlockStart =
-    | BorderTopWidth
-    | BorderTopStyle
+    | Property.BorderTopWidth
+    | Property.BorderTopStyle
     | TColor
     | Globals
     | (string & {})
@@ -2521,24 +2581,24 @@ export namespace Property {
     | (string & {})
   export type BorderColor = TColor | Globals | (string & {})
   export type BorderImage =
-    | BorderImageSource
-    | BorderImageSlice
-    | BorderImageWidth
-    | BorderImageWidth
-    | BorderImageOutset
-    | BorderImageRepeat
+    | Property.BorderImageSource
+    | Property.BorderImageSlice
+    | Property.BorderImageWidth
+    | Property.BorderImageWidth
+    | Property.BorderImageOutset
+    | Property.BorderImageRepeat
     | Globals
     | (string & {})
-  export type BorderInline = BorderBlockStart | Globals | (string & {})
+  export type BorderInline = Property.BorderBlockStart | Globals | (string & {})
   export type BorderInlineEnd =
-    | BorderTopWidth
-    | BorderTopStyle
+    | Property.BorderTopWidth
+    | Property.BorderTopStyle
     | TColor
     | Globals
     | (string & {})
   export type BorderInlineStart =
-    | BorderTopWidth
-    | BorderTopStyle
+    | Property.BorderTopWidth
+    | Property.BorderTopStyle
     | TColor
     | Globals
     | (string & {})
@@ -2563,100 +2623,120 @@ export namespace Property {
     | Globals
     | (string & {})
   export type BorderWidth = TLineWidth | Globals | (string & {})
-  export type Caret = CaretColor | CaretShape | Globals | (string & {})
-  export type ColumnRule =
-    | ColumnRuleWidth
-    | ColumnRuleStyle
-    | ColumnRuleColor
+  export type Caret =
+    | Property.CaretColor
+    | Property.CaretShape
     | Globals
     | (string & {})
-  export type Columns = ColumnWidth | ColumnCount | Globals | (string & {})
+  export type ColumnRule =
+    | Property.ColumnRuleWidth
+    | Property.ColumnRuleStyle
+    | Property.ColumnRuleColor
+    | Globals
+    | (string & {})
+  export type Columns =
+    | Property.ColumnWidth
+    | Property.ColumnCount
+    | Globals
+    | (string & {})
   export type ContainIntrinsicSize = 'auto' | 'none' | Globals | (string & {})
   export type Container =
-    | ContainerName
-    | ContainerType
+    | Property.ContainerName
+    | Property.ContainerType
     | Globals
     | (string & {})
   export type Flex =
     | 'none'
-    | FlexGrow
-    | FlexShrink
-    | FlexBasis
+    | Property.FlexGrow
+    | Property.FlexShrink
+    | Property.FlexBasis
     | Globals
     | (string & {})
-  export type FlexFlow = FlexDirection | FlexWrap | Globals | (string & {})
+  export type FlexFlow =
+    | Property.FlexDirection
+    | Property.FlexWrap
+    | Globals
+    | (string & {})
   export type Font =
-    | FontStyle
+    | Property.FontStyle
     | TFontVariantCss2
-    | FontWeight
+    | Property.FontWeight
     | TFontWidthCss3
-    | FontSize
-    | LineHeight
-    | FontFamily
+    | Property.FontSize
+    | Property.LineHeight
+    | Property.FontFamily
     | TSystemFamilyName
     | Globals
     | (string & {})
-  export type Gap = RowGap | ColumnGap | Globals | (string & {})
+  export type Gap =
+    | Property.RowGap
+    | Property.ColumnGap
+    | Globals
+    | (string & {})
   export type Grid =
-    | GridTemplate
-    | GridTemplateRows
+    | Property.GridTemplate
+    | Property.GridTemplateRows
     | 'auto-flow'
     | 'dense'
-    | GridAutoColumns
+    | Property.GridAutoColumns
     | 'auto-flow'
     | 'dense'
-    | GridAutoRows
-    | GridTemplateColumns
+    | Property.GridAutoRows
+    | Property.GridTemplateColumns
     | Globals
     | (string & {})
   export type GridArea = TGridLine | Globals | (string & {})
   export type GridColumn = TGridLine | Globals | (string & {})
-  export type GridGap = GridRowGap | GridColumnGap | Globals | (string & {})
+  export type GridGap =
+    | Property.GridRowGap
+    | Property.GridColumnGap
+    | Globals
+    | (string & {})
   export type GridRow = TGridLine | Globals | (string & {})
   export type GridTemplate =
     | 'none'
-    | GridTemplateRows
-    | GridTemplateColumns
+    | Property.GridTemplateRows
+    | Property.GridTemplateColumns
     | TLineNames
     | (string & {})
     | TTrackSize
     | TExplicitTrackList
     | Globals
     | (string & {})
-  export type Inset = Top | Globals | (string & {})
-  export type InsetBlock = Top | Globals | (string & {})
-  export type InsetInline = Top | Globals | (string & {})
+  export type Inset = Property.Top | Globals | (string & {})
+  export type InsetBlock = Property.Top | Globals | (string & {})
+  export type InsetInline = Property.Top | Globals | (string & {})
   export type ListStyle =
-    | ListStyleType
-    | ListStylePosition
-    | ListStyleImage
+    | Property.ListStyleType
+    | Property.ListStylePosition
+    | Property.ListStyleImage
     | Globals
     | (string & {})
-  export type Margin = MarginTop | Globals | (string & {})
-  export type MarginBlock = MarginTop | Globals | (string & {})
-  export type MarginInline = MarginTop | Globals | (string & {})
+  export type Margin = Property.MarginTop | Globals | (string & {})
+  export type MarginBlock = Property.MarginTop | Globals | (string & {})
+  export type MarginInline = Property.MarginTop | Globals | (string & {})
   export type Mask = TMaskLayer | Globals | (string & {})
   export type MaskBorder =
-    | MaskBorderSource
-    | MaskBorderSlice
-    | MaskBorderWidth
-    | MaskBorderOutset
-    | MaskBorderRepeat
-    | MaskBorderMode
+    | Property.MaskBorderSource
+    | Property.MaskBorderSlice
+    | Property.MaskBorderWidth
+    | Property.MaskBorderOutset
+    | Property.MaskBorderRepeat
+    | Property.MaskBorderMode
     | Globals
     | (string & {})
   export type Offset =
-    | OffsetPosition
-    | OffsetPath
-    | OffsetDistance
-    | OffsetRotate
-    | OffsetAnchor
+    | Property.OffsetPosition
+    | Property.OffsetPath
+    | Property.OffsetDistance
+    | Property.OffsetRotate
+    | Property.OffsetAnchor
     | Globals
     | (string & {})
   export type Outline =
-    | OutlineWidth
-    | OutlineStyle
-    | OutlineColor
+    | Property.OutlineWidth
+    | Property.OutlineStyle
+    | Property.OutlineColor
     | Globals
     | (string & {})
   export type Overflow =
@@ -2673,19 +2753,27 @@ export namespace Property {
     | 'auto'
     | Globals
     | (string & {})
-  export type Padding = PaddingTop | Globals | (string & {})
-  export type PaddingBlock = PaddingTop | Globals | (string & {})
-  export type PaddingInline = PaddingTop | Globals | (string & {})
+  export type Padding = Property.PaddingTop | Globals | (string & {})
+  export type PaddingBlock = Property.PaddingTop | Globals | (string & {})
+  export type PaddingInline = Property.PaddingTop | Globals | (string & {})
   export type PlaceContent =
-    | AlignContent
-    | JustifyContent
+    | Property.AlignContent
+    | Property.JustifyContent
     | Globals
     | (string & {})
-  export type PlaceItems = AlignItems | JustifyItems | Globals | (string & {})
-  export type PlaceSelf = AlignSelf | JustifySelf | Globals | (string & {})
+  export type PlaceItems =
+    | Property.AlignItems
+    | Property.JustifyItems
+    | Globals
+    | (string & {})
+  export type PlaceSelf =
+    | Property.AlignSelf
+    | Property.JustifySelf
+    | Globals
+    | (string & {})
   export type PositionTry =
-    | PositionTryOrder
-    | PositionTryFallbacks
+    | Property.PositionTryOrder
+    | Property.PositionTryFallbacks
     | Globals
     | (string & {})
   export type ScrollMargin = (string & {}) | Globals | (string & {})
@@ -2707,28 +2795,32 @@ export namespace Property {
     | Globals
     | (string & {})
   export type ScrollTimeline =
-    | ScrollTimelineName
-    | ScrollTimelineAxis
+    | Property.ScrollTimelineName
+    | Property.ScrollTimelineAxis
     | Globals
     | (string & {})
   export type TextDecoration =
-    | TextDecorationLine
-    | TextDecorationStyle
-    | TextDecorationColor
-    | TextDecorationThickness
+    | Property.TextDecorationLine
+    | Property.TextDecorationStyle
+    | Property.TextDecorationColor
+    | Property.TextDecorationThickness
     | Globals
     | (string & {})
   export type TextEmphasis =
-    | TextEmphasisStyle
-    | TextEmphasisColor
+    | Property.TextEmphasisStyle
+    | Property.TextEmphasisColor
     | Globals
     | (string & {})
-  export type TextWrap = TextWrapMode | TextWrapStyle | Globals | (string & {})
+  export type TextWrap =
+    | Property.TextWrapMode
+    | Property.TextWrapStyle
+    | Globals
+    | (string & {})
   export type Transition = TSingleTransition | Globals | (string & {})
   export type ViewTimeline =
-    | ViewTimelineName
-    | ViewTimelineAxis
-    | ViewTimelineInset
+    | Property.ViewTimelineName
+    | Property.ViewTimelineAxis
+    | Property.ViewTimelineInset
     | Globals
     | (string & {})
   export type MsAccelerator = 'false' | 'true' | Globals | (string & {})
@@ -3084,8 +3176,14 @@ export namespace Property {
     | Globals
     | (string & {})
   export type WebkitBorderBeforeColor = TColor | Globals | (string & {})
-  export type WebkitBorderBeforeStyle = BorderStyle | Globals | (string & {})
-  export type WebkitBorderBeforeWidth = BorderWidth | Globals | (string & {})
+  export type WebkitBorderBeforeStyle =
+    | Property.BorderStyle
+    | Globals
+    | (string & {})
+  export type WebkitBorderBeforeWidth =
+    | Property.BorderWidth
+    | Globals
+    | (string & {})
   export type WebkitBoxReflect =
     | 'above'
     | 'below'
@@ -3169,36 +3267,36 @@ export namespace Property {
     | Globals
     | (string & {})
   export type MsContentZoomLimit =
-    | MsContentZoomLimitMin
-    | MsContentZoomLimitMax
+    | Property.MsContentZoomLimitMin
+    | Property.MsContentZoomLimitMax
     | Globals
     | (string & {})
   export type MsContentZoomSnap =
-    | MsContentZoomSnapType
-    | MsContentZoomSnapPoints
+    | Property.MsContentZoomSnapType
+    | Property.MsContentZoomSnapPoints
     | Globals
     | (string & {})
   export type MsScrollLimit =
-    | MsScrollLimitXMin
-    | MsScrollLimitYMin
-    | MsScrollLimitXMax
-    | MsScrollLimitYMax
+    | Property.MsScrollLimitXMin
+    | Property.MsScrollLimitYMin
+    | Property.MsScrollLimitXMax
+    | Property.MsScrollLimitYMax
     | Globals
     | (string & {})
   export type MsScrollSnapX =
-    | MsScrollSnapType
-    | MsScrollSnapPointsX
+    | Property.MsScrollSnapType
+    | Property.MsScrollSnapPointsX
     | Globals
     | (string & {})
   export type MsScrollSnapY =
-    | MsScrollSnapType
-    | MsScrollSnapPointsY
+    | Property.MsScrollSnapType
+    | Property.MsScrollSnapPointsY
     | Globals
     | (string & {})
   export type MozOutlineRadius = TOutlineRadius | Globals | (string & {})
   export type WebkitBorderBefore =
-    | BorderWidth
-    | BorderStyle
+    | Property.BorderWidth
+    | Property.BorderStyle
     | TColor
     | Globals
     | (string & {})
@@ -3583,7 +3681,7 @@ export type TFinalBgLayer =
   | TRepeatStyle
   | TAttachment
   | TVisualBox
-  | BackgroundColor
+  | Property.BackgroundColor
 export type TFixedBreadth = TLengthPercentage
 export type TFixedRepeat = number | TLineNames | TFixedSize | TLineNames
 export type TFixedSize =
@@ -4146,9 +4244,9 @@ export type TSideOrCorner = 'left' | 'right' | 'top' | 'bottom'
 export type TSignedInteger = string & {}
 export type TSignlessInteger = string & {}
 export type TSingleAnimation =
-  | AnimationDuration
+  | Property.AnimationDuration
   | TEasingFunction
-  | AnimationDelay
+  | Property.AnimationDelay
   | TSingleAnimationIterationCount
   | TSingleAnimationDirection
   | TSingleAnimationFillMode

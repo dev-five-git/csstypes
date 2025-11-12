@@ -49,7 +49,7 @@ function convertNode(
     case 'Comma':
       return ''
     case 'Property':
-      return toPascalCase(node.name)
+      return `Property.${toPascalCase(node.name)}`
     case 'Token':
       return ''
     case 'AtKeyword':
