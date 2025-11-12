@@ -10,7 +10,7 @@ export function convertType(
   syntaxs: Record<string, { syntax: string; primitive?: boolean }>,
 ): string {
   const ast = definitionSyntax.parse(type)
-  return convertNode(ast, syntaxs) || '(string & {})'
+  return [convertNode(ast, syntaxs), 'Globals'].filter(Boolean).join(' | ')
 }
 
 function convertNode(
@@ -33,7 +33,6 @@ function convertNode(
         if (syntaxs[typeName].primitive) return syntaxs[typeName].syntax
         return `T${toPascalCase(typeName)}`
       }
-      if (typeName.endsWith('-ident')) return '(string & {})'
       return ''
     }
     case 'Multiplier': {

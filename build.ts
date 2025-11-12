@@ -63,6 +63,10 @@ const customSyntaxes = {
     syntax: 'number',
     primitive: true,
   },
+  length: {
+    syntax: 'number',
+    primitive: true,
+  },
 }
 
 Object.assign(syntaxes, customSyntaxes)
@@ -137,17 +141,17 @@ export type Globals = "-moz-initial" | "inherit" | "initial" | "revert" | "rever
 
 output += `export namespace Property {\n`
 for (const [property, value] of standardLonghandProperties) {
-  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | Globals | (string & {})\n`
+  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | (string & {})\n`
 }
 for (const [property, value] of standardShorthandProperties) {
-  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | Globals | (string & {})\n`
+  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | (string & {})\n`
 }
 
 for (const [property, value] of vendorLonghandProperties) {
-  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | Globals | (string & {})\n`
+  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | (string & {})\n`
 }
 for (const [property, value] of vendorShorthandProperties) {
-  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | Globals | (string & {})\n`
+  output += `  export type ${toPascalCase(property)} = ${convertType(value.syntax, syntaxes)} | (string & {})\n`
 }
 
 output += `}\n`

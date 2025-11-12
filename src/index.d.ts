@@ -854,18 +854,13 @@ export namespace Property {
     | 'revert-layer'
     | Globals
     | (string & {})
-  export type AnchorName = 'none' | (string & {}) | Globals | (string & {})
-  export type AnchorScope =
-    | 'none'
-    | 'all'
-    | (string & {})
-    | Globals
-    | (string & {})
+  export type AnchorName = 'none' | Globals | (string & {})
+  export type AnchorScope = 'none' | 'all' | Globals | (string & {})
   export type AnimationComposition =
     | TSingleAnimationComposition
     | Globals
     | (string & {})
-  export type AnimationDelay = (string & {}) | Globals | (string & {})
+  export type AnimationDelay = Globals | (string & {})
   export type AnimationDirection =
     | TSingleAnimationDirection
     | Globals
@@ -1075,7 +1070,7 @@ export namespace Property {
   export type BorderRightColor = TColor | Globals | (string & {})
   export type BorderRightStyle = TLineStyle | Globals | (string & {})
   export type BorderRightWidth = TLineWidth | Globals | (string & {})
-  export type BorderSpacing = (string & {}) | Globals | (string & {})
+  export type BorderSpacing = number | Globals | (string & {})
   export type BorderStartEndRadius =
     | Property.BorderTopLeftRadius
     | Globals
@@ -1206,7 +1201,6 @@ export namespace Property {
     | 'normal'
     | 'light'
     | 'dark'
-    | (string & {})
     | 'only'
     | Globals
     | (string & {})
@@ -1217,7 +1211,7 @@ export namespace Property {
   export type ColumnRuleStyle = Property.BorderStyle | Globals | (string & {})
   export type ColumnRuleWidth = Property.BorderWidth | Globals | (string & {})
   export type ColumnSpan = 'none' | 'all' | Globals | (string & {})
-  export type ColumnWidth = 'auto' | Globals | (string & {})
+  export type ColumnWidth = number | 'auto' | Globals | (string & {})
   export type Contain =
     | 'none'
     | 'strict'
@@ -1232,16 +1226,28 @@ export namespace Property {
   export type ContainIntrinsicBlockSize =
     | 'auto'
     | 'none'
+    | number
     | Globals
     | (string & {})
-  export type ContainIntrinsicHeight = 'auto' | 'none' | Globals | (string & {})
+  export type ContainIntrinsicHeight =
+    | 'auto'
+    | 'none'
+    | number
+    | Globals
+    | (string & {})
   export type ContainIntrinsicInlineSize =
     | 'auto'
     | 'none'
+    | number
     | Globals
     | (string & {})
-  export type ContainIntrinsicWidth = 'auto' | 'none' | Globals | (string & {})
-  export type ContainerName = 'none' | (string & {}) | Globals | (string & {})
+  export type ContainIntrinsicWidth =
+    | 'auto'
+    | 'none'
+    | number
+    | Globals
+    | (string & {})
+  export type ContainerName = 'none' | Globals | (string & {})
   export type ContainerType =
     | 'normal'
     | 'size'
@@ -1389,6 +1395,7 @@ export namespace Property {
     | 'never'
     | 'always'
     | TAbsoluteSize
+    | number
     | Globals
     | (string & {})
   export type FontStretch = TFontStretchAbsolute | Globals | (string & {})
@@ -1661,7 +1668,7 @@ export namespace Property {
     | Globals
     | (string & {})
   export type Left = 'auto' | TLengthPercentage | Globals | (string & {})
-  export type LetterSpacing = 'normal' | Globals | (string & {})
+  export type LetterSpacing = 'normal' | number | Globals | (string & {})
   export type LightingColor = TColor | Globals | (string & {})
   export type LineBreak =
     | 'auto'
@@ -1673,7 +1680,7 @@ export namespace Property {
     | (string & {})
   export type LineClamp = 'none' | number | Globals | (string & {})
   export type LineHeight = 'normal' | number | Globals | (string & {})
-  export type LineHeightStep = (string & {}) | Globals | (string & {})
+  export type LineHeightStep = number | Globals | (string & {})
   export type ListStyleImage = TImage | 'none' | Globals | (string & {})
   export type ListStylePosition = 'inside' | 'outside' | Globals | (string & {})
   export type ListStyleType =
@@ -1811,7 +1818,7 @@ export namespace Property {
   export type Order = number | Globals | (string & {})
   export type Orphans = number | Globals | (string & {})
   export type OutlineColor = 'auto' | TColor | Globals | (string & {})
-  export type OutlineOffset = (string & {}) | Globals | (string & {})
+  export type OutlineOffset = number | Globals | (string & {})
   export type OutlineStyle =
     | 'auto'
     | TOutlineLineStyle
@@ -1832,7 +1839,7 @@ export namespace Property {
     | 'content-box'
     | Globals
     | (string & {})
-  export type OverflowClipMargin = TVisualBox | Globals | (string & {})
+  export type OverflowClipMargin = TVisualBox | number | Globals | (string & {})
   export type OverflowInline =
     | 'visible'
     | 'hidden'
@@ -1896,7 +1903,7 @@ export namespace Property {
   export type PaddingLeft = TLengthPercentage | Globals | (string & {})
   export type PaddingRight = TLengthPercentage | Globals | (string & {})
   export type PaddingTop = TLengthPercentage | Globals | (string & {})
-  export type Page = 'auto' | (string & {}) | Globals | (string & {})
+  export type Page = 'auto' | Globals | (string & {})
   export type PageBreakAfter =
     | 'auto'
     | 'always'
@@ -1925,7 +1932,7 @@ export namespace Property {
     | 'markers'
     | Globals
     | (string & {})
-  export type Perspective = 'none' | Globals | (string & {})
+  export type Perspective = 'none' | number | Globals | (string & {})
   export type PerspectiveOrigin = TPosition | Globals | (string & {})
   export type PointerEvents =
     | 'auto'
@@ -1953,7 +1960,6 @@ export namespace Property {
   export type PositionArea = 'none' | TPositionArea | Globals | (string & {})
   export type PositionTryFallbacks =
     | 'none'
-    | (string & {})
     | TTryTactic
     | Property.PositionArea
     | Globals
@@ -2014,14 +2020,14 @@ export namespace Property {
   export type Scale = 'none' | number | Globals | (string & {})
   export type ScrollBehavior = 'auto' | 'smooth' | Globals | (string & {})
   export type ScrollInitialTarget = 'none' | 'nearest' | Globals | (string & {})
-  export type ScrollMarginBlockEnd = (string & {}) | Globals | (string & {})
-  export type ScrollMarginBlockStart = (string & {}) | Globals | (string & {})
-  export type ScrollMarginBottom = (string & {}) | Globals | (string & {})
-  export type ScrollMarginInlineEnd = (string & {}) | Globals | (string & {})
-  export type ScrollMarginInlineStart = (string & {}) | Globals | (string & {})
-  export type ScrollMarginLeft = (string & {}) | Globals | (string & {})
-  export type ScrollMarginRight = (string & {}) | Globals | (string & {})
-  export type ScrollMarginTop = (string & {}) | Globals | (string & {})
+  export type ScrollMarginBlockEnd = number | Globals | (string & {})
+  export type ScrollMarginBlockStart = number | Globals | (string & {})
+  export type ScrollMarginBottom = number | Globals | (string & {})
+  export type ScrollMarginInlineEnd = number | Globals | (string & {})
+  export type ScrollMarginInlineStart = number | Globals | (string & {})
+  export type ScrollMarginLeft = number | Globals | (string & {})
+  export type ScrollMarginRight = number | Globals | (string & {})
+  export type ScrollMarginTop = number | Globals | (string & {})
   export type ScrollPaddingBlockEnd =
     | 'auto'
     | TLengthPercentage
@@ -2116,11 +2122,7 @@ export namespace Property {
     | 'y'
     | Globals
     | (string & {})
-  export type ScrollTimelineName =
-    | 'none'
-    | (string & {})
-    | Globals
-    | (string & {})
+  export type ScrollTimelineName = 'none' | Globals | (string & {})
   export type ScrollbarColor = 'auto' | TColor | Globals | (string & {})
   export type ScrollbarGutter =
     | 'auto'
@@ -2365,7 +2367,7 @@ export namespace Property {
     | 'pretty'
     | Globals
     | (string & {})
-  export type TimelineScope = 'none' | (string & {}) | Globals | (string & {})
+  export type TimelineScope = 'none' | Globals | (string & {})
   export type Top = 'auto' | TLengthPercentage | Globals | (string & {})
   export type TouchAction =
     | 'auto'
@@ -2404,6 +2406,7 @@ export namespace Property {
     | 'top'
     | 'center'
     | 'bottom'
+    | number
     | Globals
     | (string & {})
   export type TransformStyle = 'flat' | 'preserve-3d' | Globals | (string & {})
@@ -2411,8 +2414,8 @@ export namespace Property {
     | TTransitionBehaviorValue
     | Globals
     | (string & {})
-  export type TransitionDelay = (string & {}) | Globals | (string & {})
-  export type TransitionDuration = (string & {}) | Globals | (string & {})
+  export type TransitionDelay = Globals | (string & {})
+  export type TransitionDuration = Globals | (string & {})
   export type TransitionProperty =
     | 'none'
     | TSingleTransitionProperty
@@ -2422,7 +2425,13 @@ export namespace Property {
     | TEasingFunction
     | Globals
     | (string & {})
-  export type Translate = 'none' | TLengthPercentage | Globals | (string & {})
+  export type Translate =
+    | 'none'
+    | TLengthPercentage
+    | TLengthPercentage
+    | number
+    | Globals
+    | (string & {})
   export type UnicodeBidi =
     | 'normal'
     | 'embed'
@@ -2471,19 +2480,10 @@ export namespace Property {
     | TLengthPercentage
     | Globals
     | (string & {})
-  export type ViewTimelineName =
-    | 'none'
-    | (string & {})
-    | Globals
-    | (string & {})
-  export type ViewTransitionClass =
-    | 'none'
-    | (string & {})
-    | Globals
-    | (string & {})
+  export type ViewTimelineName = 'none' | Globals | (string & {})
+  export type ViewTransitionClass = 'none' | Globals | (string & {})
   export type ViewTransitionName =
     | 'none'
-    | (string & {})
     | 'match-element'
     | Globals
     | (string & {})
@@ -2532,7 +2532,7 @@ export namespace Property {
     | 'auto-phrase'
     | Globals
     | (string & {})
-  export type WordSpacing = 'normal' | Globals | (string & {})
+  export type WordSpacing = 'normal' | number | Globals | (string & {})
   export type WordWrap = 'normal' | 'break-word' | Globals | (string & {})
   export type WritingMode =
     | 'horizontal-tb'
@@ -2639,7 +2639,12 @@ export namespace Property {
     | Property.ColumnCount
     | Globals
     | (string & {})
-  export type ContainIntrinsicSize = 'auto' | 'none' | Globals | (string & {})
+  export type ContainIntrinsicSize =
+    | 'auto'
+    | 'none'
+    | number
+    | Globals
+    | (string & {})
   export type Container =
     | Property.ContainerName
     | Property.ContainerType
@@ -2776,9 +2781,9 @@ export namespace Property {
     | Property.PositionTryFallbacks
     | Globals
     | (string & {})
-  export type ScrollMargin = (string & {}) | Globals | (string & {})
-  export type ScrollMarginBlock = (string & {}) | Globals | (string & {})
-  export type ScrollMarginInline = (string & {}) | Globals | (string & {})
+  export type ScrollMargin = number | Globals | (string & {})
+  export type ScrollMarginBlock = number | Globals | (string & {})
+  export type ScrollMarginInline = number | Globals | (string & {})
   export type ScrollPadding =
     | 'auto'
     | TLengthPercentage
@@ -2847,8 +2852,8 @@ export namespace Property {
     | (string & {})
   export type MsContentZooming = 'none' | 'zoom' | Globals | (string & {})
   export type MsFilter = (string & {}) | Globals | (string & {})
-  export type MsFlowFrom = 'none' | (string & {}) | Globals | (string & {})
-  export type MsFlowInto = 'none' | (string & {}) | Globals | (string & {})
+  export type MsFlowFrom = 'none' | Globals | (string & {})
+  export type MsFlowInto = 'none' | Globals | (string & {})
   export type MsGridColumns =
     | 'none'
     | TTrackList
@@ -2878,10 +2883,10 @@ export namespace Property {
     | Globals
     | (string & {})
   export type MsScrollChaining = 'chained' | 'none' | Globals | (string & {})
-  export type MsScrollLimitXMax = 'auto' | Globals | (string & {})
-  export type MsScrollLimitXMin = (string & {}) | Globals | (string & {})
-  export type MsScrollLimitYMax = 'auto' | Globals | (string & {})
-  export type MsScrollLimitYMin = (string & {}) | Globals | (string & {})
+  export type MsScrollLimitXMax = 'auto' | number | Globals | (string & {})
+  export type MsScrollLimitXMin = number | Globals | (string & {})
+  export type MsScrollLimitYMax = 'auto' | number | Globals | (string & {})
+  export type MsScrollLimitYMin = number | Globals | (string & {})
   export type MsScrollRails = 'none' | 'railed' | Globals | (string & {})
   export type MsScrollSnapPointsX = TLengthPercentage | Globals | (string & {})
   export type MsScrollSnapPointsY = TLengthPercentage | Globals | (string & {})
@@ -2928,7 +2933,7 @@ export namespace Property {
     | 'clear'
     | Globals
     | (string & {})
-  export type MsWrapMargin = (string & {}) | Globals | (string & {})
+  export type MsWrapMargin = number | Globals | (string & {})
   export type MsWrapThrough = 'wrap' | 'none' | Globals | (string & {})
   export type MozAppearance =
     | 'none'
@@ -3189,6 +3194,7 @@ export namespace Property {
     | 'below'
     | 'right'
     | 'left'
+    | number
     | TImage
     | Globals
     | (string & {})
@@ -3251,7 +3257,7 @@ export namespace Property {
   export type WebkitTapHighlightColor = TColor | Globals | (string & {})
   export type WebkitTextFillColor = TColor | Globals | (string & {})
   export type WebkitTextStrokeColor = TColor | Globals | (string & {})
-  export type WebkitTextStrokeWidth = (string & {}) | Globals | (string & {})
+  export type WebkitTextStrokeWidth = number | Globals | (string & {})
   export type WebkitTouchCallout = 'default' | 'none' | Globals | (string & {})
   export type WebkitUserModify =
     | 'read-only'
@@ -3316,7 +3322,7 @@ export namespace Property {
     | 'content'
     | Globals
     | (string & {})
-  export type WebkitTextStroke = TColor | Globals | (string & {})
+  export type WebkitTextStroke = number | TColor | Globals | (string & {})
 }
 export type TAbsoluteSize =
   | 'xx-small'
@@ -3327,8 +3333,9 @@ export type TAbsoluteSize =
   | 'x-large'
   | 'xx-large'
   | 'xxx-large'
-export type TAlphaValue = number
-export type TAnchorName = string & {}
+  | Globals
+export type TAlphaValue = number | Globals
+export type TAnchorName = Globals
 export type TAnchorSide =
   | 'inside'
   | 'outside'
@@ -3342,6 +3349,7 @@ export type TAnchorSide =
   | 'self-end'
   | number
   | 'center'
+  | Globals
 export type TAnchorSize =
   | 'width'
   | 'height'
@@ -3349,18 +3357,27 @@ export type TAnchorSize =
   | 'inline'
   | 'self-block'
   | 'self-inline'
-export type TAnglePercentage = number
-export type TAngularColorHint = TAnglePercentage
-export type TAngularColorStop = TColor | TColorStopAngle
+  | Globals
+export type TAnglePercentage = number | Globals
+export type TAngularColorHint = TAnglePercentage | Globals
+export type TAngularColorStop = TColor | TColorStopAngle | Globals
 export type TAngularColorStopList =
   | TAngularColorStop
   | TAngularColorHint
   | TAngularColorStop
-export type TAnimateableFeature = 'scroll-position' | 'contents' | (string & {})
-export type TAttachment = 'scroll' | 'fixed' | 'local'
-export type TAttrMatcher = "'~'" | "'|'" | "'^'" | "'$'" | "'*'" | "'='"
-export type TAttrModifier = 'i' | 's'
-export type TAttrType = 'raw-string' | 'number'
+  | Globals
+export type TAnimateableFeature = 'scroll-position' | 'contents' | Globals
+export type TAttachment = 'scroll' | 'fixed' | 'local' | Globals
+export type TAttrMatcher =
+  | "'~'"
+  | "'|'"
+  | "'^'"
+  | "'$'"
+  | "'*'"
+  | "'='"
+  | Globals
+export type TAttrModifier = 'i' | 's' | Globals
+export type TAttrType = 'raw-string' | 'number' | Globals
 export type TAttributeSelector =
   | "'['"
   | TWqName
@@ -3370,24 +3387,27 @@ export type TAttributeSelector =
   | TAttrMatcher
   | TAttrModifier
   | "']'"
+  | Globals
 export type TAutoRepeat =
   | 'auto-fill'
   | 'auto-fit'
   | TLineNames
   | TFixedSize
   | TLineNames
+  | Globals
 export type TAutoTrackList =
   | TLineNames
   | TFixedSize
   | TFixedRepeat
   | TLineNames
   | TAutoRepeat
-export type TAxis = 'block' | 'inline' | 'x' | 'y'
-export type TBaselinePosition = 'first' | 'last' | 'baseline'
-export type TBasicShape = string & {}
-export type TBasicShapeRect = string & {}
-export type TBgClip = TVisualBox | 'border-area' | 'text'
-export type TBgImage = TImage | 'none'
+  | Globals
+export type TAxis = 'block' | 'inline' | 'x' | 'y' | Globals
+export type TBaselinePosition = 'first' | 'last' | 'baseline' | Globals
+export type TBasicShape = Globals
+export type TBasicShapeRect = Globals
+export type TBgClip = TVisualBox | 'border-area' | 'text' | Globals
+export type TBgImage = TImage | 'none' | Globals
 export type TBgLayer =
   | TBgImage
   | TBgPosition
@@ -3395,6 +3415,7 @@ export type TBgLayer =
   | TRepeatStyle
   | TAttachment
   | TVisualBox
+  | Globals
 export type TBgPosition =
   | 'left'
   | 'center'
@@ -3418,7 +3439,8 @@ export type TBgPosition =
   | 'top'
   | 'bottom'
   | TLengthPercentage
-export type TBgSize = TLengthPercentage | 'auto' | 'cover' | 'contain'
+  | Globals
+export type TBgSize = TLengthPercentage | 'auto' | 'cover' | 'contain' | Globals
 export type TBlendMode =
   | 'normal'
   | 'multiply'
@@ -3436,42 +3458,62 @@ export type TBlendMode =
   | 'saturation'
   | 'color'
   | 'luminosity'
-export type TCalcConstant = 'e' | 'pi' | 'infinity' | '-infinity' | 'NaN'
-export type TCalcProduct = TCalcValue | "'*'" | TCalcValue | "'/'" | number
-export type TCalcSizeBasis = 'any' | TCalcSum
-export type TCalcSum = TCalcProduct | "'+'" | "'-'" | TCalcProduct
-export type TCalcValue = number | TCalcConstant | TCalcSum
-export type TCfFinalImage = TImage | TColor
-export type TCfMixingImage = number | TImage
-export type TClassSelector = "'.'"
-export type TClipSource = string & {}
+  | Globals
+export type TCalcConstant =
+  | 'e'
+  | 'pi'
+  | 'infinity'
+  | '-infinity'
+  | 'NaN'
+  | Globals
+export type TCalcProduct =
+  | TCalcValue
+  | "'*'"
+  | TCalcValue
+  | "'/'"
+  | number
+  | Globals
+export type TCalcSizeBasis = 'any' | TCalcSum | Globals
+export type TCalcSum = TCalcProduct | "'+'" | "'-'" | TCalcProduct | Globals
+export type TCalcValue = number | TCalcConstant | TCalcSum | Globals
+export type TCfFinalImage = TImage | TColor | Globals
+export type TCfMixingImage = number | TImage | Globals
+export type TClassSelector = "'.'" | Globals
+export type TClipSource = Globals
 export type TColor =
   | TColorBase
   | 'currentColor'
   | TSystemColor
   | TDeprecatedSystemColor
+  | Globals
   | keyof CustomColors
-export type TColorBase = TColorFunction | TNamedColor | 'transparent'
-export type TColorFunction = string & {}
+export type TColorBase = TColorFunction | TNamedColor | 'transparent' | Globals
+export type TColorFunction = Globals
 export type TColorInterpolationMethod =
   | 'in'
   | TRectangularColorSpace
   | TPolarColorSpace
   | THueInterpolationMethod
   | TCustomColorSpace
-export type TColorStop = TColorStopLength | TColorStopAngle
-export type TColorStopAngle = TAnglePercentage
-export type TColorStopLength = TLengthPercentage
+  | Globals
+export type TColorStop = TColorStopLength | TColorStopAngle | Globals
+export type TColorStopAngle = TAnglePercentage | Globals
+export type TColorStopLength = TLengthPercentage | Globals
 export type TColorStopList =
   | TLinearColorStop
   | TLinearColorHint
   | TLinearColorStop
+  | Globals
 export type TColorspaceParams =
   | TCustomParams
   | TPredefinedRgbParams
   | TXyzParams
-export type TCombinator = "'>'" | "'+'" | "'~'" | "'||'"
-export type TCommonLigValues = 'common-ligatures' | 'no-common-ligatures'
+  | Globals
+export type TCombinator = "'>'" | "'+'" | "'~'" | "'||'" | Globals
+export type TCommonLigValues =
+  | 'common-ligatures'
+  | 'no-common-ligatures'
+  | Globals
 export type TCompatAuto =
   | 'searchfield'
   | 'textarea'
@@ -3482,12 +3524,14 @@ export type TCompatAuto =
   | 'meter'
   | 'progress-bar'
   | 'button'
-export type TCompatSpecial = 'textfield' | 'menulist-button'
+  | Globals
+export type TCompatSpecial = 'textfield' | 'menulist-button' | Globals
 export type TComplexSelector =
   | TCompoundSelector
   | TCombinator
   | TCompoundSelector
-export type TComplexSelectorList = TComplexSelector
+  | Globals
+export type TComplexSelectorList = TComplexSelector | Globals
 export type TCompositeStyle =
   | 'clear'
   | 'copy'
@@ -3500,21 +3544,29 @@ export type TCompositeStyle =
   | 'destination-out'
   | 'destination-atop'
   | 'xor'
-export type TCompositingOperator = 'add' | 'subtract' | 'intersect' | 'exclude'
+  | Globals
+export type TCompositingOperator =
+  | 'add'
+  | 'subtract'
+  | 'intersect'
+  | 'exclude'
+  | Globals
 export type TCompoundSelector =
   | TTypeSelector
   | TSubclassSelector
   | TPseudoElementSelector
   | TPseudoClassSelector
-export type TCompoundSelectorList = TCompoundSelector
+  | Globals
+export type TCompoundSelectorList = TCompoundSelector | Globals
 export type TConicGradientSyntax =
   | 'from'
   | 'at'
   | TPosition
   | TColorInterpolationMethod
   | TAngularColorStopList
-export type TContainerCondition = TContainerName | TContainerQuery
-export type TContainerName = string & {}
+  | Globals
+export type TContainerCondition = TContainerName | TContainerQuery | Globals
+export type TContainerName = Globals
 export type TContainerQuery =
   | 'not'
   | TQueryInParens
@@ -3523,30 +3575,34 @@ export type TContainerQuery =
   | TQueryInParens
   | 'or'
   | TQueryInParens
+  | Globals
 export type TContentDistribution =
   | 'space-between'
   | 'space-around'
   | 'space-evenly'
   | 'stretch'
-export type TContentList = (string & {}) | TImage | TQuote | TCounter
+  | Globals
+export type TContentList = (string & {}) | TImage | TQuote | TCounter | Globals
 export type TContentPosition =
   | 'center'
   | 'start'
   | 'end'
   | 'flex-start'
   | 'flex-end'
-export type TContentReplacement = TImage
-export type TContextualAltValues = 'contextual' | 'no-contextual'
-export type TCoordBox = TPaintBox | 'view-box'
-export type TCounter = string & {}
-export type TCounterName = string & {}
-export type TCounterStyle = TCounterStyleName
-export type TCounterStyleName = string & {}
+  | Globals
+export type TContentReplacement = TImage | Globals
+export type TContextualAltValues = 'contextual' | 'no-contextual' | Globals
+export type TCoordBox = TPaintBox | 'view-box' | Globals
+export type TCounter = Globals
+export type TCounterName = Globals
+export type TCounterStyle = TCounterStyleName | Globals
+export type TCounterStyleName = Globals
 export type TCubicBezierEasingFunction =
   | 'ease'
   | 'ease-in'
   | 'ease-out'
   | 'ease-in-out'
+  | Globals
 export type TCursorPredefined =
   | 'auto'
   | 'default'
@@ -3584,10 +3640,11 @@ export type TCursorPredefined =
   | 'zoom-out'
   | 'grab'
   | 'grabbing'
-export type TCustomColorSpace = string & {}
-export type TCustomParams = (string & {}) | number | 'none'
-export type TDasharray = TLengthPercentage | number
-export type TDashndashdigitIdent = string & {}
+  | Globals
+export type TCustomColorSpace = Globals
+export type TCustomParams = number | 'none' | Globals
+export type TDasharray = TLengthPercentage | number | Globals
+export type TDashndashdigitIdent = Globals
 export type TDeprecatedSystemColor =
   | 'ActiveBorder'
   | 'ActiveCaption'
@@ -3612,10 +3669,12 @@ export type TDeprecatedSystemColor =
   | 'Window'
   | 'WindowFrame'
   | 'WindowText'
+  | Globals
 export type TDiscretionaryLigValues =
   | 'discretionary-ligatures'
   | 'no-discretionary-ligatures'
-export type TDisplayBox = 'contents' | 'none'
+  | Globals
+export type TDisplayBox = 'contents' | 'none' | Globals
 export type TDisplayInside =
   | 'flow'
   | 'flow-root'
@@ -3623,6 +3682,7 @@ export type TDisplayInside =
   | 'flex'
   | 'grid'
   | 'ruby'
+  | Globals
 export type TDisplayInternal =
   | 'table-row-group'
   | 'table-header-group'
@@ -3636,22 +3696,26 @@ export type TDisplayInternal =
   | 'ruby-text'
   | 'ruby-base-container'
   | 'ruby-text-container'
+  | Globals
 export type TDisplayLegacy =
   | 'inline-block'
   | 'inline-list-item'
   | 'inline-table'
   | 'inline-flex'
   | 'inline-grid'
+  | Globals
 export type TDisplayListitem =
   | TDisplayOutside
   | 'flow'
   | 'flow-root'
   | 'list-item'
-export type TDisplayOutside = 'block' | 'inline' | 'run-in'
+  | Globals
+export type TDisplayOutside = 'block' | 'inline' | 'run-in' | Globals
 export type TEasingFunction =
   | TLinearEasingFunction
   | TCubicBezierEasingFunction
   | TStepEasingFunction
+  | Globals
 export type TEastAsianVariantValues =
   | 'jis78'
   | 'jis83'
@@ -3659,21 +3723,26 @@ export type TEastAsianVariantValues =
   | 'jis04'
   | 'simplified'
   | 'traditional'
-export type TEastAsianWidthValues = 'full-width' | 'proportional-width'
-export type TExplicitTrackList = TLineNames | TTrackSize | TLineNames
-export type TFamilyName = string & {}
-export type TFeatureTagValue = (string & {}) | number | 'on' | 'off'
+  | Globals
+export type TEastAsianWidthValues =
+  | 'full-width'
+  | 'proportional-width'
+  | Globals
+export type TExplicitTrackList = TLineNames | TTrackSize | TLineNames | Globals
+export type TFamilyName = (string & {}) | Globals
+export type TFeatureTagValue = (string & {}) | number | 'on' | 'off' | Globals
 export type TFeatureValueBlock =
   | TFeatureType
   | "'{'"
   | TFeatureValueDeclarationList
   | "'}'"
-export type TFeatureValueBlockList = TFeatureValueBlock
-export type TFeatureValueDeclaration = (string & {}) | number
-export type TFeatureValueDeclarationList = TFeatureValueDeclaration
-export type TFeatureValueName = string & {}
-export type TFilterFunction = string & {}
-export type TFilterValueList = TFilterFunction
+  | Globals
+export type TFeatureValueBlockList = TFeatureValueBlock | Globals
+export type TFeatureValueDeclaration = number | Globals
+export type TFeatureValueDeclarationList = TFeatureValueDeclaration | Globals
+export type TFeatureValueName = Globals
+export type TFilterFunction = Globals
+export type TFilterValueList = TFilterFunction | Globals
 export type TFinalBgLayer =
   | TBgImage
   | TBgPosition
@@ -3682,14 +3751,21 @@ export type TFinalBgLayer =
   | TAttachment
   | TVisualBox
   | Property.BackgroundColor
-export type TFixedBreadth = TLengthPercentage
-export type TFixedRepeat = number | TLineNames | TFixedSize | TLineNames
+  | Globals
+export type TFixedBreadth = TLengthPercentage | Globals
+export type TFixedRepeat =
+  | number
+  | TLineNames
+  | TFixedSize
+  | TLineNames
+  | Globals
 export type TFixedSize =
   | TFixedBreadth
   | TFixedBreadth
   | TTrackBreadth
   | TInflexibleBreadth
   | TFixedBreadth
+  | Globals
 export type TFontStretchAbsolute =
   | 'normal'
   | 'ultra-condensed'
@@ -3701,8 +3777,9 @@ export type TFontStretchAbsolute =
   | 'extra-expanded'
   | 'ultra-expanded'
   | number
-export type TFontVariantCss2 = 'normal' | 'small-caps'
-export type TFontWeightAbsolute = 'normal' | 'bold' | number
+  | Globals
+export type TFontVariantCss2 = 'normal' | 'small-caps' | Globals
+export type TFontWeightAbsolute = 'normal' | 'bold' | number | Globals
 export type TFontWidthCss3 =
   | 'normal'
   | 'ultra-condensed'
@@ -3713,8 +3790,9 @@ export type TFontWidthCss3 =
   | 'expanded'
   | 'extra-expanded'
   | 'ultra-expanded'
-export type TFormControlIdentifier = 'select'
-export type TFrequencyPercentage = number
+  | Globals
+export type TFormControlIdentifier = 'select' | Globals
+export type TFrequencyPercentage = number | Globals
 export type TGenericComplete =
   | 'serif'
   | 'sans-serif'
@@ -3723,60 +3801,65 @@ export type TGenericComplete =
   | 'fantasy'
   | 'math'
   | 'monospace'
-export type TGeneralEnclosed = string & {}
+  | Globals
+export type TGeneralEnclosed = Globals
 export type TGenericFamily =
   | TGenericComplete
   | TGenericIncomplete
   | 'emoji'
   | 'fangsong'
+  | Globals
 export type TGenericIncomplete =
   | 'ui-serif'
   | 'ui-sans-serif'
   | 'ui-monospace'
   | 'ui-rounded'
-export type TGeometryBox = TShapeBox | 'fill-box' | 'stroke-box' | 'view-box'
-export type TGradient = string & {}
-export type TGridLine =
-  | 'auto'
-  | (string & {})
-  | number
-  | (string & {})
-  | 'span'
-  | number
-  | (string & {})
+  | Globals
+export type TGeometryBox =
+  | TShapeBox
+  | 'fill-box'
+  | 'stroke-box'
+  | 'view-box'
+  | Globals
+export type TGradient = Globals
+export type TGridLine = 'auto' | number | 'span' | number | Globals
 export type THistoricalLigValues =
   | 'historical-ligatures'
   | 'no-historical-ligatures'
-export type THue = number
+  | Globals
+export type THue = number | Globals
 export type THueInterpolationMethod =
   | 'shorter'
   | 'longer'
   | 'increasing'
   | 'decreasing'
   | 'hue'
-export type TIdSelector = string & {}
-export type TImage = TGradient
-export type TImageSetOption = TImage | (string & {}) | (string & {})
-export type TImageSrc = string & {}
-export type TImageTags = 'ltr' | 'rtl'
+  | Globals
+export type TIdSelector = Globals
+export type TImage = TGradient | Globals
+export type TImageSetOption = TImage | (string & {}) | (string & {}) | Globals
+export type TImageSrc = (string & {}) | Globals
+export type TImageTags = 'ltr' | 'rtl' | Globals
 export type TInflexibleBreadth =
   | TLengthPercentage
   | 'min-content'
   | 'max-content'
   | 'auto'
-export type TKeyframeBlock = TKeyframeSelector
+  | Globals
+export type TKeyframeBlock = TKeyframeSelector | Globals
 export type TKeyframeSelector =
   | 'from'
   | 'to'
   | number
   | TTimelineRangeName
   | number
-export type TKeyframesName = string & {}
-export type TLayerName = "'.'"
-export type TLeaderType = 'dotted' | 'solid' | 'space' | (string & {})
-export type TLengthPercentage = number
-export type TLineNameList = TLineNames | TNameRepeat
-export type TLineNames = "'['" | (string & {}) | "']'"
+  | Globals
+export type TKeyframesName = (string & {}) | Globals
+export type TLayerName = "'.'" | Globals
+export type TLeaderType = 'dotted' | 'solid' | 'space' | (string & {}) | Globals
+export type TLengthPercentage = number | Globals
+export type TLineNameList = TLineNames | TNameRepeat | Globals
+export type TLineNames = "'['" | "']'" | Globals
 export type TLineStyle =
   | 'none'
   | 'hidden'
@@ -3788,15 +3871,17 @@ export type TLineStyle =
   | 'ridge'
   | 'inset'
   | 'outset'
-export type TLineWidth = 'thin' | 'medium' | 'thick'
-export type TLinearColorHint = TLengthPercentage
-export type TLinearColorStop = TColor | TColorStopLength
-export type TLinearEasingFunction = 'linear'
+  | Globals
+export type TLineWidth = number | 'thin' | 'medium' | 'thick' | Globals
+export type TLinearColorHint = TLengthPercentage | Globals
+export type TLinearColorStop = TColor | TColorStopLength | Globals
+export type TLinearEasingFunction = 'linear' | Globals
 export type TLinearGradientSyntax =
   | 'to'
   | TSideOrCorner
   | TColorInterpolationMethod
   | TColorStopList
+  | Globals
 export type TMaskLayer =
   | TMaskReference
   | TPosition
@@ -3807,6 +3892,7 @@ export type TMaskLayer =
   | 'no-clip'
   | TCompositingOperator
   | TMaskingMode
+  | Globals
 export type TMaskPosition =
   | TLengthPercentage
   | 'left'
@@ -3816,16 +3902,30 @@ export type TMaskPosition =
   | 'top'
   | 'center'
   | 'bottom'
-export type TMaskReference = 'none' | TImage | TMaskSource
-export type TMaskSource = string & {}
-export type TMaskingMode = 'alpha' | 'luminance' | 'match-source'
-export type TMediaAnd = TMediaInParens | 'and' | TMediaInParens
-export type TMediaCondition = TMediaNot | TMediaAnd | TMediaOr | TMediaInParens
-export type TMediaConditionWithoutOr = TMediaNot | TMediaAnd | TMediaInParens
-export type TMediaFeature = TMfPlain | TMfBoolean | TMfRange
-export type TMediaInParens = TMediaCondition | TMediaFeature | TGeneralEnclosed
-export type TMediaNot = 'not' | TMediaInParens
-export type TMediaOr = TMediaInParens | 'or' | TMediaInParens
+  | Globals
+export type TMaskReference = 'none' | TImage | TMaskSource | Globals
+export type TMaskSource = Globals
+export type TMaskingMode = 'alpha' | 'luminance' | 'match-source' | Globals
+export type TMediaAnd = TMediaInParens | 'and' | TMediaInParens | Globals
+export type TMediaCondition =
+  | TMediaNot
+  | TMediaAnd
+  | TMediaOr
+  | TMediaInParens
+  | Globals
+export type TMediaConditionWithoutOr =
+  | TMediaNot
+  | TMediaAnd
+  | TMediaInParens
+  | Globals
+export type TMediaFeature = TMfPlain | TMfBoolean | TMfRange | Globals
+export type TMediaInParens =
+  | TMediaCondition
+  | TMediaFeature
+  | TGeneralEnclosed
+  | Globals
+export type TMediaNot = 'not' | TMediaInParens | Globals
+export type TMediaOr = TMediaInParens | 'or' | TMediaInParens | Globals
 export type TMediaQuery =
   | TMediaCondition
   | 'not'
@@ -3833,11 +3933,12 @@ export type TMediaQuery =
   | TMediaType
   | 'and'
   | TMediaConditionWithoutOr
-export type TMediaQueryList = TMediaQuery
-export type TMediaType = string & {}
-export type TMfBoolean = TMfName
-export type TMfName = string & {}
-export type TMfPlain = TMfName | TMfValue
+  | Globals
+export type TMediaQueryList = TMediaQuery | Globals
+export type TMediaType = Globals
+export type TMfBoolean = TMfName | Globals
+export type TMfName = Globals
+export type TMfPlain = TMfName | TMfValue | Globals
 export type TMfRange =
   | TMfName
   | "'<'"
@@ -3857,9 +3958,10 @@ export type TMfRange =
   | "'>'"
   | "'='"
   | TMfName
-export type TMfValue = number | TRatio
-export type TNDimension = string & {}
-export type TNameRepeat = number | 'auto-fill' | TLineNames
+  | Globals
+export type TMfValue = number | TRatio | Globals
+export type TNDimension = Globals
+export type TNameRepeat = number | 'auto-fill' | TLineNames | Globals
 export type TNamedColor =
   | 'aliceblue'
   | 'antiquewhite'
@@ -4009,17 +4111,24 @@ export type TNamedColor =
   | 'whitesmoke'
   | 'yellow'
   | 'yellowgreen'
-export type TNamespacePrefix = string & {}
-export type TNdashDimension = string & {}
-export type TNdashdigitDimension = string & {}
-export type TNdashdigitIdent = string & {}
-export type TNsPrefix = "'*'" | "'|'"
-export type TNumberPercentage = number
-export type TNumericFigureValues = 'lining-nums' | 'oldstyle-nums'
-export type TNumericFractionValues = 'diagonal-fractions' | 'stacked-fractions'
-export type TNumericSpacingValues = 'proportional-nums' | 'tabular-nums'
-export type TOffsetPath = TBasicShape
-export type TOpacityValue = number
+  | Globals
+export type TNamespacePrefix = Globals
+export type TNdashDimension = Globals
+export type TNdashdigitDimension = Globals
+export type TNdashdigitIdent = Globals
+export type TNsPrefix = "'*'" | "'|'" | Globals
+export type TNumberPercentage = number | Globals
+export type TNumericFigureValues = 'lining-nums' | 'oldstyle-nums' | Globals
+export type TNumericFractionValues =
+  | 'diagonal-fractions'
+  | 'stacked-fractions'
+  | Globals
+export type TNumericSpacingValues =
+  | 'proportional-nums'
+  | 'tabular-nums'
+  | Globals
+export type TOffsetPath = TBasicShape | Globals
+export type TOpacityValue = number | Globals
 export type TOutlineLineStyle =
   | 'none'
   | 'dotted'
@@ -4030,12 +4139,13 @@ export type TOutlineLineStyle =
   | 'ridge'
   | 'inset'
   | 'outset'
-export type TOutlineRadius = number
-export type TOverflowPosition = 'unsafe' | 'safe'
-export type TPageBody = TPageBody | TPageMarginBox | TPageBody
-export type TPageMarginBox = TPageMarginBoxType | "'{'" | "'}'"
-export type TPageSelector = TPseudoPage
-export type TPageSelectorList = TPageSelector
+  | Globals
+export type TOutlineRadius = number | Globals
+export type TOverflowPosition = 'unsafe' | 'safe' | Globals
+export type TPageBody = TPageBody | TPageMarginBox | TPageBody | Globals
+export type TPageMarginBox = TPageMarginBoxType | "'{'" | "'}'" | Globals
+export type TPageSelector = TPseudoPage | Globals
+export type TPageSelectorList = TPageSelector | Globals
 export type TPageSize =
   | 'A5'
   | 'A4'
@@ -4047,6 +4157,7 @@ export type TPageSize =
   | 'letter'
   | 'legal'
   | 'ledger'
+  | Globals
 export type TPaint =
   | 'none'
   | TColor
@@ -4054,9 +4165,10 @@ export type TPaint =
   | TColor
   | 'context-fill'
   | 'context-stroke'
-export type TPaintBox = TVisualBox | 'fill-box' | 'stroke-box'
-export type TPaletteIdentifier = string & {}
-export type TPolarColorSpace = 'hsl' | 'hwb' | 'lch' | 'oklch'
+  | Globals
+export type TPaintBox = TVisualBox | 'fill-box' | 'stroke-box' | Globals
+export type TPaletteIdentifier = Globals
+export type TPolarColorSpace = 'hsl' | 'hwb' | 'lch' | 'oklch' | Globals
 export type TPosition =
   | 'left'
   | 'center'
@@ -4078,6 +4190,7 @@ export type TPosition =
   | 'top'
   | 'bottom'
   | TLengthPercentage
+  | Globals
 export type TPositionArea =
   | 'left'
   | 'center'
@@ -4143,6 +4256,7 @@ export type TPositionArea =
   | 'span-self-start'
   | 'span-self-end'
   | 'span-all'
+  | Globals
 export type TPredefinedRgb =
   | 'srgb'
   | 'srgb-linear'
@@ -4150,26 +4264,30 @@ export type TPredefinedRgb =
   | 'a98-rgb'
   | 'prophoto-rgb'
   | 'rec2020'
-export type TPredefinedRgbParams = TPredefinedRgb | number | 'none'
-export type TPseudoClassSelector = "':'" | "':'" | "')'"
-export type TPseudoElementSelector = "':'" | TPseudoClassSelector
-export type TPseudoPage = 'left' | 'right' | 'first' | 'blank'
+  | Globals
+export type TPredefinedRgbParams = TPredefinedRgb | number | 'none' | Globals
+export type TPseudoClassSelector = "':'" | "':'" | "')'" | Globals
+export type TPseudoElementSelector = "':'" | TPseudoClassSelector | Globals
+export type TPseudoPage = 'left' | 'right' | 'first' | 'blank' | Globals
 export type TQueryInParens =
   | TContainerQuery
   | TSizeFeature
   | TStyleQuery
   | TScrollStateQuery
   | TGeneralEnclosed
+  | Globals
 export type TQuote =
   | 'open-quote'
   | 'close-quote'
   | 'no-open-quote'
   | 'no-close-quote'
+  | Globals
 export type TRadialExtent =
   | 'closest-corner'
   | 'closest-side'
   | 'farthest-corner'
   | 'farthest-side'
+  | Globals
 export type TRadialGradientSyntax =
   | TRadialShape
   | TRadialSize
@@ -4177,15 +4295,17 @@ export type TRadialGradientSyntax =
   | TPosition
   | TColorInterpolationMethod
   | TColorStopList
-export type TRadialShape = 'circle' | 'ellipse'
-export type TRadialSize = TRadialExtent | TLengthPercentage
-export type TRatio = number
+  | Globals
+export type TRadialShape = 'circle' | 'ellipse' | Globals
+export type TRadialSize = TRadialExtent | number | TLengthPercentage | Globals
+export type TRatio = number | Globals
 export type TRaySize =
   | 'closest-side'
   | 'closest-corner'
   | 'farthest-side'
   | 'farthest-corner'
   | 'sides'
+  | Globals
 export type TRectangularColorSpace =
   | 'srgb'
   | 'srgb-linear'
@@ -4198,9 +4318,10 @@ export type TRectangularColorSpace =
   | 'xyz'
   | 'xyz-d50'
   | 'xyz-d65'
-export type TRelativeSelector = TCombinator | TComplexSelector
-export type TRelativeSelectorList = TRelativeSelector
-export type TRelativeSize = 'larger' | 'smaller'
+  | Globals
+export type TRelativeSelector = TCombinator | TComplexSelector | Globals
+export type TRelativeSelectorList = TRelativeSelector | Globals
+export type TRelativeSize = 'larger' | 'smaller' | Globals
 export type TRepeatStyle =
   | 'repeat-x'
   | 'repeat-y'
@@ -4208,16 +4329,18 @@ export type TRepeatStyle =
   | 'space'
   | 'round'
   | 'no-repeat'
-export type TReversedCounterName = TCounterName
-export type TRoundingStrategy = 'nearest' | 'up' | 'down' | 'to-zero'
-export type TScopeEnd = TSelectorList
-export type TScopeStart = TSelectorList
-export type TScroller = 'root' | 'nearest' | 'self'
-export type TScrollStateFeature = TMediaQueryList
+  | Globals
+export type TReversedCounterName = TCounterName | Globals
+export type TRoundingStrategy = 'nearest' | 'up' | 'down' | 'to-zero' | Globals
+export type TScopeEnd = TSelectorList | Globals
+export type TScopeStart = TSelectorList | Globals
+export type TScroller = 'root' | 'nearest' | 'self' | Globals
+export type TScrollStateFeature = TMediaQueryList | Globals
 export type TScrollStateInParens =
   | TScrollStateQuery
   | TScrollStateFeature
   | TGeneralEnclosed
+  | Globals
 export type TScrollStateQuery =
   | 'not'
   | TScrollStateInParens
@@ -4227,7 +4350,8 @@ export type TScrollStateQuery =
   | 'or'
   | TScrollStateInParens
   | TScrollStateFeature
-export type TSelectorList = TComplexSelectorList
+  | Globals
+export type TSelectorList = TComplexSelectorList | Globals
 export type TSelfPosition =
   | 'center'
   | 'start'
@@ -4236,13 +4360,14 @@ export type TSelfPosition =
   | 'self-end'
   | 'flex-start'
   | 'flex-end'
-export type TShadow = 'inset' | TColor
-export type TShadowT = TColor
-export type TShape = string & {}
-export type TShapeBox = TVisualBox | 'margin-box'
-export type TSideOrCorner = 'left' | 'right' | 'top' | 'bottom'
-export type TSignedInteger = string & {}
-export type TSignlessInteger = string & {}
+  | Globals
+export type TShadow = 'inset' | number | TColor | Globals
+export type TShadowT = number | TColor | Globals
+export type TShape = Globals
+export type TShapeBox = TVisualBox | 'margin-box' | Globals
+export type TSideOrCorner = 'left' | 'right' | 'top' | 'bottom' | Globals
+export type TSignedInteger = Globals
+export type TSignlessInteger = Globals
 export type TSingleAnimation =
   | Property.AnimationDuration
   | TEasingFunction
@@ -4254,33 +4379,43 @@ export type TSingleAnimation =
   | 'none'
   | TKeyframesName
   | TSingleAnimationTimeline
-export type TSingleAnimationComposition = 'replace' | 'add' | 'accumulate'
+  | Globals
+export type TSingleAnimationComposition =
+  | 'replace'
+  | 'add'
+  | 'accumulate'
+  | Globals
 export type TSingleAnimationDirection =
   | 'normal'
   | 'reverse'
   | 'alternate'
   | 'alternate-reverse'
+  | Globals
 export type TSingleAnimationFillMode =
   | 'none'
   | 'forwards'
   | 'backwards'
   | 'both'
-export type TSingleAnimationIterationCount = 'infinite' | number
-export type TSingleAnimationPlayState = 'running' | 'paused'
-export type TSingleAnimationTimeline = 'auto' | 'none' | (string & {})
+  | Globals
+export type TSingleAnimationIterationCount = 'infinite' | number | Globals
+export type TSingleAnimationPlayState = 'running' | 'paused' | Globals
+export type TSingleAnimationTimeline = 'auto' | 'none' | Globals
 export type TSingleTransition =
   | 'none'
   | TSingleTransitionProperty
   | TEasingFunction
   | TTransitionBehaviorValue
-export type TSingleTransitionProperty = 'all' | (string & {})
+  | Globals
+export type TSingleTransitionProperty = 'all' | Globals
 export type TSize =
   | 'closest-side'
   | 'farthest-side'
   | 'closest-corner'
   | 'farthest-corner'
+  | number
   | TLengthPercentage
-export type TSizeFeature = TMediaQueryList
+  | Globals
+export type TSizeFeature = TMediaQueryList | Globals
 export type TStepPosition =
   | 'jump-start'
   | 'jump-end'
@@ -4288,9 +4423,14 @@ export type TStepPosition =
   | 'jump-both'
   | 'start'
   | 'end'
-export type TStepEasingFunction = 'step-start' | 'step-end'
-export type TStyleFeature = string & {}
-export type TStyleInParens = TStyleQuery | TStyleFeature | TGeneralEnclosed
+  | Globals
+export type TStepEasingFunction = 'step-start' | 'step-end' | Globals
+export type TStyleFeature = Globals
+export type TStyleInParens =
+  | TStyleQuery
+  | TStyleFeature
+  | TGeneralEnclosed
+  | Globals
 export type TStyleQuery =
   | 'not'
   | TStyleInParens
@@ -4300,11 +4440,13 @@ export type TStyleQuery =
   | 'or'
   | TStyleInParens
   | TStyleFeature
+  | Globals
 export type TSubclassSelector =
   | TIdSelector
   | TClassSelector
   | TAttributeSelector
   | TPseudoClassSelector
+  | Globals
 export type TSupportsCondition =
   | 'not'
   | TSupportsInParens
@@ -4314,20 +4456,23 @@ export type TSupportsCondition =
   | TSupportsInParens
   | 'or'
   | TSupportsInParens
-export type TSupportsDecl = string & {}
-export type TSupportsFeature = TSupportsDecl | TSupportsSelectorFn
+  | Globals
+export type TSupportsDecl = Globals
+export type TSupportsFeature = TSupportsDecl | TSupportsSelectorFn | Globals
 export type TSupportsInParens =
   | TSupportsCondition
   | TSupportsFeature
   | TGeneralEnclosed
-export type TSupportsSelectorFn = TComplexSelector
-export type TSymbol = (string & {}) | TImage
+  | Globals
+export type TSupportsSelectorFn = TComplexSelector | Globals
+export type TSymbol = (string & {}) | TImage | Globals
 export type TSymbolsType =
   | 'cyclic'
   | 'numeric'
   | 'alphabetic'
   | 'symbolic'
   | 'fixed'
+  | Globals
 export type TSystemColor =
   | 'AccentColor'
   | 'AccentColorText'
@@ -4348,6 +4493,7 @@ export type TSystemColor =
   | 'SelectedItem'
   | 'SelectedItemText'
   | 'VisitedText'
+  | Globals
 export type TSystemFamilyName =
   | 'caption'
   | 'icon'
@@ -4355,7 +4501,8 @@ export type TSystemFamilyName =
   | 'message-box'
   | 'small-caption'
   | 'status-bar'
-export type TTarget = string & {}
+  | Globals
+export type TTarget = Globals
 export type TTextEdge =
   | 'text'
   | 'cap'
@@ -4366,7 +4513,8 @@ export type TTextEdge =
   | 'alphabetic'
   | 'ideographic'
   | 'ideographic-ink'
-export type TTimePercentage = number
+  | Globals
+export type TTimePercentage = number | Globals
 export type TTimelineRangeName =
   | 'cover'
   | 'contain'
@@ -4374,27 +4522,41 @@ export type TTimelineRangeName =
   | 'exit'
   | 'entry-crossing'
   | 'exit-crossing'
+  | Globals
 export type TTrackBreadth =
   | TLengthPercentage
   | 'min-content'
   | 'max-content'
   | 'auto'
-export type TTrackList = TLineNames | TTrackSize | TTrackRepeat | TLineNames
-export type TTrackRepeat = number | TLineNames | TTrackSize | TLineNames
+  | Globals
+export type TTrackList =
+  | TLineNames
+  | TTrackSize
+  | TTrackRepeat
+  | TLineNames
+  | Globals
+export type TTrackRepeat =
+  | number
+  | TLineNames
+  | TTrackSize
+  | TLineNames
+  | Globals
 export type TTrackSize =
   | TTrackBreadth
   | TInflexibleBreadth
   | TTrackBreadth
   | TLengthPercentage
-export type TTransformFunction = string & {}
-export type TTransformList = TTransformFunction
-export type TTransitionBehaviorValue = 'normal' | 'allow-discrete'
+  | Globals
+export type TTransformFunction = Globals
+export type TTransformList = TTransformFunction | Globals
+export type TTransitionBehaviorValue = 'normal' | 'allow-discrete' | Globals
 export type TTrySize =
   | 'most-width'
   | 'most-height'
   | 'most-block-size'
   | 'most-inline-size'
-export type TTryTactic = 'flip-block' | 'flip-inline' | 'flip-start'
+  | Globals
+export type TTryTactic = 'flip-block' | 'flip-inline' | 'flip-start' | Globals
 export type TTypeOrUnit =
   | 'string'
   | 'color'
@@ -4434,9 +4596,10 @@ export type TTypeOrUnit =
   | 's'
   | 'Hz'
   | 'kHz'
-export type TTypeSelector = TWqName | TNsPrefix | "'*'"
-export type TViewportLength = 'auto' | TLengthPercentage
-export type TVisualBox = 'content-box' | 'padding-box' | 'border-box'
-export type TWqName = TNsPrefix
-export type TXyz = 'xyz' | 'xyz-d50' | 'xyz-d65'
-export type TXyzParams = TXyz | number | 'none'
+  | Globals
+export type TTypeSelector = TWqName | TNsPrefix | "'*'" | Globals
+export type TViewportLength = 'auto' | TLengthPercentage | Globals
+export type TVisualBox = 'content-box' | 'padding-box' | 'border-box' | Globals
+export type TWqName = TNsPrefix | Globals
+export type TXyz = 'xyz' | 'xyz-d50' | 'xyz-d65' | Globals
+export type TXyzParams = TXyz | number | 'none' | Globals
