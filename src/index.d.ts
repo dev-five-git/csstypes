@@ -6,8 +6,11 @@ export interface StandardLonghandProperties {
   alignContent?: Property.AlignContent | undefined
   alignItems?: Property.AlignItems | undefined
   alignSelf?: Property.AlignSelf | undefined
+  alignTracks?: Property.AlignTracks | undefined
   alignmentBaseline?: Property.AlignmentBaseline | undefined
   all?: Property.All | undefined
+  anchorName?: Property.AnchorName | undefined
+  anchorScope?: Property.AnchorScope | undefined
   animationComposition?: Property.AnimationComposition | undefined
   animationDelay?: Property.AnimationDelay | undefined
   animationDirection?: Property.AnimationDirection | undefined
@@ -16,6 +19,9 @@ export interface StandardLonghandProperties {
   animationIterationCount?: Property.AnimationIterationCount | undefined
   animationName?: Property.AnimationName | undefined
   animationPlayState?: Property.AnimationPlayState | undefined
+  animationRangeEnd?: Property.AnimationRangeEnd | undefined
+  animationRangeStart?: Property.AnimationRangeStart | undefined
+  animationTimeline?: Property.AnimationTimeline | undefined
   animationTimingFunction?: Property.AnimationTimingFunction | undefined
   appearance?: Property.Appearance | undefined
   aspectRatio?: Property.AspectRatio | undefined
@@ -79,7 +85,15 @@ export interface StandardLonghandProperties {
   borderTopStyle?: Property.BorderTopStyle | undefined
   borderTopWidth?: Property.BorderTopWidth | undefined
   bottom?: Property.Bottom | undefined
+  boxAlign?: Property.BoxAlign | undefined
   boxDecorationBreak?: Property.BoxDecorationBreak | undefined
+  boxDirection?: Property.BoxDirection | undefined
+  boxFlex?: Property.BoxFlex | undefined
+  boxFlexGroup?: Property.BoxFlexGroup | undefined
+  boxLines?: Property.BoxLines | undefined
+  boxOrdinalGroup?: Property.BoxOrdinalGroup | undefined
+  boxOrient?: Property.BoxOrient | undefined
+  boxPack?: Property.BoxPack | undefined
   boxShadow?: Property.BoxShadow | undefined
   boxSizing?: Property.BoxSizing | undefined
   breakAfter?: Property.BreakAfter | undefined
@@ -89,6 +103,7 @@ export interface StandardLonghandProperties {
   caretColor?: Property.CaretColor | undefined
   caretShape?: Property.CaretShape | undefined
   clear?: Property.Clear | undefined
+  clip?: Property.Clip | undefined
   clipPath?: Property.ClipPath | undefined
   clipRule?: Property.ClipRule | undefined
   color?: Property.Color | undefined
@@ -122,6 +137,7 @@ export interface StandardLonghandProperties {
   display?: Property.Display | undefined
   dominantBaseline?: Property.DominantBaseline | undefined
   emptyCells?: Property.EmptyCells | undefined
+  fieldSizing?: Property.FieldSizing | undefined
   fill?: Property.Fill | undefined
   fillOpacity?: Property.FillOpacity | undefined
   fillRule?: Property.FillRule | undefined
@@ -142,8 +158,11 @@ export interface StandardLonghandProperties {
   fontPalette?: Property.FontPalette | undefined
   fontSize?: Property.FontSize | undefined
   fontSizeAdjust?: Property.FontSizeAdjust | undefined
+  fontSmooth?: Property.FontSmooth | undefined
+  fontStretch?: Property.FontStretch | undefined
   fontStyle?: Property.FontStyle | undefined
   fontSynthesis?: Property.FontSynthesis | undefined
+  fontSynthesisPosition?: Property.FontSynthesisPosition | undefined
   fontSynthesisSmallCaps?: Property.FontSynthesisSmallCaps | undefined
   fontSynthesisStyle?: Property.FontSynthesisStyle | undefined
   fontSynthesisWeight?: Property.FontSynthesisWeight | undefined
@@ -157,13 +176,16 @@ export interface StandardLonghandProperties {
   fontVariantPosition?: Property.FontVariantPosition | undefined
   fontVariationSettings?: Property.FontVariationSettings | undefined
   fontWeight?: Property.FontWeight | undefined
+  fontWidth?: Property.FontWidth | undefined
   forcedColorAdjust?: Property.ForcedColorAdjust | undefined
   gridAutoColumns?: Property.GridAutoColumns | undefined
   gridAutoFlow?: Property.GridAutoFlow | undefined
   gridAutoRows?: Property.GridAutoRows | undefined
   gridColumnEnd?: Property.GridColumnEnd | undefined
+  gridColumnGap?: Property.GridColumnGap | undefined
   gridColumnStart?: Property.GridColumnStart | undefined
   gridRowEnd?: Property.GridRowEnd | undefined
+  gridRowGap?: Property.GridRowGap | undefined
   gridRowStart?: Property.GridRowStart | undefined
   gridTemplateAreas?: Property.GridTemplateAreas | undefined
   gridTemplateColumns?: Property.GridTemplateColumns | undefined
@@ -175,22 +197,28 @@ export interface StandardLonghandProperties {
   hyphens?: Property.Hyphens | undefined
   imageOrientation?: Property.ImageOrientation | undefined
   imageRendering?: Property.ImageRendering | undefined
+  imageResolution?: Property.ImageResolution | undefined
+  imeMode?: Property.ImeMode | undefined
   initialLetter?: Property.InitialLetter | undefined
+  initialLetterAlign?: Property.InitialLetterAlign | undefined
   inlineSize?: Property.InlineSize | undefined
   insetBlockEnd?: Property.InsetBlockEnd | undefined
   insetBlockStart?: Property.InsetBlockStart | undefined
   insetInlineEnd?: Property.InsetInlineEnd | undefined
   insetInlineStart?: Property.InsetInlineStart | undefined
+  interpolateSize?: Property.InterpolateSize | undefined
   isolation?: Property.Isolation | undefined
   justifyContent?: Property.JustifyContent | undefined
   justifyItems?: Property.JustifyItems | undefined
   justifySelf?: Property.JustifySelf | undefined
+  justifyTracks?: Property.JustifyTracks | undefined
   left?: Property.Left | undefined
   letterSpacing?: Property.LetterSpacing | undefined
   lightingColor?: Property.LightingColor | undefined
   lineBreak?: Property.LineBreak | undefined
   lineClamp?: Property.LineClamp | undefined
   lineHeight?: Property.LineHeight | undefined
+  lineHeightStep?: Property.LineHeightStep | undefined
   listStyleImage?: Property.ListStyleImage | undefined
   listStylePosition?: Property.ListStylePosition | undefined
   listStyleType?: Property.ListStyleType | undefined
@@ -202,6 +230,7 @@ export interface StandardLonghandProperties {
   marginLeft?: Property.MarginLeft | undefined
   marginRight?: Property.MarginRight | undefined
   marginTop?: Property.MarginTop | undefined
+  marginTrim?: Property.MarginTrim | undefined
   marker?: Property.Marker | undefined
   markerEnd?: Property.MarkerEnd | undefined
   markerMid?: Property.MarkerMid | undefined
@@ -221,11 +250,14 @@ export interface StandardLonghandProperties {
   maskRepeat?: Property.MaskRepeat | undefined
   maskSize?: Property.MaskSize | undefined
   maskType?: Property.MaskType | undefined
+  masonryAutoFlow?: Property.MasonryAutoFlow | undefined
   mathDepth?: Property.MathDepth | undefined
+  mathShift?: Property.MathShift | undefined
   mathStyle?: Property.MathStyle | undefined
   maxBlockSize?: Property.MaxBlockSize | undefined
   maxHeight?: Property.MaxHeight | undefined
   maxInlineSize?: Property.MaxInlineSize | undefined
+  maxLines?: Property.MaxLines | undefined
   maxWidth?: Property.MaxWidth | undefined
   minBlockSize?: Property.MinBlockSize | undefined
   minHeight?: Property.MinHeight | undefined
@@ -234,6 +266,7 @@ export interface StandardLonghandProperties {
   mixBlendMode?: Property.MixBlendMode | undefined
   objectFit?: Property.ObjectFit | undefined
   objectPosition?: Property.ObjectPosition | undefined
+  objectViewBox?: Property.ObjectViewBox | undefined
   offsetAnchor?: Property.OffsetAnchor | undefined
   offsetDistance?: Property.OffsetDistance | undefined
   offsetPath?: Property.OffsetPath | undefined
@@ -248,11 +281,13 @@ export interface StandardLonghandProperties {
   outlineWidth?: Property.OutlineWidth | undefined
   overflowAnchor?: Property.OverflowAnchor | undefined
   overflowBlock?: Property.OverflowBlock | undefined
+  overflowClipBox?: Property.OverflowClipBox | undefined
   overflowClipMargin?: Property.OverflowClipMargin | undefined
   overflowInline?: Property.OverflowInline | undefined
   overflowWrap?: Property.OverflowWrap | undefined
   overflowX?: Property.OverflowX | undefined
   overflowY?: Property.OverflowY | undefined
+  overlay?: Property.Overlay | undefined
   overscrollBehaviorBlock?: Property.OverscrollBehaviorBlock | undefined
   overscrollBehaviorInline?: Property.OverscrollBehaviorInline | undefined
   overscrollBehaviorX?: Property.OverscrollBehaviorX | undefined
@@ -266,11 +301,19 @@ export interface StandardLonghandProperties {
   paddingRight?: Property.PaddingRight | undefined
   paddingTop?: Property.PaddingTop | undefined
   page?: Property.Page | undefined
+  pageBreakAfter?: Property.PageBreakAfter | undefined
+  pageBreakBefore?: Property.PageBreakBefore | undefined
+  pageBreakInside?: Property.PageBreakInside | undefined
   paintOrder?: Property.PaintOrder | undefined
   perspective?: Property.Perspective | undefined
   perspectiveOrigin?: Property.PerspectiveOrigin | undefined
   pointerEvents?: Property.PointerEvents | undefined
   position?: Property.Position | undefined
+  positionAnchor?: Property.PositionAnchor | undefined
+  positionArea?: Property.PositionArea | undefined
+  positionTryFallbacks?: Property.PositionTryFallbacks | undefined
+  positionTryOrder?: Property.PositionTryOrder | undefined
+  positionVisibility?: Property.PositionVisibility | undefined
   printColorAdjust?: Property.PrintColorAdjust | undefined
   quotes?: Property.Quotes | undefined
   r?: Property.R | undefined
@@ -279,12 +322,14 @@ export interface StandardLonghandProperties {
   rotate?: Property.Rotate | undefined
   rowGap?: Property.RowGap | undefined
   rubyAlign?: Property.RubyAlign | undefined
+  rubyMerge?: Property.RubyMerge | undefined
   rubyOverhang?: Property.RubyOverhang | undefined
   rubyPosition?: Property.RubyPosition | undefined
   rx?: Property.Rx | undefined
   ry?: Property.Ry | undefined
   scale?: Property.Scale | undefined
   scrollBehavior?: Property.ScrollBehavior | undefined
+  scrollInitialTarget?: Property.ScrollInitialTarget | undefined
   scrollMarginBlockEnd?: Property.ScrollMarginBlockEnd | undefined
   scrollMarginBlockStart?: Property.ScrollMarginBlockStart | undefined
   scrollMarginBottom?: Property.ScrollMarginBottom | undefined
@@ -302,8 +347,16 @@ export interface StandardLonghandProperties {
   scrollPaddingRight?: Property.ScrollPaddingRight | undefined
   scrollPaddingTop?: Property.ScrollPaddingTop | undefined
   scrollSnapAlign?: Property.ScrollSnapAlign | undefined
+  scrollSnapCoordinate?: Property.ScrollSnapCoordinate | undefined
+  scrollSnapDestination?: Property.ScrollSnapDestination | undefined
+  scrollSnapPointsX?: Property.ScrollSnapPointsX | undefined
+  scrollSnapPointsY?: Property.ScrollSnapPointsY | undefined
   scrollSnapStop?: Property.ScrollSnapStop | undefined
   scrollSnapType?: Property.ScrollSnapType | undefined
+  scrollSnapTypeX?: Property.ScrollSnapTypeX | undefined
+  scrollSnapTypeY?: Property.ScrollSnapTypeY | undefined
+  scrollTimelineAxis?: Property.ScrollTimelineAxis | undefined
+  scrollTimelineName?: Property.ScrollTimelineName | undefined
   scrollbarColor?: Property.ScrollbarColor | undefined
   scrollbarGutter?: Property.ScrollbarGutter | undefined
   scrollbarWidth?: Property.ScrollbarWidth | undefined
@@ -311,9 +364,11 @@ export interface StandardLonghandProperties {
   shapeMargin?: Property.ShapeMargin | undefined
   shapeOutside?: Property.ShapeOutside | undefined
   shapeRendering?: Property.ShapeRendering | undefined
+  speakAs?: Property.SpeakAs | undefined
   stopColor?: Property.StopColor | undefined
   stopOpacity?: Property.StopOpacity | undefined
   stroke?: Property.Stroke | undefined
+  strokeColor?: Property.StrokeColor | undefined
   strokeDasharray?: Property.StrokeDasharray | undefined
   strokeDashoffset?: Property.StrokeDashoffset | undefined
   strokeLinecap?: Property.StrokeLinecap | undefined
@@ -333,6 +388,7 @@ export interface StandardLonghandProperties {
   textCombineUpright?: Property.TextCombineUpright | undefined
   textDecorationColor?: Property.TextDecorationColor | undefined
   textDecorationLine?: Property.TextDecorationLine | undefined
+  textDecorationSkip?: Property.TextDecorationSkip | undefined
   textDecorationSkipInk?: Property.TextDecorationSkipInk | undefined
   textDecorationStyle?: Property.TextDecorationStyle | undefined
   textDecorationThickness?: Property.TextDecorationThickness | undefined
@@ -345,11 +401,14 @@ export interface StandardLonghandProperties {
   textOverflow?: Property.TextOverflow | undefined
   textRendering?: Property.TextRendering | undefined
   textShadow?: Property.TextShadow | undefined
+  textSizeAdjust?: Property.TextSizeAdjust | undefined
+  textSpacingTrim?: Property.TextSpacingTrim | undefined
   textTransform?: Property.TextTransform | undefined
   textUnderlineOffset?: Property.TextUnderlineOffset | undefined
   textUnderlinePosition?: Property.TextUnderlinePosition | undefined
   textWrapMode?: Property.TextWrapMode | undefined
   textWrapStyle?: Property.TextWrapStyle | undefined
+  timelineScope?: Property.TimelineScope | undefined
   top?: Property.Top | undefined
   touchAction?: Property.TouchAction | undefined
   transform?: Property.Transform | undefined
@@ -366,6 +425,9 @@ export interface StandardLonghandProperties {
   userSelect?: Property.UserSelect | undefined
   vectorEffect?: Property.VectorEffect | undefined
   verticalAlign?: Property.VerticalAlign | undefined
+  viewTimelineAxis?: Property.ViewTimelineAxis | undefined
+  viewTimelineInset?: Property.ViewTimelineInset | undefined
+  viewTimelineName?: Property.ViewTimelineName | undefined
   viewTransitionClass?: Property.ViewTransitionClass | undefined
   viewTransitionName?: Property.ViewTransitionName | undefined
   visibility?: Property.Visibility | undefined
@@ -385,6 +447,7 @@ export interface StandardLonghandProperties {
 }
 export interface StandardShorthandProperties {
   animation?: Property.Animation | undefined
+  animationRange?: Property.AnimationRange | undefined
   background?: Property.Background | undefined
   backgroundPosition?: Property.BackgroundPosition | undefined
   border?: Property.Border | undefined
@@ -415,6 +478,7 @@ export interface StandardShorthandProperties {
   grid?: Property.Grid | undefined
   gridArea?: Property.GridArea | undefined
   gridColumn?: Property.GridColumn | undefined
+  gridGap?: Property.GridGap | undefined
   gridRow?: Property.GridRow | undefined
   gridTemplate?: Property.GridTemplate | undefined
   inset?: Property.Inset | undefined
@@ -436,16 +500,19 @@ export interface StandardShorthandProperties {
   placeContent?: Property.PlaceContent | undefined
   placeItems?: Property.PlaceItems | undefined
   placeSelf?: Property.PlaceSelf | undefined
+  positionTry?: Property.PositionTry | undefined
   scrollMargin?: Property.ScrollMargin | undefined
   scrollMarginBlock?: Property.ScrollMarginBlock | undefined
   scrollMarginInline?: Property.ScrollMarginInline | undefined
   scrollPadding?: Property.ScrollPadding | undefined
   scrollPaddingBlock?: Property.ScrollPaddingBlock | undefined
   scrollPaddingInline?: Property.ScrollPaddingInline | undefined
+  scrollTimeline?: Property.ScrollTimeline | undefined
   textDecoration?: Property.TextDecoration | undefined
   textEmphasis?: Property.TextEmphasis | undefined
   textWrap?: Property.TextWrap | undefined
   transition?: Property.Transition | undefined
+  viewTimeline?: Property.ViewTimeline | undefined
 }
 export interface VendorLonghandProperties {
   msAccelerator?: Property.MsAccelerator | undefined
@@ -760,6 +827,14 @@ export namespace Property {
     | 'anchor-center'
     | Globals
     | (string & {})
+  export type AlignTracks =
+    | 'normal'
+    | TBaselinePosition
+    | TContentDistribution
+    | TOverflowPosition
+    | TContentPosition
+    | Globals
+    | (string & {})
   export type AlignmentBaseline =
     | 'baseline'
     | 'alphabetic'
@@ -777,6 +852,13 @@ export namespace Property {
     | 'unset'
     | 'revert'
     | 'revert-layer'
+    | Globals
+    | (string & {})
+  export type AnchorName = 'none' | (string & {}) | Globals | (string & {})
+  export type AnchorScope =
+    | 'none'
+    | 'all'
+    | (string & {})
     | Globals
     | (string & {})
   export type AnimationComposition =
@@ -800,6 +882,24 @@ export namespace Property {
   export type AnimationName = 'none' | TKeyframesName | Globals | (string & {})
   export type AnimationPlayState =
     | TSingleAnimationPlayState
+    | Globals
+    | (string & {})
+  export type AnimationRangeEnd =
+    | 'normal'
+    | TLengthPercentage
+    | TTimelineRangeName
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type AnimationRangeStart =
+    | 'normal'
+    | TLengthPercentage
+    | TTimelineRangeName
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type AnimationTimeline =
+    | TSingleAnimationTimeline
     | Globals
     | (string & {})
   export type AnimationTimingFunction =
@@ -930,7 +1030,40 @@ export namespace Property {
   export type BorderTopStyle = TLineStyle | Globals | (string & {})
   export type BorderTopWidth = TLineWidth | Globals | (string & {})
   export type Bottom = 'auto' | TLengthPercentage | Globals | (string & {})
+  export type BoxAlign =
+    | 'start'
+    | 'center'
+    | 'end'
+    | 'baseline'
+    | 'stretch'
+    | Globals
+    | (string & {})
   export type BoxDecorationBreak = 'slice' | 'clone' | Globals | (string & {})
+  export type BoxDirection =
+    | 'normal'
+    | 'reverse'
+    | 'inherit'
+    | Globals
+    | (string & {})
+  export type BoxFlex = number | Globals | (string & {})
+  export type BoxFlexGroup = number | Globals | (string & {})
+  export type BoxLines = 'single' | 'multiple' | Globals | (string & {})
+  export type BoxOrdinalGroup = number | Globals | (string & {})
+  export type BoxOrient =
+    | 'horizontal'
+    | 'vertical'
+    | 'inline-axis'
+    | 'block-axis'
+    | 'inherit'
+    | Globals
+    | (string & {})
+  export type BoxPack =
+    | 'start'
+    | 'center'
+    | 'end'
+    | 'justify'
+    | Globals
+    | (string & {})
   export type BoxShadow = 'none' | TShadow | Globals | (string & {})
   export type BoxSizing = 'content-box' | 'border-box' | Globals | (string & {})
   export type BreakAfter =
@@ -993,6 +1126,7 @@ export namespace Property {
     | 'inline-end'
     | Globals
     | (string & {})
+  export type Clip = TShape | 'auto' | Globals | (string & {})
   export type ClipPath =
     | TClipSource
     | TBasicShape
@@ -1117,6 +1251,7 @@ export namespace Property {
     | Globals
     | (string & {})
   export type EmptyCells = 'show' | 'hide' | Globals | (string & {})
+  export type FieldSizing = 'content' | 'fixed' | Globals | (string & {})
   export type Fill = TPaint | Globals | (string & {})
   export type FillOpacity = Opacity | Globals | (string & {})
   export type FillRule = 'nonzero' | 'evenodd' | Globals | (string & {})
@@ -1189,6 +1324,14 @@ export namespace Property {
     | number
     | Globals
     | (string & {})
+  export type FontSmooth =
+    | 'auto'
+    | 'never'
+    | 'always'
+    | TAbsoluteSize
+    | Globals
+    | (string & {})
+  export type FontStretch = TFontStretchAbsolute | Globals | (string & {})
   export type FontStyle =
     | 'normal'
     | 'italic'
@@ -1203,6 +1346,7 @@ export namespace Property {
     | 'position'
     | Globals
     | (string & {})
+  export type FontSynthesisPosition = 'auto' | 'none' | Globals | (string & {})
   export type FontSynthesisSmallCaps = 'auto' | 'none' | Globals | (string & {})
   export type FontSynthesisStyle = 'auto' | 'none' | Globals | (string & {})
   export type FontSynthesisWeight = 'auto' | 'none' | Globals | (string & {})
@@ -1297,6 +1441,19 @@ export namespace Property {
     | 'lighter'
     | Globals
     | (string & {})
+  export type FontWidth =
+    | 'normal'
+    | number
+    | 'ultra-condensed'
+    | 'extra-condensed'
+    | 'condensed'
+    | 'semi-condensed'
+    | 'semi-expanded'
+    | 'expanded'
+    | 'extra-expanded'
+    | 'ultra-expanded'
+    | Globals
+    | (string & {})
   export type ForcedColorAdjust =
     | 'auto'
     | 'none'
@@ -1312,8 +1469,10 @@ export namespace Property {
     | (string & {})
   export type GridAutoRows = TTrackSize | Globals | (string & {})
   export type GridColumnEnd = TGridLine | Globals | (string & {})
+  export type GridColumnGap = TLengthPercentage | Globals | (string & {})
   export type GridColumnStart = TGridLine | Globals | (string & {})
   export type GridRowEnd = TGridLine | Globals | (string & {})
+  export type GridRowGap = TLengthPercentage | Globals | (string & {})
   export type GridRowStart = TGridLine | Globals | (string & {})
   export type GridTemplateAreas =
     | 'none'
@@ -1367,12 +1526,33 @@ export namespace Property {
     | 'smooth'
     | Globals
     | (string & {})
+  export type ImageResolution = 'from-image' | 'snap' | Globals | (string & {})
+  export type ImeMode =
+    | 'auto'
+    | 'normal'
+    | 'active'
+    | 'inactive'
+    | 'disabled'
+    | Globals
+    | (string & {})
   export type InitialLetter = 'normal' | number | Globals | (string & {})
+  export type InitialLetterAlign =
+    | 'auto'
+    | 'alphabetic'
+    | 'hanging'
+    | 'ideographic'
+    | Globals
+    | (string & {})
   export type InlineSize = Width | Globals | (string & {})
   export type InsetBlockEnd = Top | Globals | (string & {})
   export type InsetBlockStart = Top | Globals | (string & {})
   export type InsetInlineEnd = Top | Globals | (string & {})
   export type InsetInlineStart = Top | Globals | (string & {})
+  export type InterpolateSize =
+    | 'numeric-only'
+    | 'allow-keywords'
+    | Globals
+    | (string & {})
   export type Isolation = 'auto' | 'isolate' | Globals | (string & {})
   export type JustifyContent =
     | 'normal'
@@ -1411,6 +1591,15 @@ export namespace Property {
     | 'anchor-center'
     | Globals
     | (string & {})
+  export type JustifyTracks =
+    | 'normal'
+    | TContentDistribution
+    | TOverflowPosition
+    | TContentPosition
+    | 'left'
+    | 'right'
+    | Globals
+    | (string & {})
   export type Left = 'auto' | TLengthPercentage | Globals | (string & {})
   export type LetterSpacing = 'normal' | Globals | (string & {})
   export type LightingColor = TColor | Globals | (string & {})
@@ -1424,6 +1613,7 @@ export namespace Property {
     | (string & {})
   export type LineClamp = 'none' | number | Globals | (string & {})
   export type LineHeight = 'normal' | number | Globals | (string & {})
+  export type LineHeightStep = (string & {}) | Globals | (string & {})
   export type ListStyleImage = TImage | 'none' | Globals | (string & {})
   export type ListStylePosition = 'inside' | 'outside' | Globals | (string & {})
   export type ListStyleType =
@@ -1444,6 +1634,7 @@ export namespace Property {
   export type MarginLeft = TLengthPercentage | 'auto' | Globals | (string & {})
   export type MarginRight = TLengthPercentage | 'auto' | Globals | (string & {})
   export type MarginTop = TLengthPercentage | 'auto' | Globals | (string & {})
+  export type MarginTrim = 'none' | 'in-flow' | 'all' | Globals | (string & {})
   export type Marker = 'none' | Globals | (string & {})
   export type MarkerEnd = 'none' | Globals | (string & {})
   export type MarkerMid = 'none' | Globals | (string & {})
@@ -1478,7 +1669,15 @@ export namespace Property {
   export type MaskRepeat = TRepeatStyle | Globals | (string & {})
   export type MaskSize = TBgSize | Globals | (string & {})
   export type MaskType = 'luminance' | 'alpha' | Globals | (string & {})
+  export type MasonryAutoFlow =
+    | 'pack'
+    | 'next'
+    | 'definite-first'
+    | 'ordered'
+    | Globals
+    | (string & {})
   export type MathDepth = 'auto-add' | number | Globals | (string & {})
+  export type MathShift = 'normal' | 'compact' | Globals | (string & {})
   export type MathStyle = 'normal' | 'compact' | Globals | (string & {})
   export type MaxBlockSize = MaxWidth | Globals | (string & {})
   export type MaxHeight =
@@ -1490,6 +1689,7 @@ export namespace Property {
     | Globals
     | (string & {})
   export type MaxInlineSize = MaxWidth | Globals | (string & {})
+  export type MaxLines = 'none' | number | Globals | (string & {})
   export type MaxWidth =
     | 'none'
     | TLengthPercentage
@@ -1531,6 +1731,7 @@ export namespace Property {
     | Globals
     | (string & {})
   export type ObjectPosition = TPosition | Globals | (string & {})
+  export type ObjectViewBox = 'none' | TBasicShapeRect | Globals | (string & {})
   export type OffsetAnchor = 'auto' | TPosition | Globals | (string & {})
   export type OffsetDistance = TLengthPercentage | Globals | (string & {})
   export type OffsetPath =
@@ -1566,6 +1767,11 @@ export namespace Property {
     | 'auto'
     | Globals
     | (string & {})
+  export type OverflowClipBox =
+    | 'padding-box'
+    | 'content-box'
+    | Globals
+    | (string & {})
   export type OverflowClipMargin = TVisualBox | Globals | (string & {})
   export type OverflowInline =
     | 'visible'
@@ -1597,6 +1803,7 @@ export namespace Property {
     | 'auto'
     | Globals
     | (string & {})
+  export type Overlay = 'none' | 'auto' | Globals | (string & {})
   export type OverscrollBehaviorBlock =
     | 'contain'
     | 'none'
@@ -1630,6 +1837,27 @@ export namespace Property {
   export type PaddingRight = TLengthPercentage | Globals | (string & {})
   export type PaddingTop = TLengthPercentage | Globals | (string & {})
   export type Page = 'auto' | (string & {}) | Globals | (string & {})
+  export type PageBreakAfter =
+    | 'auto'
+    | 'always'
+    | 'avoid'
+    | 'left'
+    | 'right'
+    | 'recto'
+    | 'verso'
+    | Globals
+    | (string & {})
+  export type PageBreakBefore =
+    | 'auto'
+    | 'always'
+    | 'avoid'
+    | 'left'
+    | 'right'
+    | 'recto'
+    | 'verso'
+    | Globals
+    | (string & {})
+  export type PageBreakInside = 'auto' | 'avoid' | Globals | (string & {})
   export type PaintOrder =
     | 'normal'
     | 'fill'
@@ -1661,6 +1889,23 @@ export namespace Property {
     | 'fixed'
     | Globals
     | (string & {})
+  export type PositionAnchor = 'auto' | TAnchorName | Globals | (string & {})
+  export type PositionArea = 'none' | TPositionArea | Globals | (string & {})
+  export type PositionTryFallbacks =
+    | 'none'
+    | (string & {})
+    | TTryTactic
+    | PositionArea
+    | Globals
+    | (string & {})
+  export type PositionTryOrder = 'normal' | TTrySize | Globals | (string & {})
+  export type PositionVisibility =
+    | 'always'
+    | 'anchors-valid'
+    | 'anchors-visible'
+    | 'no-overflow'
+    | Globals
+    | (string & {})
   export type PrintColorAdjust = 'economy' | 'exact' | Globals | (string & {})
   export type Quotes = 'none' | 'auto' | (string & {}) | Globals | (string & {})
   export type R = number | Globals | (string & {})
@@ -1690,6 +1935,12 @@ export namespace Property {
     | 'space-around'
     | Globals
     | (string & {})
+  export type RubyMerge =
+    | 'separate'
+    | 'collapse'
+    | 'auto'
+    | Globals
+    | (string & {})
   export type RubyOverhang = 'auto' | 'none' | Globals | (string & {})
   export type RubyPosition =
     | 'alternate'
@@ -1702,6 +1953,7 @@ export namespace Property {
   export type Ry = number | Globals | (string & {})
   export type Scale = 'none' | number | Globals | (string & {})
   export type ScrollBehavior = 'auto' | 'smooth' | Globals | (string & {})
+  export type ScrollInitialTarget = 'none' | 'nearest' | Globals | (string & {})
   export type ScrollMarginBlockEnd = (string & {}) | Globals | (string & {})
   export type ScrollMarginBlockStart = (string & {}) | Globals | (string & {})
   export type ScrollMarginBottom = (string & {}) | Globals | (string & {})
@@ -1757,6 +2009,22 @@ export namespace Property {
     | 'center'
     | Globals
     | (string & {})
+  export type ScrollSnapCoordinate =
+    | 'none'
+    | TPosition
+    | Globals
+    | (string & {})
+  export type ScrollSnapDestination = TPosition | Globals | (string & {})
+  export type ScrollSnapPointsX =
+    | 'none'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ScrollSnapPointsY =
+    | 'none'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
   export type ScrollSnapStop = 'normal' | 'always' | Globals | (string & {})
   export type ScrollSnapType =
     | 'none'
@@ -1767,6 +2035,30 @@ export namespace Property {
     | 'both'
     | 'mandatory'
     | 'proximity'
+    | Globals
+    | (string & {})
+  export type ScrollSnapTypeX =
+    | 'none'
+    | 'mandatory'
+    | 'proximity'
+    | Globals
+    | (string & {})
+  export type ScrollSnapTypeY =
+    | 'none'
+    | 'mandatory'
+    | 'proximity'
+    | Globals
+    | (string & {})
+  export type ScrollTimelineAxis =
+    | 'block'
+    | 'inline'
+    | 'x'
+    | 'y'
+    | Globals
+    | (string & {})
+  export type ScrollTimelineName =
+    | 'none'
+    | (string & {})
     | Globals
     | (string & {})
   export type ScrollbarColor = 'auto' | TColor | Globals | (string & {})
@@ -1798,9 +2090,18 @@ export namespace Property {
     | 'geometricPrecision'
     | Globals
     | (string & {})
+  export type SpeakAs =
+    | 'normal'
+    | 'spell-out'
+    | 'digits'
+    | 'literal-punctuation'
+    | 'no-punctuation'
+    | Globals
+    | (string & {})
   export type StopColor = Color | Globals | (string & {})
   export type StopOpacity = Opacity | Globals | (string & {})
   export type Stroke = TPaint | Globals | (string & {})
+  export type StrokeColor = TColor | Globals | (string & {})
   export type StrokeDasharray = 'none' | TDasharray | Globals | (string & {})
   export type StrokeDashoffset =
     | TLengthPercentage
@@ -1880,6 +2181,16 @@ export namespace Property {
     | 'grammar-error'
     | Globals
     | (string & {})
+  export type TextDecorationSkip =
+    | 'none'
+    | 'objects'
+    | 'spaces'
+    | 'leading-spaces'
+    | 'trailing-spaces'
+    | 'edges'
+    | 'box-decoration'
+    | Globals
+    | (string & {})
   export type TextDecorationSkipInk =
     | 'auto'
     | 'all'
@@ -1954,6 +2265,19 @@ export namespace Property {
     | Globals
     | (string & {})
   export type TextShadow = 'none' | TShadowT | Globals | (string & {})
+  export type TextSizeAdjust =
+    | 'none'
+    | 'auto'
+    | number
+    | Globals
+    | (string & {})
+  export type TextSpacingTrim =
+    | 'space-all'
+    | 'normal'
+    | 'space-first'
+    | 'trim-start'
+    | Globals
+    | (string & {})
   export type TextTransform =
     | 'none'
     | 'capitalize'
@@ -1981,6 +2305,7 @@ export namespace Property {
     | 'pretty'
     | Globals
     | (string & {})
+  export type TimelineScope = 'none' | (string & {}) | Globals | (string & {})
   export type Top = 'auto' | TLengthPercentage | Globals | (string & {})
   export type TouchAction =
     | 'auto'
@@ -2074,6 +2399,23 @@ export namespace Property {
     | number
     | Globals
     | (string & {})
+  export type ViewTimelineAxis =
+    | 'block'
+    | 'inline'
+    | 'x'
+    | 'y'
+    | Globals
+    | (string & {})
+  export type ViewTimelineInset =
+    | 'auto'
+    | TLengthPercentage
+    | Globals
+    | (string & {})
+  export type ViewTimelineName =
+    | 'none'
+    | (string & {})
+    | Globals
+    | (string & {})
   export type ViewTransitionClass =
     | 'none'
     | (string & {})
@@ -2145,6 +2487,11 @@ export namespace Property {
   export type ZIndex = 'auto' | number | Globals | (string & {})
   export type Zoom = 'normal' | 'reset' | number | Globals | (string & {})
   export type Animation = TSingleAnimation | Globals | (string & {})
+  export type AnimationRange =
+    | AnimationRangeStart
+    | AnimationRangeEnd
+    | Globals
+    | (string & {})
   export type Background = TBgLayer | TFinalBgLayer | Globals | (string & {})
   export type BackgroundPosition = TBgPosition | Globals | (string & {})
   export type Border =
@@ -2264,6 +2611,7 @@ export namespace Property {
     | (string & {})
   export type GridArea = TGridLine | Globals | (string & {})
   export type GridColumn = TGridLine | Globals | (string & {})
+  export type GridGap = GridRowGap | GridColumnGap | Globals | (string & {})
   export type GridRow = TGridLine | Globals | (string & {})
   export type GridTemplate =
     | 'none'
@@ -2335,6 +2683,11 @@ export namespace Property {
     | (string & {})
   export type PlaceItems = AlignItems | JustifyItems | Globals | (string & {})
   export type PlaceSelf = AlignSelf | JustifySelf | Globals | (string & {})
+  export type PositionTry =
+    | PositionTryOrder
+    | PositionTryFallbacks
+    | Globals
+    | (string & {})
   export type ScrollMargin = (string & {}) | Globals | (string & {})
   export type ScrollMarginBlock = (string & {}) | Globals | (string & {})
   export type ScrollMarginInline = (string & {}) | Globals | (string & {})
@@ -2353,6 +2706,11 @@ export namespace Property {
     | TLengthPercentage
     | Globals
     | (string & {})
+  export type ScrollTimeline =
+    | ScrollTimelineName
+    | ScrollTimelineAxis
+    | Globals
+    | (string & {})
   export type TextDecoration =
     | TextDecorationLine
     | TextDecorationStyle
@@ -2367,6 +2725,12 @@ export namespace Property {
     | (string & {})
   export type TextWrap = TextWrapMode | TextWrapStyle | Globals | (string & {})
   export type Transition = TSingleTransition | Globals | (string & {})
+  export type ViewTimeline =
+    | ViewTimelineName
+    | ViewTimelineAxis
+    | ViewTimelineInset
+    | Globals
+    | (string & {})
   export type MsAccelerator = 'false' | 'true' | Globals | (string & {})
   export type MsBlockProgression =
     | 'tb'

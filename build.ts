@@ -94,12 +94,10 @@ for (const [property, value] of Object.entries(properties)) {
     else vendorLonghandProperties.push([property, value])
     continue
   }
-  if (value.status !== 'standard') continue
   if (Array.isArray(value.computed))
     standardShorthandProperties.push([property, value])
   else standardLonghandProperties.push([property, value])
 }
-
 output += `export interface StandardLonghandProperties {
 ${standardLonghandProperties.map(([p, _]) => `  ${toCamelCase(p)}?: Property.${toPascalCase(p)} | undefined`).join('\n')}
 }\n`
